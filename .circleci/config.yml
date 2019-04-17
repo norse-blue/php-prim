@@ -1,0 +1,48 @@
+version: 2.1
+
+executors:
+    php7_3:
+        docker:
+            - image: circleci/php:7.3
+
+commands:
+    prepare:
+        steps:
+            - run: sudo apt update
+            - run: sudo apt full-upgrade
+            - run: composer self-update
+            - checkout
+    install_php_dependencies:
+        parameters:
+            composer_flags:
+                type: string
+                default: ""
+        steps:
+            - run: composer update << parameters.composer_flags >> --no-interaction --prefer-source
+    run_tests:
+        steps:
+            - run: vendor/bin/phpcs
+            - run: vendor/bin/phpstan
+            - run: vendor/bin/phpunit
+
+jobs:
+    php7_3:
+        executor: php7_3
+        steps:
+            - prepare
+            - install_php_dependencies
+            - run_tests
+    php7_3-prefer-lowest:
+        executor: php7_3
+        steps:
+            - prepare
+            - install_php_dependencies:
+                    composer_flags: --prefer-lowest
+            - run_tests
+
+workflows:
+    version: 2
+    build:
+        jobs:
+            - php7_3
+            - php7_3-prefer-lowest
