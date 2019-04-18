@@ -3,3 +3,10 @@ parameters:
     paths:
         - src
         - tests
+    ignoreErrors:
+        -
+            message: '~Access to an undefined property NorseBlue\\Prim\\ValueObject::\$nonexistent.~'
+            path: %currentWorkingDirectory%/tests/Unit/ValueObjectTest.php
+        -
+            message: '~Static call to instance method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\).~'
+            path: %currentWorkingDirectory%/tests/Unit/Facade/FacadeTest.php

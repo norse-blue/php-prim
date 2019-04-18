@@ -37,7 +37,7 @@ jobs:
         steps:
             - prepare
             - install_php_dependencies:
-                    composer_flags: --prefer-lowest
+                composer_flags: --prefer-lowest
             - run_tests
 
 workflows:
