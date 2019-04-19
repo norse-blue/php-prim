@@ -23,7 +23,7 @@ commands:
     run_tests:
         steps:
             - run: vendor/bin/phpcs
-            - run: vendor/bin/phpstan
+            - run: vendor/bin/phpstan analyse
             - run: vendor/bin/phpunit
 
 jobs:
