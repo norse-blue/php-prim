@@ -18,6 +18,7 @@ commands:
                 type: string
                 default: ""
         steps:
+            - run: sudo docker-php-ext-install mbstring
             - run: composer update << parameters.composer_flags >> --no-interaction --prefer-source
     run_tests:
         steps:

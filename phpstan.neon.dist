@@ -10,3 +10,6 @@ parameters:
         -
             message: '~Static call to instance method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Facade/FacadeTest.php
+        -
+            message: '~Parameter #1 $value of class NorseBlue\\Prim\\Scalars\\StringObject constructor expects NorseBlue\\Prim\\Scalars\\StringObject|string, int given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/String/StringObjectTest.php
