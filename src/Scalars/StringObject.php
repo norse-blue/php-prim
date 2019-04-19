@@ -26,7 +26,7 @@ class StringObject extends ImmutableValueObject implements Countable
     public function __construct($value = '')
     {
         if ($value instanceof self) {
-            $value = (string)$value->value;
+            $value = $value->value;
         }
 
         parent::__construct($value);
@@ -231,6 +231,46 @@ class StringObject extends ImmutableValueObject implements Countable
         $quoted = preg_quote($cap, '/');
 
         return string(preg_replace('/(?:' . $quoted . ')+$/u', '', $value) . $cap);
+    }
+
+    /**
+     * Determine if a given string matches the given patterns.
+     *
+     * @param string|StringObject|array $patterns
+     *
+     * @return bool
+     */
+    public function is($patterns): bool
+    {
+        $value = (string)$this;
+        if (!is_array($patterns)) {
+            $patterns = [$patterns];
+        }
+
+        foreach ($patterns as $pattern) {
+            if ($pattern instanceof self) {
+                $pattern = $pattern->value;
+            }
+
+            // If the given value is an exact match we can of course return true right
+            // from the beginning. Otherwise, we will translate asterisks and do an
+            // actual pattern match against the two strings to see if they match.
+            if ($pattern === $value) {
+                return true;
+            }
+
+            $pattern = preg_quote($pattern, '#');
+
+            // Asterisks are translated into zero-or-more regular expression wildcards
+            // to make it convenient to check if the strings starts with the given
+            // pattern such as "library/*", making any string check convenient.
+            $pattern = str_replace('\*', '.*', $pattern);
+            if (preg_match('#^' . $pattern . '\z#u', $value) === 1) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**

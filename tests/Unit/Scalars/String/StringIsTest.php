@@ -11,43 +11,39 @@ use NorseBlue\Prim\Tests\TestCase;
  *
  * @package NorseBlue\Prim\Tests\Unit\Scalars\String
  */
-class StringIsTest //extends TestCase
+class StringIsTest extends TestCase
 {
     /** @test */
     public function string_is()
     {
         $this->assertTrue(Str::is('/', '/'));
         $this->assertFalse(Str::is('/', ' /'));
-        $this->assertFalse(Str::is('/', '/a'));
-        $this->assertTrue(Str::is('foo/*', 'foo/bar/baz'));
+        $this->assertFalse(Str::is('/a', '/'));
+        $this->assertTrue(Str::is('foo/bar/baz', 'foo/*'));
 
-        $this->assertTrue(Str::is('*@*', 'App\Class@method'));
-        $this->assertTrue(Str::is('*@*', 'app\Class@'));
-        $this->assertTrue(Str::is('*@*', '@method'));
+        $this->assertTrue(Str::is('App\Class@method', '*@*'));
+        $this->assertTrue(Str::is('app\Class@', '*@*'));
+        $this->assertTrue(Str::is('@method', '*@*'));
 
         // is case sensitive
-        $this->assertFalse(Str::is('*BAZ*', 'foo/bar/baz'));
-        $this->assertFalse(Str::is('*FOO*', 'foo/bar/baz'));
-        $this->assertFalse(Str::is('A', 'a'));
+        $this->assertFalse(Str::is('foo/bar/baz', '*BAZ*'));
+        $this->assertFalse(Str::is('foo/bar/baz', '*FOO*'));
+        $this->assertFalse(Str::is('a', 'A'));
 
         // Accepts array of patterns
-        $this->assertTrue(Str::is(['a*', 'b*'], 'a/'));
-        $this->assertTrue(Str::is(['a*', 'b*'], 'b/'));
-        $this->assertFalse(Str::is(['a*', 'b*'], 'f/'));
+        $this->assertTrue(Str::is('a/', ['a*', 'b*']));
+        $this->assertTrue(Str::is('b/', ['a*', 'b*']));
+        $this->assertFalse(Str::is('f/', ['a*', 'b*']));
 
-        // numeric values and patterns
-        $this->assertFalse(Str::is(['a*', 'b*'], 123));
-        $this->assertTrue(Str::is(['*2*', 'b*'], 11211));
-
-        $this->assertTrue(Str::is('*/foo', 'blah/baz/foo'));
+        $this->assertTrue(Str::is('blah/baz/foo', '*/foo'));
 
         $valueObject = new StringObject('foo/bar/baz');
         $patternObject = new StringObject('foo/*');
 
-        $this->assertTrue(Str::is('foo/bar/baz', $valueObject));
-        $this->assertTrue(Str::is($patternObject, $valueObject));
+        $this->assertTrue(Str::is($valueObject, 'foo/bar/baz'));
+        $this->assertTrue(Str::is($valueObject, $patternObject));
 
         //empty patterns
-        $this->assertFalse(Str::is([], 'test'));
+        $this->assertFalse(Str::is('test', []));
     }
 }

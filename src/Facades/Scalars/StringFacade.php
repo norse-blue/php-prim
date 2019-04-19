@@ -20,6 +20,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  * @method static StringObject endsWith(string|StringObject $value, string|StringObject|array $needles)
  * @method static StringObject equals(string|StringObject $value, string|StringObject $string, bool $case_insensitive = false)
  * @method static StringObject finish(string|StringObject $value, string|StringObject $cap)
+ * @method static StringObject is(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject kebab(string|StringObject $value)
  * @method static StringObject lcfirst(string|StringObject $value)
  * @method static StringObject length(string|StringObject $value, string|StringObject $encoding = null)
