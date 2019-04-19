@@ -4,6 +4,7 @@ namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Scalars\StringObject;
+use Ramsey\Uuid\UuidInterface;
 
 /**
  * Class StringFacade
@@ -26,6 +27,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  * @method static StringObject length(string|StringObject $value, string|StringObject $encoding = null)
  * @method static StringObject limit(string|StringObject $value, int $limit = 100, string|StringObject $end = '...')
  * @method static StringObject lower(string|StringObject $value)
+ * @method static UuidInterface orderedUuid()
  * @method static StringObject random(int $length = 16)
  * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, array<string|StringObject> $replace)
  * @method static StringObject replaceFirst(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
@@ -39,6 +41,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  * @method static StringObject title(string|StringObject $value)
  * @method static StringObject ucfirst(string|StringObject $value)
  * @method static StringObject upper(string|StringObject $value)
+ * @method static UuidInterface uuid()
  * @method static StringObject words(string|StringObject $value,int $words = 100, string|StringObject $end = '...')
  */
 final class StringFacade extends ValueObjectFacade
@@ -48,6 +51,8 @@ final class StringFacade extends ValueObjectFacade
 
     /** @inheritDoc */
     protected static $statics = [
+        'orderedUuid',
         'random',
+        'uuid',
     ];
 }

@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Scalars;
 use Countable;
 use NorseBlue\Prim\ImmutableValueObject;
 use NorseBlue\Prim\Support\Character;
+use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
+use Ramsey\Uuid\Generator\CombGenerator;
+use Ramsey\Uuid\Uuid;
+use Ramsey\Uuid\UuidFactory;
+use Ramsey\Uuid\UuidInterface;
 use function NorseBlue\Prim\string;
 
 /**
@@ -327,6 +332,28 @@ class StringObject extends ImmutableValueObject implements Countable
     }
 
     /**
+     * Generate a time-ordered UUID (version 4).
+     *
+     * @return \Ramsey\Uuid\UuidInterface
+     * @throws \Exception
+     */
+    public static function orderedUuid(): UuidInterface
+    {
+        $factory = new UuidFactory;
+
+        $factory->setRandomGenerator(new CombGenerator(
+            $factory->getRandomGenerator(),
+            $factory->getNumberConverter()
+        ));
+
+        $factory->setCodec(new TimestampFirstCombCodec(
+            $factory->getUuidBuilder()
+        ));
+
+        return $factory->uuid4();
+    }
+
+    /**
      * Generate a more truly "random" alpha-numeric string.
      *
      * @param int $length
@@ -572,6 +599,17 @@ class StringObject extends ImmutableValueObject implements Countable
         $value = (string)$this;
 
         return string(mb_strtoupper($value, 'UTF-8'));
+    }
+
+    /**
+     * Generate a UUID (version 4).
+     *
+     * @return \Ramsey\Uuid\UuidInterface
+     * @throws \Exception
+     */
+    public static function uuid(): UuidInterface
+    {
+        return Uuid::uuid4();
     }
 
     /**

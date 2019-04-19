@@ -24,7 +24,10 @@
     },
     "require": {
         "php": "^7.3",
-        "ext-mbstring": "*"
+        "ext-bcmath": "*",
+        "ext-mbstring": "*",
+        "moontoast/math": "^1.1",
+        "ramsey/uuid": "^3.8"
     },
     "require-dev": {
         "phpstan/phpstan": "^0.11",
