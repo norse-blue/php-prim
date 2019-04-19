@@ -9,7 +9,10 @@ parameters:
             path: %currentWorkingDirectory%/tests/Unit/ValueObjectTest.php
         -
             message: '~Static call to instance method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\).~'
-            path: %currentWorkingDirectory%/tests/Unit/Facade/FacadeTest.php
+            path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php
         -
             message: '~Parameter #1 $value of class NorseBlue\\Prim\\Scalars\\StringObject constructor expects NorseBlue\\Prim\\Scalars\\StringObject|string, int given.~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/String/StringObjectTest.php
+        -
+            message: '~Call to an undefined static method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\DummyCompleteFacade::nonexistent\(\).~'
+            path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php

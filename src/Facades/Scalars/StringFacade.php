@@ -2,7 +2,7 @@
 
 namespace NorseBlue\Prim\Facades\Scalars;
 
-use NorseBlue\Prim\Facades\Facade;
+use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Scalars\StringObject;
 
 /**
@@ -41,7 +41,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  * @method static StringObject upper(string|StringObject $value)
  * @method static StringObject words(string|StringObject $value,int $words = 100, string|StringObject $end = '...')
  */
-class StringFacade extends Facade
+final class StringFacade extends ValueObjectFacade
 {
     /** @inheritDoc */
     protected static $class = StringObject::class;

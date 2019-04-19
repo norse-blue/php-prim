@@ -2,7 +2,7 @@
 
 namespace NorseBlue\Prim\Facades\Scalars;
 
-use NorseBlue\Prim\Facades\Facade;
+use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Scalars\IntObject;
 
 /**
@@ -10,7 +10,7 @@ use NorseBlue\Prim\Scalars\IntObject;
  *
  * @package NorseBlue\Prim\Facades\Scalars
  */
-class IntFacade extends Facade
+class IntFacade extends ValueObjectFacade
 {
     /** @inheritDoc */
     protected static $class = IntObject::class;

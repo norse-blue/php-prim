@@ -3,11 +3,11 @@
 namespace NorseBlue\Prim\Tests\_Helpers_\Facades;
 
 /**
- * Class DummyObject
+ * Class DummyNonValueObject
  *
- * @package NorseBlue\Prim\Tests\Unit\Facade
+ * @package NorseBlue\Prim\Tests\_Helpers_\Facades
  */
-class DummyObject
+class DummyNonValueObject
 {
     /** @var int The dummy value. */
     protected $dummyValue = 3;

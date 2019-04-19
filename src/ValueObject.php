@@ -159,6 +159,22 @@ class ValueObject implements ValueObjectContract
         return method_exists($this, $mutator);
     }
 
+    /**
+     * Unwraps the value from a ValueObject or returns the value itself.
+     *
+     * @param mixed $value
+     *
+     * @return mixed
+     */
+    public static function unwrap($value)
+    {
+        if ($value instanceof self) {
+            $value = $value->value;
+        }
+
+        return $value;
+    }
+
     // region === ValueObjectContract ===
 
     /**

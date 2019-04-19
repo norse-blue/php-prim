@@ -2,20 +2,20 @@
 
 namespace NorseBlue\Prim\Tests\_Helpers_\Facades;
 
-use NorseBlue\Prim\Facades\Facade;
+use NorseBlue\Prim\Facades\ValueObjectFacade;
 
 /**
  * Class DummyCompleteFacade
  *
- * @package NorseBlue\Prim\Tests\Unit\Facade
+ * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
  *
  * @method static dummy()
  * @method static staticDummy()
  */
-class DummyCompleteFacade extends Facade
+abstract class DummyCompleteFacade extends ValueObjectFacade
 {
     /** @inheritDoc */
-    protected static $class = DummyObject::class;
+    protected static $class = DummyValueObject::class;
 
     /** @inheritDoc */
     protected static $statics = [
