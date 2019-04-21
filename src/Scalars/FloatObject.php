@@ -2,14 +2,14 @@
 
 namespace NorseBlue\Prim\Scalars;
 
-use NorseBlue\Prim\ValueObject;
+use NorseBlue\Prim\ImmutableValueObject;
 
 /**
  * Class FloatObject
  *
  * @package NorseBlue\Prim\Scalars
  */
-class FloatObject extends ValueObject
+class FloatObject extends ImmutableValueObject
 {
     // region === Overrides ===
 
@@ -21,6 +21,14 @@ class FloatObject extends ValueObject
     public function __construct($value = 0.0)
     {
         parent::__construct($value);
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function valueIsValid($value): bool
+    {
+        return is_float($value);
     }
 
     // endregion Overrides
