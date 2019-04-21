@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Unit\Scalars\String;
+namespace NorseBlue\Prim\Tests\Unit\Scalars;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
