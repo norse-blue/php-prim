@@ -37,7 +37,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return mixed
      */
-    protected function getValueProperty()
+    final protected function getValueProperty()
     {
         return $this->object_value;
     }
@@ -51,7 +51,7 @@ class ValueObject implements ValueObjectContract
      *
      * @param mixed $value
      */
-    protected function setValueProperty($value): void
+    final protected function setValueProperty($value): void
     {
         if (!$this->valueIsValid($value)) {
             throw new InvalidValueException('The given value is not valid.');
@@ -71,7 +71,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return mixed
      */
-    public function __get(string $key)
+    final public function __get(string $key)
     {
         if ($this->hasAccessor($key, $accessor)) {
             return $this->$accessor();
@@ -87,7 +87,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return bool
      */
-    public function __isset(string $key): bool
+    final public function __isset(string $key): bool
     {
         if (property_exists($this, $key)) {
             $value = $this->$key;
@@ -122,7 +122,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return string
      */
-    public function __toString(): string
+    final public function __toString(): string
     {
         return (string)$this->object_value;
     }
@@ -137,7 +137,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return bool
      */
-    protected function hasAccessor(string $key, string &$accessor = null): bool
+    final protected function hasAccessor(string $key, string &$accessor = null): bool
     {
         $accessor = 'get' . string($key)->studly() . 'Property';
         return method_exists($this, $accessor);
@@ -151,7 +151,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return bool
      */
-    protected function hasMutator(string $key, string &$mutator = null): bool
+    final protected function hasMutator(string $key, string &$mutator = null): bool
     {
         $mutator = 'set' . string($key)->studly() . 'Property';
         return method_exists($this, $mutator);
@@ -164,7 +164,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return mixed
      */
-    public static function unwrap($value)
+    final public static function unwrap($value)
     {
         if ($value instanceof self) {
             $value = $value->value;

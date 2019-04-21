@@ -16,7 +16,7 @@ class ImmutableValueObject extends ValueObject
     /**
      * @inheritDoc
      */
-    public function __set(string $key, $value): void
+    final public function __set(string $key, $value): void
     {
         if ($key === 'value') {
             throw new ImmutableValueException('This value object is immutable.');
