@@ -30,8 +30,6 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function __construct($value = '')
     {
-        $value = self::unwrap($value);
-
         parent::__construct($value);
     }
 
@@ -42,9 +40,7 @@ class StringObject extends ImmutableValueObject implements Countable
     {
         return is_string($value) || $value instanceof self;
     }
-
-
-
+    
     // endregion Overrides
 
     /**

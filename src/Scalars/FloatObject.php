@@ -20,10 +20,6 @@ class FloatObject extends ValueObject
      */
     public function __construct($value = 0.0)
     {
-        if ($value instanceof self) {
-            $value = $value->value;
-        }
-
         parent::__construct($value);
     }
 

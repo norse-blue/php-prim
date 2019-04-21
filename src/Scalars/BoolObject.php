@@ -20,10 +20,6 @@ class BoolObject extends ValueObject
      */
     public function __construct($value = false)
     {
-        if ($value instanceof self) {
-            $value = $value->value;
-        }
-
         parent::__construct($value);
     }
 

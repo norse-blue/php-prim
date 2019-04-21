@@ -25,9 +25,7 @@ class ValueObject implements ValueObjectContract
      */
     public function __construct($value = null)
     {
-        if ($value instanceof self) {
-            $value = $value->value;
-        }
+        $value = static::unwrap($value);
 
         $this->setValueProperty($value);
     }
