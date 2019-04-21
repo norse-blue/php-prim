@@ -38,7 +38,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function valueIsValid($value): bool
     {
-        return is_string($value) || $value instanceof self;
+        return is_string($value);
     }
     
     // endregion Overrides
