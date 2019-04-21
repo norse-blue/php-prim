@@ -114,7 +114,7 @@ class ValueObject implements ValueObjectContract
             return;
         }
 
-        throw new PropertyNotFoundException($key, 'The property or a mutator coulod not found.');
+        throw new PropertyNotFoundException($key, 'The property or a mutator could not found.');
     }
 
     /**
