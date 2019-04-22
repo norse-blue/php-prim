@@ -15,8 +15,8 @@ class StringFinishTest extends TestCase
     /** @test */
     public function string_finish()
     {
-        $this->assertEquals('abbc', Str::finish('ab', 'bc'));
-        $this->assertEquals('abbc', Str::finish('abbcbc', 'bc'));
-        $this->assertEquals('abcbbc', Str::finish('abcbbcbc', 'bc'));
+        $this->assertEquals('abbc', Str::finish('ab', 'bc')->value);
+        $this->assertEquals('abbc', Str::finish('abbcbc', 'bc')->value);
+        $this->assertEquals('abcbbc', Str::finish('abcbbcbc', 'bc')->value);
     }
 }

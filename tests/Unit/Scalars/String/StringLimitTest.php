@@ -12,17 +12,17 @@ class StringLimitTest extends TestCase
     {
         $this->assertEquals(
             'Laravel is...',
-            Str::limit('Laravel is a free, open source PHP web application framework.', 10)
+            Str::limit('Laravel is a free, open source PHP web application framework.', 10)->value
         );
-        $this->assertEquals('这是一...', Str::limit('这是一段中文', 6));
+        $this->assertEquals('这是一...', Str::limit('这是一段中文', 6)->value);
 
         $string = 'The PHP framework for web artisans.';
-        $this->assertEquals('The PHP...', Str::limit($string, 7));
-        $this->assertEquals('The PHP', Str::limit($string, 7, ''));
-        $this->assertEquals('The PHP framework for web artisans.', Str::limit($string, 100));
+        $this->assertEquals('The PHP...', Str::limit($string, 7)->value);
+        $this->assertEquals('The PHP', Str::limit($string, 7, '')->value);
+        $this->assertEquals('The PHP framework for web artisans.', Str::limit($string, 100)->value);
 
         $nonAsciiString = '这是一段中文';
-        $this->assertEquals('这是一...', Str::limit($nonAsciiString, 6));
-        $this->assertEquals('这是一', Str::limit($nonAsciiString, 6, ''));
+        $this->assertEquals('这是一...', Str::limit($nonAsciiString, 6)->value);
+        $this->assertEquals('这是一', Str::limit($nonAsciiString, 6, '')->value);
     }
 }

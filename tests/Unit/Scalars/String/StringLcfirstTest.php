@@ -10,9 +10,9 @@ class StringLcfirstTest extends TestCase
     /** @test */
     public function string_lcfirst()
     {
-        $this->assertEquals('laravel', Str::lcfirst('Laravel'));
-        $this->assertEquals('laravel Framework', Str::lcfirst('Laravel Framework'));
-        $this->assertEquals('mама', Str::lcfirst('Mама'));
-        $this->assertEquals('mама Mыла Pаму', Str::lcfirst('Mама Mыла Pаму'));
+        $this->assertEquals('laravel', Str::lcfirst('Laravel')->value);
+        $this->assertEquals('laravel Framework', Str::lcfirst('Laravel Framework')->value);
+        $this->assertEquals('mама', Str::lcfirst('Mама')->value);
+        $this->assertEquals('mама Mыла Pаму', Str::lcfirst('Mама Mыла Pаму')->value);
     }
 }

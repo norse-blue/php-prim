@@ -15,7 +15,7 @@ class StringTitleTest extends TestCase
     /** @test */
     public function string_title()
     {
-        $this->assertEquals('Jefferson Costella', Str::title('jefferson costella'));
-        $this->assertEquals('Jefferson Costella', Str::title('jefFErson coSTella'));
+        $this->assertEquals('Jefferson Costella', Str::title('jefferson costella')->value);
+        $this->assertEquals('Jefferson Costella', Str::title('jefFErson coSTella')->value);
     }
 }

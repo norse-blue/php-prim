@@ -15,6 +15,6 @@ class StringKebabTest extends TestCase
     /** @test */
     public function string_kebab()
     {
-        $this->assertEquals('laravel-php-framework', Str::kebab('LaravelPhpFramework'));
+        $this->assertEquals('laravel-php-framework', Str::kebab('LaravelPhpFramework')->value);
     }
 }

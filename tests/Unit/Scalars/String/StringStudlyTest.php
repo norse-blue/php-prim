@@ -15,14 +15,14 @@ class StringStudlyTest extends TestCase
     /** @test */
     public function test_string_studly()
     {
-        $this->assertEquals('LaravelPHPFramework', Str::studly('laravel_p_h_p_framework'));
-        $this->assertEquals('LaravelPhpFramework', Str::studly('laravel_php_framework'));
-        $this->assertEquals('LaravelPhPFramework', Str::studly('laravel-phP-framework'));
-        $this->assertEquals('LaravelPhpFramework', Str::studly('laravel  -_-  php   -_-   framework   '));
-        $this->assertEquals('FooBar', Str::studly('fooBar'));
-        $this->assertEquals('FooBar', Str::studly('foo_bar'));
-        $this->assertEquals('FooBar', Str::studly('foo_bar')); // test cache
-        $this->assertEquals('FooBarBaz', Str::studly('foo-barBaz'));
-        $this->assertEquals('FooBarBaz', Str::studly('foo-bar_baz'));
+        $this->assertEquals('LaravelPHPFramework', Str::studly('laravel_p_h_p_framework')->value);
+        $this->assertEquals('LaravelPhpFramework', Str::studly('laravel_php_framework')->value);
+        $this->assertEquals('LaravelPhPFramework', Str::studly('laravel-phP-framework')->value);
+        $this->assertEquals('LaravelPhpFramework', Str::studly('laravel  -_-  php   -_-   framework   ')->value);
+        $this->assertEquals('FooBar', Str::studly('fooBar')->value);
+        $this->assertEquals('FooBar', Str::studly('foo_bar')->value);
+        $this->assertEquals('FooBar', Str::studly('foo_bar')); // test cac->valuehe
+        $this->assertEquals('FooBarBaz', Str::studly('foo-barBaz')->value);
+        $this->assertEquals('FooBarBaz', Str::studly('foo-bar_baz')->value);
     }
 }

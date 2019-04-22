@@ -10,9 +10,9 @@ class StringUcfirstTest extends TestCase
     /** @test */
     public function string_ucfirst()
     {
-        $this->assertEquals('Laravel', Str::ucfirst('laravel'));
-        $this->assertEquals('Laravel framework', Str::ucfirst('laravel framework'));
-        $this->assertEquals('Мама', Str::ucfirst('мама'));
-        $this->assertEquals('Мама мыла раму', Str::ucfirst('мама мыла раму'));
+        $this->assertEquals('Laravel', Str::ucfirst('laravel')->value);
+        $this->assertEquals('Laravel framework', Str::ucfirst('laravel framework')->value);
+        $this->assertEquals('Мама', Str::ucfirst('мама')->value);
+        $this->assertEquals('Мама мыла раму', Str::ucfirst('мама мыла раму')->value);
     }
 }

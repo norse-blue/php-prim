@@ -20,10 +20,11 @@ class StringObjectTest extends TestCase
         $str = new StringObject;
         $str_wrap = new StringObject($str);
 
-        $this->assertEquals('', $str);
-        $this->assertEquals('', $str_wrap);
+        $this->assertEquals('', $str->value);
+        $this->assertEquals('', $str_wrap->value);
         $this->assertNotSame($str, $str_wrap);
         $this->assertNotSame($str, $str_wrap->value);
+        $this->assertNotSame($str->value, $str_wrap);
     }
 
     /** @test */
@@ -32,10 +33,11 @@ class StringObjectTest extends TestCase
         $str = new StringObject('some value');
         $str_wrap = new StringObject($str);
 
-        $this->assertEquals('some value', $str);
-        $this->assertEquals('some value', $str_wrap);
+        $this->assertEquals('some value', $str->value);
+        $this->assertEquals('some value', $str_wrap->value);
         $this->assertNotSame($str, $str_wrap);
         $this->assertNotSame($str, $str_wrap->value);
+        $this->assertNotSame($str->value, $str_wrap);
     }
 
     /** @test */

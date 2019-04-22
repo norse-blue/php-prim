@@ -15,14 +15,13 @@ class StringCamelTest extends TestCase
     /** @test */
     public function test_string_camel()
     {
-        $this->assertEquals('laravelPHPFramework', Str::camel('Laravel_p_h_p_framework'));
-        $this->assertEquals('laravelPhpFramework', Str::camel('Laravel_php_framework'));
-        $this->assertEquals('laravelPhPFramework', Str::camel('Laravel-phP-framework'));
-        $this->assertEquals('laravelPhpFramework', Str::camel('Laravel  -_-  php   -_-   framework   '));
-        $this->assertEquals('fooBar', Str::camel('FooBar'));
-        $this->assertEquals('fooBar', Str::camel('foo_bar'));
-        $this->assertEquals('fooBar', Str::camel('foo_bar')); // test cache
-        $this->assertEquals('fooBarBaz', Str::camel('Foo-barBaz'));
-        $this->assertEquals('fooBarBaz', Str::camel('foo-bar_baz'));
+        $this->assertEquals('laravelPHPFramework', Str::camel('Laravel_p_h_p_framework')->value);
+        $this->assertEquals('laravelPhpFramework', Str::camel('Laravel_php_framework')->value);
+        $this->assertEquals('laravelPhPFramework', Str::camel('Laravel-phP-framework')->value);
+        $this->assertEquals('laravelPhpFramework', Str::camel('Laravel  -_-  php   -_-   framework   ')->value);
+        $this->assertEquals('fooBar', Str::camel('FooBar')->value);
+        $this->assertEquals('fooBar', Str::camel('foo_bar')->value);
+        $this->assertEquals('fooBarBaz', Str::camel('Foo-barBaz')->value);
+        $this->assertEquals('fooBarBaz', Str::camel('foo-bar_baz')->value);
     }
 }
