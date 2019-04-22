@@ -16,3 +16,15 @@ parameters:
         -
             message: '~Call to an undefined static method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\DummyCompleteFacade::nonexistent\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php
+
+        -
+            message: '~Parameter #1 $value of class NorseBlue\\Prim\\Scalars\\BoolObject constructor expects bool|NorseBlue\\Prim\\Scalars\\BoolObject, int given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/BoolObjectTest.php
+
+        -
+            message: '~Parameter #1 $value of class NorseBlue\\Prim\\Scalars\\IntObject constructor expects int|NorseBlue\\Prim\\Scalars\\IntObject, string given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/IntObjectTest.php
+
+        -
+            message: '~Parameter #1 $value of class NorseBlue\\Prim\\Scalars\\FloatObject constructor expects float|NorseBlue\\Prim\\Scalars\\FloatObject, string given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/FloatObjectTest.php
