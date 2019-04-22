@@ -10,7 +10,7 @@ commands:
         steps:
             - run: sudo apt update
             - run: sudo apt full-upgrade
-            - run: composer self-update
+            - run: sudo composer self-update
             - checkout
     install_php_dependencies:
         parameters:
