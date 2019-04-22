@@ -4,6 +4,7 @@ namespace NorseBlue\Prim\Tests\Unit;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
+use NorseBlue\Prim\Tests\_Helpers_\DummyValueObject;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\ValueObject;
 
@@ -30,13 +31,51 @@ class ValueObjectTest extends TestCase
     {
         $obj = new ValueObject;
         $this->assertNull($obj->value);
-        $this->assertFalse(isset($obj->object_value));    // Verifying the property by actual name
         $this->assertFalse(isset($obj->value));
 
         $obj->value = 3;
         $this->assertEquals(3, $obj->value);
-        $this->assertTrue(isset($obj->object_value));     // Verifying the property by actual name
         $this->assertTrue(isset($obj->value));
+    }
+
+    /** @test */
+    public function can_get_the_value_through_magic_property_accessor()
+    {
+        $obj = new DummyValueObject;
+
+        $this->assertEquals(1, $obj->privateDummy);
+        $this->assertTrue(isset($obj->privateDummy));
+        $this->assertTrue(isset($obj->publicDummy));
+    }
+
+    /** @test */
+    public function throws_exception_when_property_not_accessible_because_of_visibility_using_accessor()
+    {
+        $obj = new DummyValueObject;
+
+        try {
+            $obj->protectedDummy;
+        } catch (Exception $e) {
+            $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            return;
+        }
+
+        $this->fail(PropertyNotFoundException::class . ' was not thrown.');
+    }
+
+    /** @test */
+    public function throws_exception_when_property_not_accessible_because_of_visibility_using_isset()
+    {
+        $obj = new DummyValueObject;
+
+        try {
+            $isset= isset($obj->protectedDummy);
+        } catch (Exception $e) {
+            $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            return;
+        }
+
+        $this->fail(PropertyNotFoundException::class . ' was not thrown.');
     }
 
     /** @test */

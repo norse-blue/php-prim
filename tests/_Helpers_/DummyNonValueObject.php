@@ -9,29 +9,81 @@ namespace NorseBlue\Prim\Tests\_Helpers_;
  */
 class DummyNonValueObject
 {
-    /** @var int The dummy value. */
-    protected $dummyValue = 3;
+    /** @var int The private dummy value */
+    private $dummyPrivate = 1;
+
+    /** @var int The protected dummy value */
+    protected $dummyProtected = 2;
+
+    /** @var int The public dummy value */
+    public $dummyPublic = 3;
 
     /** @var int The static dummy value */
-    protected static $staticDummyValue = 9;
+    private static $staticPrivateDummy = 4;
+
+    /** @var int The static dummy value */
+    protected static $staticProtectedDummy = 5;
+
+    /** @var int The static dummy value */
+    public static $staticPublicDummy = 6;
 
     /**
-     * Instance function.
+     * Get the private dummy value.
      *
      * @return int
      */
-    public function dummy(): int
+    public function privateDummy(): int
     {
-        return $this->dummyValue;
+        return $this->dummyPrivate;
     }
 
     /**
-     * Static function.
+     * Get the protected dummy value.
      *
      * @return int
      */
-    public static function staticDummy(): int
+    public function protectedDummy(): int
     {
-        return self::$staticDummyValue;
+        return $this->dummyProtected;
+    }
+
+    /**
+     * Get the public dummy value.
+     *
+     * @return int
+     */
+    public function publicDummy(): int
+    {
+        return $this->dummyPublic;
+    }
+
+    /**
+     * Get the private static dummy value.
+     *
+     * @return int
+     */
+    public function privateStaticDummy(): int
+    {
+        return self::$staticPrivateDummy;
+    }
+
+    /**
+     * Get the protected static dummy value.
+     *
+     * @return int
+     */
+    public function protectedStaticDummy(): int
+    {
+        return self::$staticProtectedDummy;
+    }
+
+    /**
+     * Get the public static dummy value.
+     *
+     * @return int
+     */
+    public function publicStaticDummy(): int
+    {
+        return self::$staticPublicDummy;
     }
 }

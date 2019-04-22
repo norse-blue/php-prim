@@ -9,7 +9,12 @@ use NorseBlue\Prim\Facades\ValueObjectFacade;
  *
  * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
  *
- * @method static dummy()
+ * @method static privateDummy()
+ * @method static protectedDummy()
+ * @method static publicDummy()
+ * @method static privateStaticDummy()
+ * @method static protectedStaticDummy()
+ * @method static publicStaticDummy()
  */
 class DummyInvalidFacade extends ValueObjectFacade
 {

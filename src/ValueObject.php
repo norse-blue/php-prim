@@ -89,14 +89,11 @@ class ValueObject implements ValueObjectContract
      */
     final public function __isset(string $key): bool
     {
-        if (property_exists($this, $key)) {
-            $value = $this->$key;
+        if (!$this->hasAccessor($key, $accessor)) {
+            throw new PropertyNotFoundException($key, 'The property was not found or is not accessible.');
         }
 
-        if ($this->hasAccessor($key, $accessor)) {
-            $value = $this->$accessor();
-        }
-
+        $value = $this->$accessor();
         return isset($value);
     }
 
