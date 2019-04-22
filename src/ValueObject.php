@@ -53,7 +53,7 @@ class ValueObject implements ValueObjectContract
      */
     final protected function setValueProperty($value): void
     {
-        if (!$this->valueIsValid($value)  || $value instanceof static) {
+        if (!$this->valueIsValid($value) || $value instanceof static) {
             throw new InvalidValueException('The given value is not valid.');
         }
 
