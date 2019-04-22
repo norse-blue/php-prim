@@ -41,7 +41,7 @@ class StringObjectTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_exception_if_value_not_valid(): void
+    public function it_throws_exception_if_string_value_not_valid(): void
     {
         try {
             new StringObject(3);
