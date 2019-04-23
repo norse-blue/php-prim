@@ -65,15 +65,15 @@ class BoolObject extends ImmutableValueObject
     /**
      * Compare the object against a given value for equality.
      *
-     * @param bool|BoolObject $value
+     * @param bool|BoolObject $bool
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
-    public function equals($value): self
+    public function equals($bool): self
     {
-        $value = self::unwrap($value);
+        $bool = self::unwrap($bool);
 
-        return bool($this->object_value === $value);
+        return bool($this->object_value === $bool);
     }
 
     /**
