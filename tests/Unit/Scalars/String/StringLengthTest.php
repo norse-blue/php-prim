@@ -16,10 +16,10 @@ class StringLengthTest extends TestCase
     /** @test */
     public function string_length()
     {
-        $this->assertEquals(11, Str::length('foo bar baz'));
-        $this->assertEquals(11, Str::length('foo bar baz', 'UTF-8'));
-        $this->assertEquals(15, Str::length('Jönköping Malmö'));
-        $this->assertEquals(15, Str::length('Jönköping Malmö', 'UTF-8'));
+        $this->assertEquals(11, Str::length('foo bar baz')->value);
+        $this->assertEquals(11, Str::length('foo bar baz', 'UTF-8')->value);
+        $this->assertEquals(15, Str::length('Jönköping Malmö')->value);
+        $this->assertEquals(15, Str::length('Jönköping Malmö', 'UTF-8')->value);
     }
 
     /** @test */

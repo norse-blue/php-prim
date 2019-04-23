@@ -11,11 +11,11 @@ class StringCompareTest extends TestCase
     /** @test */
     public function string_compare()
     {
-        $this->assertGreaterThan(0, Str::compare('FGHIJ', 'ABCDE'));
-        $this->assertGreaterThan(0, Str::compare('FGHIJ', new StringObject('ABCDE')));
-        $this->assertEquals(0, Str::compare('FGHIJ', 'FGHIJ'));
-        $this->assertEquals(0, Str::compare('FGHIJ', new StringObject('FGHIJ')));
-        $this->assertLessThan(0, Str::compare('FGHIJ', 'KLMNO'));
-        $this->assertLessThan(0, Str::compare('FGHIJ', new StringObject('KLMNO')));
+        $this->assertGreaterThan(0, Str::compare('FGHIJ', 'ABCDE')->value);
+        $this->assertGreaterThan(0, Str::compare('FGHIJ', new StringObject('ABCDE'))->value);
+        $this->assertEquals(0, Str::compare('FGHIJ', 'FGHIJ')->value);
+        $this->assertEquals(0, Str::compare('FGHIJ', new StringObject('FGHIJ'))->value);
+        $this->assertLessThan(0, Str::compare('FGHIJ', 'KLMNO')->value);
+        $this->assertLessThan(0, Str::compare('FGHIJ', new StringObject('KLMNO'))->value);
     }
 }

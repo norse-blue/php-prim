@@ -15,12 +15,12 @@ class StringContainsTest extends TestCase
     /** @test */
     public function string_contains()
     {
-        $this->assertTrue(Str::contains('taylor', 'ylo'));
-        $this->assertTrue(Str::contains('taylor', 'taylor'));
-        $this->assertTrue(Str::contains('taylor', ['ylo']));
-        $this->assertTrue(Str::contains('taylor', ['xxx', 'ylo']));
-        $this->assertFalse(Str::contains('taylor', 'xxx'));
-        $this->assertFalse(Str::contains('taylor', ['xxx']));
-        $this->assertFalse(Str::contains('taylor', ''));
+        $this->assertTrue(Str::contains('taylor', 'ylo')->value);
+        $this->assertTrue(Str::contains('taylor', 'taylor')->value);
+        $this->assertTrue(Str::contains('taylor', ['ylo'])->value);
+        $this->assertTrue(Str::contains('taylor', ['xxx', 'ylo'])->value);
+        $this->assertFalse(Str::contains('taylor', 'xxx')->value);
+        $this->assertFalse(Str::contains('taylor', ['xxx'])->value);
+        $this->assertFalse(Str::contains('taylor', '')->value);
     }
 }

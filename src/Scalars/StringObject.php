@@ -10,6 +10,8 @@ use Ramsey\Uuid\Generator\CombGenerator;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidFactory;
 use Ramsey\Uuid\UuidInterface;
+use function NorseBlue\Prim\bool;
+use function NorseBlue\Prim\int;
 use function NorseBlue\Prim\string;
 
 /**
@@ -109,20 +111,21 @@ class StringObject extends ImmutableValueObject implements Countable
     }
 
     /**
-     * Compares the value to another string
+     * Compare the object against a given value.
      *
      * @param string|StringObject $string
      *
-     * @param bool $case_insensitive
+     * @param bool|BoolObject $case_insensitive
      *
-     * @return int
+     * @return \NorseBlue\Prim\Scalars\IntObject
      */
-    public function compare($string, $case_insensitive = false): int
+    public function compare($string, $case_insensitive = false): IntObject
     {
         $value = $this->object_value;
         $string = self::unwrap($string);
+        $case_insensitive = bool($case_insensitive);
 
-        return $case_insensitive ? strcasecmp($value, $string) : strcmp($value, $string);
+        return int($case_insensitive->isTrue() ? strcasecmp($value, $string) : strcmp($value, $string));
     }
 
     /**
@@ -149,9 +152,9 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @param string|StringObject|array $needles
      *
-     * @return bool
+     * @return BoolObject
      */
-    public function contains($needles): bool
+    public function contains($needles): BoolObject
     {
         $haystack = $this->object_value;
 
@@ -159,11 +162,11 @@ class StringObject extends ImmutableValueObject implements Countable
             $needle = self::unwrap($needle);
 
             if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
-                return true;
+                return bool(true);
             }
         }
 
-        return false;
+        return bool(false);
     }
 
     /**
@@ -171,32 +174,34 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @param string|StringObject|array $needles
      *
-     * @return bool
+     * @return BoolObject
      */
-    public function endsWith($needles): bool
+    public function endsWith($needles): BoolObject
     {
         foreach ((array)$needles as $needle) {
             $needle = self::unwrap($needle);
 
-            if (is_string($needle) && $needle !== '' && $this->substr(-string($needle)->length())->equals($needle)) {
-                return true;
+            if (is_string($needle) && $needle !== '' && $this->substr(-string($needle)->length()->value)
+                    ->equals($needle)
+                    ->isTrue()) {
+                return bool(true);
             }
         }
 
-        return false;
+        return bool(false);
     }
 
     /**
-     * Checks if the value is equal to the given string.
+     * Compare the object against a given value for equality.
      *
      * @param string|StringObject $string
-     * @param bool $case_insensitive
+     * @param bool|BoolObject $case_insensitive
      *
-     * @return bool
+     * @return BoolObject
      */
-    public function equals($string, $case_insensitive = false): bool
+    public function equals($string, $case_insensitive = false): BoolObject
     {
-        return $this->compare($string, $case_insensitive) === 0;
+        return $this->compare($string, $case_insensitive)->equals(0);
     }
 
     /**
@@ -221,9 +226,9 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @param string|StringObject|array $patterns
      *
-     * @return bool
+     * @return BoolObject
      */
-    public function is($patterns): bool
+    public function is($patterns): BoolObject
     {
         $value = $this->object_value;
         if (!is_array($patterns)) {
@@ -237,7 +242,7 @@ class StringObject extends ImmutableValueObject implements Countable
             // from the beginning. Otherwise, we will translate asterisks and do an
             // actual pattern match against the two strings to see if they match.
             if ($pattern === $value) {
-                return true;
+                return bool(true);
             }
 
             $pattern = preg_quote($pattern, '#');
@@ -247,11 +252,11 @@ class StringObject extends ImmutableValueObject implements Countable
             // pattern such as "library/*", making any string check convenient.
             $pattern = str_replace('\*', '.*', $pattern);
             if (preg_match('#^' . $pattern . '\z#u', $value) === 1) {
-                return true;
+                return bool(true);
             }
         }
 
-        return false;
+        return bool(false);
     }
 
     /**
@@ -279,25 +284,25 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @param string|StringObject $encoding
      *
-     * @return int
+     * @return IntObject
      */
-    public function length($encoding = null): int
+    public function length($encoding = null): IntObject
     {
         $value = $this->object_value;
 
         if ($encoding) {
             $encoding = self::unwrap($encoding);
 
-            return mb_strlen($value, $encoding);
+            return int(mb_strlen($value, $encoding));
         }
 
-        return mb_strlen($value);
+        return int(mb_strlen($value));
     }
 
     /**
      * Limit the number of characters in a string.
      *
-     * @param int $limit
+     * @param int|IntObject $limit
      * @param string|StringObject $end
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
@@ -305,12 +310,12 @@ class StringObject extends ImmutableValueObject implements Countable
     public function limit(int $limit = 100, $end = '...'): self
     {
         $value = $this->object_value;
+        $limit = IntObject::unwrap($limit);
+        $end = self::unwrap($end);
 
         if (mb_strwidth($value, 'UTF-8') <= $limit) {
             return string($value);
         }
-
-        $end = self::unwrap($end);
 
         return string(rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end);
     }
@@ -352,7 +357,7 @@ class StringObject extends ImmutableValueObject implements Countable
     /**
      * Generate a more truly "random" alpha-numeric string.
      *
-     * @param int $length
+     * @param int|IntObject $length
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
      * @throws \Exception
@@ -360,6 +365,7 @@ class StringObject extends ImmutableValueObject implements Countable
     public static function random($length = 16): self
     {
         $string = '';
+        $length = IntObject::unwrap($length);
 
         while (($len = strlen($string)) < $length) {
             $size = $length - $len;
@@ -520,19 +526,19 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @param string|StringObject|array $needles
      *
-     * @return bool
+     * @return BoolObject
      */
-    public function startsWith($needles): bool
+    public function startsWith($needles): BoolObject
     {
         foreach ((array)$needles as $needle) {
             $needle = self::unwrap($needle);
 
-            if (is_string($needle) && $needle !== '' && $this->substr(0, string($needle)->length())->equals($needle)) {
-                return true;
+            if (is_string($needle) && $needle !== '' && $this->substr(0, string($needle)->length()->value)->equals($needle)->isTrue()) {
+                return bool(true);
             }
         }
 
-        return false;
+        return bool(false);
     }
 
     /**
@@ -551,14 +557,16 @@ class StringObject extends ImmutableValueObject implements Countable
     /**
      * Returns the portion of string specified by the start and length parameters.
      *
-     * @param int $start
-     * @param int|null $length
+     * @param int|IntObject $start
+     * @param int|IntObject|null $length
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
      */
     public function substr($start, $length = null): self
     {
         $string = $this->object_value;
+        $start = IntObject::unwrap($start);
+        $length = IntObject::unwrap($length);
 
         return string(mb_substr($string, $start, $length, 'UTF-8'));
     }
@@ -611,7 +619,7 @@ class StringObject extends ImmutableValueObject implements Countable
     /**
      * Limit the number of words in a string.
      *
-     * @param int $words
+     * @param int|IntObject $words
      * @param string|StringObject $end
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
@@ -619,10 +627,11 @@ class StringObject extends ImmutableValueObject implements Countable
     public function words($words = 100, $end = '...'): self
     {
         $value = $this->object_value;
+        $words = IntObject::unwrap($words);
 
         preg_match('/^\s*+(?:\S++\s*+){1,' . $words . '}/u', $value, $matches);
 
-        if (!isset($matches[0]) || string($value)->length() === string($matches[0])->length()) {
+        if (!isset($matches[0]) || string($value)->length()->equals(string($matches[0])->length())->isTrue()) {
             return string($value);
         }
 
@@ -646,7 +655,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function count()
     {
-        return $this->length();
+        return $this->length()->value;
     }
 
     // endregion Countable

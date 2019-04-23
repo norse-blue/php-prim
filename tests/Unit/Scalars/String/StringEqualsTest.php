@@ -11,11 +11,11 @@ class StringEqualsTest extends TestCase
     /** @test */
     public function string_equals()
     {
-        $this->assertFalse(Str::equals('FGHIJ', 'ABCDE'));
-        $this->assertFalse(Str::equals('FGHIJ', new StringObject('ABCDE')));
-        $this->assertTrue(Str::equals('FGHIJ', 'FGHIJ'));
-        $this->assertTrue(Str::equals('FGHIJ', new StringObject('FGHIJ')));
-        $this->assertFalse(Str::equals('FGHIJ', 'KLMNO'));
-        $this->assertFalse(Str::equals('FGHIJ', new StringObject('KLMNO')));
+        $this->assertFalse(Str::equals('FGHIJ', 'ABCDE')->value);
+        $this->assertFalse(Str::equals('FGHIJ', new StringObject('ABCDE'))->value);
+        $this->assertTrue(Str::equals('FGHIJ', 'FGHIJ')->value);
+        $this->assertTrue(Str::equals('FGHIJ', new StringObject('FGHIJ'))->value);
+        $this->assertFalse(Str::equals('FGHIJ', 'KLMNO')->value);
+        $this->assertFalse(Str::equals('FGHIJ', new StringObject('KLMNO'))->value);
     }
 }
