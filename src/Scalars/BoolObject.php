@@ -63,6 +63,40 @@ class BoolObject extends ImmutableValueObject
     }
 
     /**
+     * Compare the object against a given value for equality.
+     *
+     * @param bool|BoolObject $value
+     *
+     * @return \NorseBlue\Prim\Scalars\BoolObject
+     */
+    public function equals($value): self
+    {
+        $value = self::unwrap($value);
+
+        return bool($this->value === $value);
+    }
+
+    /**
+     * Return true if the object value is false.
+     *
+     * @return bool
+     */
+    public function isFalse(): bool
+    {
+        return $this->equals(false)->value;
+    }
+
+    /**
+     * Return true if the object value is true.
+     *
+     * @return bool
+     */
+    public function isTrue(): bool
+    {
+        return $this->equals(true)->value;
+    }
+
+    /**
      * Apply the NOT logical operation.
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
