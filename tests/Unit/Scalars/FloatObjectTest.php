@@ -25,14 +25,16 @@ class FloatObjectTest extends TestCase
     /** @test */
     public function it_creates_a_float_object_with_value(): void
     {
-        $int = new FloatObject(9.3);
-        $int_wrap = new FloatObject($int);
+        $float = new FloatObject(9.3);
+        $float_wrap = new FloatObject($float);
+        $float_int = new FloatObject((float)9);
 
-        $this->assertEquals(9.3, $int->value);
-        $this->assertEquals(9.3, $int_wrap->value);
-        $this->assertNotSame($int, $int_wrap);
-        $this->assertNotSame($int, $int_wrap->value);
-        $this->assertNotSame($int->value, $int_wrap);
+        $this->assertEquals(9.3, $float->value);
+        $this->assertEquals(9.3, $float_wrap->value);
+        $this->assertEquals(9.0, $float_int->value);
+        $this->assertNotSame($float, $float_wrap);
+        $this->assertNotSame($float, $float_wrap->value);
+        $this->assertNotSame($float->value, $float_wrap);
     }
 
     /** @test */

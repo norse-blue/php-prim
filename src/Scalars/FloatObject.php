@@ -3,6 +3,8 @@
 namespace NorseBlue\Prim\Scalars;
 
 use NorseBlue\Prim\ImmutableValueObject;
+use function NorseBlue\Prim\bool;
+use function NorseBlue\Prim\float;
 
 /**
  * Class FloatObject
@@ -32,4 +34,30 @@ class FloatObject extends ImmutableValueObject
     }
 
     // endregion Overrides
+
+    /**
+     * Compare the object against a given value.
+     *
+     * @param int|IntObject|float|FloatObject $number
+     *
+     * @return \NorseBlue\Prim\Scalars\FloatObject
+     */
+    public function compare($number): self
+    {
+        $number = self::unwrap($number);
+
+        return float($this->object_value - $number);
+    }
+
+    /**
+     * Compare the object against a given value for equality.
+     *
+     * @param $number
+     *
+     * @return \NorseBlue\Prim\Scalars\BoolObject
+     */
+    public function equals($number): BoolObject
+    {
+        return bool($this->compare($number)->value === 0.0);
+    }
 }
