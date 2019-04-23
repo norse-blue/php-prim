@@ -43,7 +43,7 @@ class BoolObject extends ImmutableValueObject
      */
     public function and(...$bools): self
     {
-        if ($this->value === false) {
+        if ($this->object_value === false) {
             return bool(false);
         }
 
@@ -73,7 +73,7 @@ class BoolObject extends ImmutableValueObject
     {
         $value = self::unwrap($value);
 
-        return bool($this->value === $value);
+        return bool($this->object_value === $value);
     }
 
     /**
@@ -103,7 +103,7 @@ class BoolObject extends ImmutableValueObject
      */
     public function not(): self
     {
-        return bool(!$this->value);
+        return bool(!$this->object_value);
     }
 
     /**
@@ -115,7 +115,7 @@ class BoolObject extends ImmutableValueObject
      */
     public function or(...$bools): self
     {
-        if ($this->value === true) {
+        if ($this->object_value === true) {
             return bool(true);
         }
 
@@ -143,7 +143,7 @@ class BoolObject extends ImmutableValueObject
      */
     public function xor(...$bools): self
     {
-        $carry = $this->value;
+        $carry = $this->object_value;
 
         foreach ($bools as $bool) {
             $bool = self::unwrap($bool);

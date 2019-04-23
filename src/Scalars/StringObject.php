@@ -52,7 +52,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function after($search): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $search = self::unwrap($search);
 
         return string($search === '' ? $value : array_reverse(explode($search, $value, 2))[0]);
@@ -67,7 +67,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function ascii($language = 'en'): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $language = self::unwrap($language);
 
         $languageSpecific = Character::languageSpecificCharsArray($language);
@@ -92,7 +92,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function before($search): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $search = self::unwrap($search);
 
         return string($search === '' ? $value : explode($search, $value)[0]);
@@ -119,7 +119,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function compare($string, $case_insensitive = false): int
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $string = self::unwrap($string);
 
         return $case_insensitive ? strcasecmp($value, $string) : strcmp($value, $string);
@@ -134,7 +134,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function concat(...$strings): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         foreach ($strings as $string) {
             $string = self::unwrap($string);
 
@@ -153,7 +153,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function contains($needles): bool
     {
-        $haystack = (string)$this;
+        $haystack = $this->object_value;
 
         foreach ((array)$needles as $needle) {
             $needle = self::unwrap($needle);
@@ -208,7 +208,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function finish($cap): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $cap = self::unwrap($cap);
 
         $quoted = preg_quote($cap, '/');
@@ -225,7 +225,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function is($patterns): bool
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         if (!is_array($patterns)) {
             $patterns = [$patterns];
         }
@@ -283,7 +283,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function length($encoding = null): int
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         if ($encoding) {
             $encoding = self::unwrap($encoding);
@@ -304,7 +304,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function limit(int $limit = 100, $end = '...'): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         if (mb_strwidth($value, 'UTF-8') <= $limit) {
             return string($value);
@@ -322,7 +322,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function lower(): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         return string(mb_strtolower($value, 'UTF-8'));
     }
@@ -403,7 +403,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function replaceFirst($search, $replace): self
     {
-        $subject = (string)$this;
+        $subject = $this->object_value;
         $search = self::unwrap($search);
 
         if ($search === '') {
@@ -431,7 +431,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function replaceLast($search, $replace): self
     {
-        $subject = (string)$this;
+        $subject = $this->object_value;
         $search = self::unwrap($search);
 
         if ($search === '') {
@@ -486,7 +486,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function snake($delimiter = '_'): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         if (!ctype_lower($value)) {
             $delimiter = self::unwrap($delimiter);
@@ -508,7 +508,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function start($prefix): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $prefix = self::unwrap($prefix);
         $quoted = preg_quote($prefix, '/');
 
@@ -542,7 +542,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function studly(): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
         $value = ucwords(str_replace(['-', '_'], ' ', $value));
 
         return string(str_replace(' ', '', $value));
@@ -558,7 +558,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function substr($start, $length = null): self
     {
-        $string = (string)$this;
+        $string = $this->object_value;
 
         return string(mb_substr($string, $start, $length, 'UTF-8'));
     }
@@ -570,7 +570,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function title(): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         return string(mb_convert_case($value, MB_CASE_TITLE, 'UTF-8'));
     }
@@ -592,7 +592,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function upper(): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         return string(mb_strtoupper($value, 'UTF-8'));
     }
@@ -618,7 +618,7 @@ class StringObject extends ImmutableValueObject implements Countable
      */
     public function words($words = 100, $end = '...'): self
     {
-        $value = (string)$this;
+        $value = $this->object_value;
 
         preg_match('/^\s*+(?:\S++\s*+){1,' . $words . '}/u', $value, $matches);
 
