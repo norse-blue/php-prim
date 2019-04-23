@@ -3,7 +3,6 @@
     "description": "PHP Prim: Primitive Object Data Types",
     "keywords": ["primitive", "data", "data-types"],
     "homepage": "https://norse.blue/open-source/php-prim",
-    "type": "project",
     "license": "MIT",
     "support": {
         "issues": "https://github.com/norse-blue/php-prim/issues",
