@@ -8,6 +8,6 @@
 /vendor
 
 # Files
-/*.sublime-workspace
-/.phpunit.result.cache
+*.phpunit.result.cache
+*.sublime-workspace
 composer.lock
