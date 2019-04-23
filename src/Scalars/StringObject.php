@@ -307,7 +307,7 @@ class StringObject extends ImmutableValueObject implements Countable
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
      */
-    public function limit(int $limit = 100, $end = '...'): self
+    public function limit($limit = 100, $end = '...'): self
     {
         $value = $this->object_value;
         $limit = IntObject::unwrap($limit);
@@ -533,7 +533,9 @@ class StringObject extends ImmutableValueObject implements Countable
         foreach ((array)$needles as $needle) {
             $needle = self::unwrap($needle);
 
-            if (is_string($needle) && $needle !== '' && $this->substr(0, string($needle)->length()->value)->equals($needle)->isTrue()) {
+            if (is_string($needle) && $needle !== ''
+                && $this->substr(0, string($needle)->length()->value)->equals($needle)->isTrue()
+            ) {
                 return bool(true);
             }
         }

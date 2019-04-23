@@ -12,8 +12,8 @@ use NorseBlue\Prim\Scalars\IntObject;
  * @package NorseBlue\Prim\Facades\Scalars
  *
  * @method static IntObject abs(int|IntObject $value)
- * @method static IntObject compare(int|IntObject $value, int|IntObject|float|FloatObject $number)
- * @method static IntObject equals(int|IntObject $value, int|IntObject|float|FloatObject $number)
+ * @method static IntObject compare(int|IntObject|float|FloatObject $value, int|IntObject|float|FloatObject $number)
+ * @method static IntObject equals(int|IntObject|float|FloatObject $value, int|IntObject|float|FloatObject $number)
  */
 class IntFacade extends ValueObjectFacade
 {

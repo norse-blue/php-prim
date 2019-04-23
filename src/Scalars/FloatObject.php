@@ -56,7 +56,7 @@ class FloatObject extends ImmutableValueObject
     /**
      * Compare the object against a given value for equality.
      *
-     * @param $number
+     * @param int|IntObject|float|FloatObject $number
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
