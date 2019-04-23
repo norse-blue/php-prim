@@ -27,7 +27,7 @@ class FloatObjectTest extends TestCase
     {
         $float = new FloatObject(9.3);
         $float_wrap = new FloatObject($float);
-        $float_int = new FloatObject((float)9);
+        $float_int = new FloatObject(9);
 
         $this->assertEquals(9.3, $float->value);
         $this->assertEquals(9.3, $float_wrap->value);
