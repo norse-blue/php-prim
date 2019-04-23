@@ -36,21 +36,43 @@ class IntObject extends ImmutableValueObject
     // endregion Overrides
 
     /**
-     * Compare the object against a given value.
-     *
-     * @param int|IntObject|float|FloatObject $value
+     * Get the absolute value.
      *
      * @return \NorseBlue\Prim\Scalars\IntObject
      */
-    public function compare($value): self
+    public function abs(): self
     {
-        $value = self::unwrap($value);
-
-        return int($this->object_value - $value);
+        return int(abs($this->object_value));
     }
 
-    public function equals($value): BoolObject
+    /**
+     * Compare the object against a given value.
+     * If a float is given, it cast as int before doing the comparison.
+     *
+     * @param int|IntObject|float|FloatObject $number
+     *
+     * @return \NorseBlue\Prim\Scalars\IntObject
+     */
+    public function compare($number): self
     {
-        return bool($this->compare($value)->value === 0);
+        $number = self::unwrap($number);
+
+        if (is_float($number)) {
+            $number = (int)$number;
+        }
+
+        return int($this->object_value - $number);
+    }
+
+    /**
+     * Compare the object against a given value for equality.
+     *
+     * @param int|IntObject|float|FloatObject $number
+     *
+     * @return \NorseBlue\Prim\Scalars\BoolObject
+     */
+    public function equals($number): BoolObject
+    {
+        return bool($this->compare($number)->value === 0);
     }
 }
