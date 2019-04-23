@@ -27,7 +27,7 @@ class IntObjectTest extends TestCase
     {
         $int = new IntObject(9);
         $int_wrap = new IntObject($int);
-        $int_float = new IntObject((int)9.3);
+        $int_float = new IntObject(9.3);
 
         $this->assertEquals(9, $int->value);
         $this->assertEquals(9, $int_wrap->value);
@@ -38,20 +38,7 @@ class IntObjectTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_exception_if_int_value_not_valid_float(): void
-    {
-        try {
-            new IntObject(9.3);
-        } catch (Exception $e) {
-            $this->assertInstanceOf(InvalidValueException::class, $e);
-            return;
-        }
-
-        $this->fail(InvalidValueException::class . ' was not thrown.');
-    }
-
-    /** @test */
-    public function it_throws_exception_if_int_value_not_valid_string(): void
+    public function it_throws_exception_if_int_value_not_valid(): void
     {
         try {
             new IntObject('value');

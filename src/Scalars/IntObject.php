@@ -18,10 +18,14 @@ class IntObject extends ImmutableValueObject
     /**
      * IntObject constructor.
      *
-     * @param int |IntObject $value
+     * @param int|IntObject|float|FloatObject $value
      */
     public function __construct($value = 0)
     {
+        if ($this->valueIsValid($value)) {
+            $value = (int)$value;
+        }
+
         parent::__construct($value);
     }
 
@@ -30,7 +34,7 @@ class IntObject extends ImmutableValueObject
      */
     final public function valueIsValid($value): bool
     {
-        return is_int($value);
+        return is_int($value) || is_float($value);
     }
 
     // endregion Overrides
