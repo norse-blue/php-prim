@@ -17,6 +17,8 @@ class BoolObjectTest extends TestCase
 
         $this->assertFalse($bool->value);
         $this->assertFalse($bool_wrap->value);
+        $this->assertTrue($bool->isFalse());
+        $this->assertTrue($bool_wrap->isFalse());
         $this->assertNotSame($bool, $bool_wrap);
         $this->assertNotSame($bool, $bool_wrap->value);
         $this->assertNotSame($bool->value, $bool_wrap);
@@ -30,6 +32,8 @@ class BoolObjectTest extends TestCase
 
         $this->assertTrue($bool->value);
         $this->assertTrue($bool_wrap->value);
+        $this->assertTrue($bool->isTrue());
+        $this->assertTrue($bool_wrap->isTrue());
         $this->assertNotSame($bool, $bool_wrap);
         $this->assertNotSame($bool, $bool_wrap->value);
         $this->assertNotSame($bool->value, $bool_wrap);
