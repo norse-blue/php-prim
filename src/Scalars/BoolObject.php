@@ -41,22 +41,20 @@ class BoolObject extends ImmutableValueObject
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
-    public function and(...$bools)
+    public function and(...$bools): self
     {
         if ($this->value === false) {
             return bool(false);
         }
 
         foreach ($bools as $bool) {
-            $bool =  self::unwrap($bool);
+            $bool = self::unwrap($bool);
 
             if ($bool === false) {
                 return bool(false);
             }
 
-            if (is_array($bool)
-                && bool(array_shift($bool))->and(...$bool)->value === false
-            ) {
+            if (is_array($bool) && bool(array_shift($bool))->and(...$bool)->value === false) {
                 return bool(false);
             }
         }
@@ -69,7 +67,7 @@ class BoolObject extends ImmutableValueObject
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
-    public function not(): BoolObject
+    public function not(): self
     {
         return bool(!$this->value);
     }
@@ -81,22 +79,20 @@ class BoolObject extends ImmutableValueObject
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
-    public function or(...$bools): BoolObject
+    public function or(...$bools): self
     {
         if ($this->value === true) {
             return bool(true);
         }
 
         foreach ($bools as $bool) {
-            $bool =  self::unwrap($bool);
+            $bool = self::unwrap($bool);
 
             if ($bool === true) {
                 return bool(true);
             }
 
-            if (is_array($bool)
-                && bool(array_shift($bool))->or(...$bool)->value === true
-            ) {
+            if (is_array($bool) && bool(array_shift($bool))->or(...$bool)->value === true) {
                 return bool(true);
             }
         }
@@ -111,12 +107,12 @@ class BoolObject extends ImmutableValueObject
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
-    public function xor(...$bools)
+    public function xor(...$bools): self
     {
         $carry = $this->value;
 
         foreach ($bools as $bool) {
-            $bool =  self::unwrap($bool);
+            $bool = self::unwrap($bool);
 
             $carry = ($carry xor (is_array($bool)
                     ? bool(array_shift($bool))->xor(...$bool)->value
