@@ -51,7 +51,7 @@ class IntObjectTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_exception_if_int_value_not_valid_stirng(): void
+    public function it_throws_exception_if_int_value_not_valid_string(): void
     {
         try {
             new IntObject('value');
