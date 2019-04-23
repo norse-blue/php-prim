@@ -127,6 +127,20 @@ class ValueObject implements ValueObjectContract
     // endregion Magic Methods
 
     /**
+     * Adjust the key for accessor and mutator.
+     *
+     * @param string $key
+     *
+     * @return string
+     */
+    final protected function adjustKey(string $key)
+    {
+        $key = ucwords(str_replace(['-', '_'], ' ', $key));
+
+        return str_replace(' ', '', $key);
+    }
+
+    /**
      * Checks if an accessor exists for the key.
      *
      * @param string $key
@@ -136,7 +150,7 @@ class ValueObject implements ValueObjectContract
      */
     final protected function hasAccessor(string $key, string &$accessor = null): bool
     {
-        $accessor = 'get' . string($key)->studly() . 'Property';
+        $accessor = 'get' . $this->adjustKey($key) . 'Property';
         return method_exists($this, $accessor);
     }
 
@@ -150,7 +164,7 @@ class ValueObject implements ValueObjectContract
      */
     final protected function hasMutator(string $key, string &$mutator = null): bool
     {
-        $mutator = 'set' . string($key)->studly() . 'Property';
+        $mutator = 'set' . $this->adjustKey($key) . 'Property';
         return method_exists($this, $mutator);
     }
 

@@ -27,7 +27,7 @@ class BoolObject extends ImmutableValueObject
     /**
      * @inheritDoc
      */
-    public function valueIsValid($value): bool
+    final public function valueIsValid($value): bool
     {
         return is_bool($value);
     }

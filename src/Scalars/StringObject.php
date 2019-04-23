@@ -36,11 +36,11 @@ class StringObject extends ImmutableValueObject implements Countable
     /**
      * @inheritDoc
      */
-    public function valueIsValid($value): bool
+    final public function valueIsValid($value): bool
     {
         return is_string($value);
     }
-    
+
     // endregion Overrides
 
     /**

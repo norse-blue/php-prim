@@ -26,7 +26,7 @@ class IntObject extends ImmutableValueObject
     /**
      * @inheritDoc
      */
-    public function valueIsValid($value): bool
+    final public function valueIsValid($value): bool
     {
         return is_int($value);
     }

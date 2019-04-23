@@ -26,7 +26,7 @@ class FloatObject extends ImmutableValueObject
     /**
      * @inheritDoc
      */
-    public function valueIsValid($value): bool
+    final public function valueIsValid($value): bool
     {
         return is_float($value);
     }
