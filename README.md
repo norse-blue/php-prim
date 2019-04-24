@@ -17,6 +17,7 @@
 >Requirements:
 >- [PHP 7.3+](https://php.net/releases)
 >- [BC Math](https://www.php.net/manual/book.bc.php) extension (for UUIDs)
+>- [JSON](https://www.php.net/manual/book.json.php) extension
 >- [Multibyte String](https://www.php.net/manual/book.mbstring.php) extension
 
 Install Prim using Composer:

@@ -119,7 +119,7 @@ class ValueObject implements ValueObjectContract
      *
      * @return string
      */
-    final public function __toString(): string
+    public function __toString(): string
     {
         return (string)$this->object_value;
     }
