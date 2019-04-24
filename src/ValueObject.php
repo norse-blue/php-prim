@@ -4,7 +4,8 @@ namespace NorseBlue\Prim;
 
 use NorseBlue\Prim\Contracts\ValueObject as ValueObjectContract;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
-use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
+use NorseBlue\Prim\Traits\HasPropertyAccessors;
+use NorseBlue\Prim\Traits\HasPropertyMutators;
 
 /**
  * Class ValueObject
@@ -15,6 +16,9 @@ use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
  */
 class ValueObject implements ValueObjectContract
 {
+    use HasPropertyAccessors;
+    use HasPropertyMutators;
+
     /** @var mixed The value of the object */
     protected $object_value;
 
@@ -65,56 +69,6 @@ class ValueObject implements ValueObjectContract
     // region === Magic Methods ===
 
     /**
-     * Magic accessor.
-     *
-     * @param string $key
-     *
-     * @return mixed
-     */
-    final public function __get(string $key)
-    {
-        if ($this->hasAccessor($key, $accessor)) {
-            return $this->$accessor();
-        }
-
-        throw new PropertyNotFoundException($key, 'The property or an accessor could not found.');
-    }
-
-    /**
-     * Magic variable set check.
-     *
-     * @param string $key
-     *
-     * @return bool
-     */
-    final public function __isset(string $key): bool
-    {
-        if (!$this->hasAccessor($key, $accessor)) {
-            throw new PropertyNotFoundException($key, 'The property was not found or is not accessible.');
-        }
-
-        $value = $this->$accessor();
-        return isset($value);
-    }
-
-    /**
-     * Magic mutator.
-     *
-     * @param string $key
-     * @param mixed $value
-     */
-    public function __set(string $key, $value): void
-    {
-
-        if ($this->hasMutator($key, $mutator)) {
-            $this->$mutator($value);
-            return;
-        }
-
-        throw new PropertyNotFoundException($key, 'The property or a mutator could not found.');
-    }
-
-    /**
      * Converts the object to string by casting the value.
      *
      * @return string
@@ -125,48 +79,6 @@ class ValueObject implements ValueObjectContract
     }
 
     // endregion Magic Methods
-
-    /**
-     * Adjust the key for accessor and mutator.
-     *
-     * @param string $key
-     *
-     * @return string
-     */
-    final protected function adjustKey(string $key)
-    {
-        $key = ucwords(str_replace(['-', '_'], ' ', $key));
-
-        return str_replace(' ', '', $key);
-    }
-
-    /**
-     * Checks if an accessor exists for the key.
-     *
-     * @param string $key
-     * @param string|null $accessor optional Output parameter to get the accessor name.
-     *
-     * @return bool
-     */
-    final protected function hasAccessor(string $key, string &$accessor = null): bool
-    {
-        $accessor = 'get' . $this->adjustKey($key) . 'Property';
-        return method_exists($this, $accessor);
-    }
-
-    /**
-     * Checks if a mutator exists for the key.
-     *
-     * @param string $key
-     * @param string|null $mutator optional Output parameter to get the mutator name.
-     *
-     * @return bool
-     */
-    final protected function hasMutator(string $key, string &$mutator = null): bool
-    {
-        $mutator = 'set' . $this->adjustKey($key) . 'Property';
-        return method_exists($this, $mutator);
-    }
 
     /**
      * Unwraps the value from a ValueObject or returns the value itself.
