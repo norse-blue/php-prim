@@ -65,6 +65,33 @@ There are three ways to create a primitive object data type instance
     // MY STRING
     ```
 
+## Documentation
+
+For the full documentation refer to the [docs](docs) folder.
+
+## Changelog
+
+Please refer to the [CHANGELOG.md](CHANGELOG.md) file for more information about what has changed recently.
+
+## Contributing
+
+Contributions to this project are accepted and encouraged. Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for details on contributions.
+
+## Credits
+
+- [Axel Pardemann](https://github.com/axelitus)
+- [All Contributors](../../contributors)
+
+## Security
+
+If you discover any security related issues, please email [security@norse.blue](mailto:security@norse.blue) instead of using the issue tracker.
+
+## Support the development
+
+**Do you like this project? Support it by donating**
+
+<a href="https://www.buymeacoffee.com/axelitus"><img src=".assets/buy-me-a-coffee.svg" width="180" alt="Buy me a coffee"></img></a>
+
 ## License
 
 PHP Prim is open-sourced software licensed under the [MIT](LICENSE.md) license.
