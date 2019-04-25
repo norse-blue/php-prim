@@ -65,6 +65,21 @@ There are three ways to create a primitive object data type instance
     // MY STRING
     ```
 
+You can also chain methods together:
+
+```php
+use NorseBlue\Prim\string;
+
+$str = string('THIS IS MY TEXT.')->lower()->ucfirst();
+echo $str;
+
+// Outputs:
+// This is my text.
+```
+
+You don't need to worry about side-effects, as the objects are immutable and each function returns
+a new immutable object, so to store the value don't forget to assign it to a variable. 
+
 ## Documentation
 
 For the full documentation refer to the [docs](docs) folder.
