@@ -1,9 +1,9 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\_Helpers_\Facades;
+namespace NorseBlue\Prim\Tests\Helpers\Facades;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
-use NorseBlue\Prim\Tests\_Helpers_\DummyValueObject;
+use NorseBlue\Prim\Tests\Helpers\DummyValueObject;
 
 /**
  * Class DummyCompleteFacade

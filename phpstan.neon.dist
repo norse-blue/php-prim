@@ -8,10 +8,10 @@ parameters:
             message: '~Access to an undefined property NorseBlue\\Prim\\ValueObject::\$nonexistent.~'
             path: %currentWorkingDirectory%/tests/Unit/ValueObjectTest.php
         -
-            message: '~Static call to instance method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\).~'
+            message: '~Static call to instance method NorseBlue\\Prim\\Tests\\Helpers\\Facades\\[a-zA-Z0-9_]+::[a-zA-Z0-9_]+\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php
         -
-            message: '~Call to an undefined static method NorseBlue\\Prim\\Tests\\_Helpers_\\Facades\\DummyCompleteFacade::nonexistent\(\).~'
+            message: '~Call to an undefined static method NorseBlue\\Prim\\Tests\\Helpers\\Facades\\DummyCompleteFacade::nonexistent\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php
         -
             message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\BoolObject constructor expects [a-zA-z0-9_\|\\]+, int given.~'

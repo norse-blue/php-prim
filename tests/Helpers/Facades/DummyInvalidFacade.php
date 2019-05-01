@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\_Helpers_\Facades;
+namespace NorseBlue\Prim\Tests\Helpers\Facades;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
 

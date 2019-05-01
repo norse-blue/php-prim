@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\_Helpers_;
+namespace NorseBlue\Prim\Tests\Helpers;
 
 use NorseBlue\Prim\ImmutableValueObject;
 

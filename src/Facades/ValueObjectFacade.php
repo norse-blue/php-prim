@@ -41,16 +41,20 @@ abstract class ValueObjectFacade
     final public static function __callStatic(string $method, array $arguments)
     {
         $class = static::$class;
+
         if (!is_string($class) || $class === '' || !class_exists($class)) {
             throw new RuntimeException('A valid facade class has not been set.');
         }
 
-        if (!method_exists($class, $method)) {
-            throw new BadMethodCallException("The method $method does not exist for class $class.");
+        if (!is_subclass_of($class, ValueObject::class)) {
+            throw new InvalidFacadeClassException(
+                sprintf('The class %s does not extend class %s.', $class, ValueObject::class)
+            );
         }
 
-        if (!is_subclass_of($class, ValueObject::class)) {
-            throw new InvalidFacadeClassException("The class $class does not extend class " . ValueObject::class . '.');
+        /** @var ValueObject $class */
+        if (!method_exists($class, $method) && !$class::hasExtensionMethod($method)) {
+            throw new BadMethodCallException("The method $method does not exist for class $class.");
         }
 
         if (in_array($method, array_merge(self::$statics, static::$statics), true)) {

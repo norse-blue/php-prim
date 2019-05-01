@@ -3,6 +3,7 @@
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
+use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\StringObject;
 use Ramsey\Uuid\UuidInterface;
 
@@ -24,12 +25,12 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject is(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject kebab(string|StringObject $value)
  * @method static StringObject lcfirst(string|StringObject $value)
- * @method static StringObject length(string|StringObject $value, string|StringObject $encoding = null)
+ * @method static IntObject length(string|StringObject $value, string|StringObject $encoding = null)
  * @method static StringObject limit(string|StringObject $value, int $limit = 100, string|StringObject $end = '...')
  * @method static StringObject lower(string|StringObject $value)
  * @method static UuidInterface orderedUuid()
  * @method static StringObject random(int $length = 16)
- * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, array<string|StringObject> $replace)
+ * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, string[]|StringObject[] $replace)
  * @method static StringObject replaceFirst(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceLast(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject slug(string|StringObject $value, string|StringObject $separator = '-', string|StringObject|null $language = 'en')
@@ -42,7 +43,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject ucfirst(string|StringObject $value)
  * @method static StringObject upper(string|StringObject $value)
  * @method static UuidInterface uuid()
- * @method static StringObject words(string|StringObject $value,int $words = 100, string|StringObject $end = '...')
+ * @method static StringObject words(string|StringObject $value, int $words = 100, string|StringObject $end = '...')
  */
 final class StringFacade extends ValueObjectFacade
 {

@@ -4,7 +4,7 @@ namespace NorseBlue\Prim\Tests\Unit;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
-use NorseBlue\Prim\Tests\_Helpers_\DummyValueObject;
+use NorseBlue\Prim\Tests\Helpers\DummyValueObject;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\ValueObject;
 
