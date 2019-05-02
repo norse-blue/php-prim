@@ -20,11 +20,27 @@ commands:
         steps:
             - run: sudo docker-php-ext-install bcmath mbstring
             - run: composer update << parameters.composer_flags >> --no-interaction --prefer-source
+    prepare_coverage:
+        steps:
+            - run: curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            - run: chmod +x cc-test-reporter
+            - run: ./cc-test-reporter before-build
     run_tests:
         steps:
-            - run: vendor/bin/phpcs
-            - run: vendor/bin/phpstan analyse
-            - run: vendor/bin/phpunit
+            - run: composer style-check
+            - run: composer analyse
+            - run: composer test
+    run_tests_coverage:
+        steps:
+            - run: composer style-check
+            - run: composer analyse
+            - run: composer test-coverage
+            - run: ./cc-test-reporter format-coverage --input-type clover --output build/code-climate-coverage.json build/coverage.xml
+            - store_artifacts:
+                  path: build
+    upload_coverage:
+        steps:
+            - run: ./cc-test-reporter upload-coverage --input build/code-climate-coverage.json
 
 jobs:
     php7_3:
@@ -32,7 +48,9 @@ jobs:
         steps:
             - prepare
             - install_php_dependencies
-            - run_tests
+            - prepare_coverage
+            - run_tests_coverage
+            - upload_coverage
     php7_3-prefer-lowest:
         executor: php7_3
         steps:
