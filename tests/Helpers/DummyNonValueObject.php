@@ -1,28 +1,22 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\_Helpers_;
-
-use NorseBlue\Prim\ValueObject;
+namespace NorseBlue\Prim\Tests\Helpers;
 
 /**
- * Class DummyValueObject
+ * Class DummyNonValueObject
  *
- * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
- *
- * @property int $privateDummy
- * @property int $protectedDummy
- * @property int $publicDummy
+ * @package NorseBlue\Prim\Tests\_Helpers_\Facades
  */
-class DummyValueObject extends ValueObject
+class DummyNonValueObject
 {
     /** @var int The private dummy value */
-    private $privateDummy = 1;
+    private $dummyPrivate = 1;
 
     /** @var int The protected dummy value */
-    protected $protectedDummy = 2;
+    protected $dummyProtected = 2;
 
     /** @var int The public dummy value */
-    public $publicDummy = 3;
+    public $dummyPublic = 3;
 
     /** @var int The static dummy value */
     private static $staticPrivateDummy = 4;
@@ -40,7 +34,7 @@ class DummyValueObject extends ValueObject
      */
     public function privateDummy(): int
     {
-        return $this->privateDummy;
+        return $this->dummyPrivate;
     }
 
     /**
@@ -50,7 +44,7 @@ class DummyValueObject extends ValueObject
      */
     public function protectedDummy(): int
     {
-        return $this->protectedDummy;
+        return $this->dummyProtected;
     }
 
     /**
@@ -60,7 +54,7 @@ class DummyValueObject extends ValueObject
      */
     public function publicDummy(): int
     {
-        return $this->publicDummy;
+        return $this->dummyPublic;
     }
 
     /**
@@ -91,25 +85,5 @@ class DummyValueObject extends ValueObject
     public function publicStaticDummy(): int
     {
         return self::$staticPublicDummy;
-    }
-
-    /**
-     * Private dummy property accessor.
-     *
-     * @return int
-     */
-    public function getPrivateDummyProperty(): int
-    {
-        return $this->privateDummy;
-    }
-
-    /**
-     * Private dummy property mutator.
-     *
-     * @return int
-     */
-    public function setPrivateDummyProperty($value): int
-    {
-        $this->privateDummy = $value;
     }
 }

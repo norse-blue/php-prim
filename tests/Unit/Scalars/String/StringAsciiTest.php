@@ -8,7 +8,7 @@ use NorseBlue\Prim\Tests\TestCase;
 /**
  * Class StringAsciiTest
  *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\String
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\Strings
  */
 class StringAsciiTest extends TestCase
 {

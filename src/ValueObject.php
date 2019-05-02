@@ -2,6 +2,7 @@
 
 namespace NorseBlue\Prim;
 
+use NorseBlue\ExtensibleObjects\Traits\HandlesExtensionMethods;
 use NorseBlue\Prim\Contracts\ValueObject as ValueObjectContract;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
 use NorseBlue\Prim\Traits\HasPropertyAccessors;
@@ -16,6 +17,7 @@ use NorseBlue\Prim\Traits\HasPropertyMutators;
  */
 class ValueObject implements ValueObjectContract
 {
+    use HandlesExtensionMethods;
     use HasPropertyAccessors;
     use HasPropertyMutators;
 

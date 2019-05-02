@@ -4,14 +4,11 @@ namespace NorseBlue\Prim\Scalars;
 
 use Countable;
 use NorseBlue\Prim\ImmutableValueObject;
-use NorseBlue\Prim\Support\Character;
 use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
 use Ramsey\Uuid\Generator\CombGenerator;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidFactory;
 use Ramsey\Uuid\UuidInterface;
-use function NorseBlue\Prim\bool;
-use function NorseBlue\Prim\int;
 use function NorseBlue\Prim\string;
 
 /**
@@ -20,9 +17,42 @@ use function NorseBlue\Prim\string;
  * @package NorseBlue\Prim\Scalars
  *
  * @property string $value
+ *
+ * @method self after(string|self $search)
+ * @method self ascii(string|self $language = 'en')
+ * @method self before(string|self $search)
+ * @method self camel()
+ * @method IntObject compare(string|self $string, bool $case_insensitive = false)
+ * @method self concat(string|self ...$strings)
+ * @method BoolObject contains(string|self|array $needles)
+ * @method BoolObject endsWith(string|self|array $needles)
+ * @method BoolObject equals(string|self $string, bool $case_insensitive = false)
+ * @method self finish(string|self $cap)
+ * @method self is(string|self|array $patterns)
+ * @method self kebab()
+ * @method self lcfirst()
+ * @method IntObject length(string|self $encoding = null)
+ * @method self limit(int $limit = 100, string|self $end = '...')
+ * @method self lower()
+ * @method self replaceArray(string|self $search, string[]|self[] $replace)
+ * @method self replaceFirst(string|self $search, string|self $replace)
+ * @method self replaceLast(string|self $search, string|self $replace)
+ * @method self slug(string|self $separator = '-', string|self|null $language = 'en')
+ * @method self snake(string|self $delimiter = '_')
+ * @method self start(string|self $prefix)
+ * @method BoolObject startsWith(string|self|array $needles)
+ * @method self studly()
+ * @method self substr(int $start, int|null $length = null)
+ * @method self title()
+ * @method self ucfirst()
+ * @method self upper()
+ * @method self words(int $words = 100, string|self $end = '...')
  */
 class StringObject extends ImmutableValueObject implements Countable
 {
+    /** @inheritDoc */
+    protected static $extensions = [];
+
     // region === Overrides ===
 
     /**
@@ -44,293 +74,6 @@ class StringObject extends ImmutableValueObject implements Countable
     }
 
     // endregion Overrides
-
-    /**
-     * Return the remainder of the value after a given value.
-     *
-     * @param string|StringObject $search
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function after($search): self
-    {
-        $value = $this->object_value;
-        $search = self::unwrap($search);
-
-        return string($search === '' ? $value : array_reverse(explode($search, $value, 2))[0]);
-    }
-
-    /**
-     * Transliterate a UTF-8 value to ASCII.
-     *
-     * @param string|StringObject $language
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function ascii($language = 'en'): self
-    {
-        $value = $this->object_value;
-        $language = self::unwrap($language);
-
-        $languageSpecific = Character::languageSpecificCharsArray($language);
-
-        if ($languageSpecific !== null) {
-            $value = str_replace($languageSpecific[0], $languageSpecific[1], $value);
-        }
-
-        foreach (Character::charsArray() as $key => $val) {
-            $value = str_replace($val, $key, $value);
-        }
-
-        return string(preg_replace('/[^\x20-\x7E]/u', '', $value));
-    }
-
-    /**
-     * Get the portion of the value before a given value.
-     *
-     * @param string|StringObject $search
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function before($search): self
-    {
-        $value = $this->object_value;
-        $search = self::unwrap($search);
-
-        return string($search === '' ? $value : explode($search, $value)[0]);
-    }
-
-    /**
-     * Convert the value to camel case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function camel(): self
-    {
-        return $this->studly()->lcfirst();
-    }
-
-    /**
-     * Compare the object against a given value.
-     *
-     * @param string|StringObject $string
-     *
-     * @param bool|BoolObject $case_insensitive
-     *
-     * @return \NorseBlue\Prim\Scalars\IntObject
-     */
-    public function compare($string, $case_insensitive = false): IntObject
-    {
-        $value = $this->object_value;
-        $string = self::unwrap($string);
-        $case_insensitive = bool($case_insensitive);
-
-        return int($case_insensitive->isTrue() ? strcasecmp($value, $string) : strcmp($value, $string));
-    }
-
-    /**
-     * Concatenates the given strings.
-     *
-     * @param string|StringObject ...$strings
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function concat(...$strings): self
-    {
-        $value = $this->object_value;
-        foreach ($strings as $string) {
-            $string = self::unwrap($string);
-
-            $value .= $string;
-        }
-
-        return string($value);
-    }
-
-    /**
-     * Determine if a given string contains a given substring.
-     *
-     * @param string|StringObject|array $needles
-     *
-     * @return BoolObject
-     */
-    public function contains($needles): BoolObject
-    {
-        $haystack = $this->object_value;
-
-        foreach ((array)$needles as $needle) {
-            $needle = self::unwrap($needle);
-
-            if ($needle !== '' && mb_strpos($haystack, $needle) !== false) {
-                return bool(true);
-            }
-        }
-
-        return bool(false);
-    }
-
-    /**
-     * Determine if the value ends with a given substring.
-     *
-     * @param string|StringObject|array $needles
-     *
-     * @return BoolObject
-     */
-    public function endsWith($needles): BoolObject
-    {
-        foreach ((array)$needles as $needle) {
-            $needle = self::unwrap($needle);
-
-            if (is_string($needle) && $needle !== '' && $this->substr(-string($needle)->length()->value)
-                    ->equals($needle)
-                    ->isTrue()) {
-                return bool(true);
-            }
-        }
-
-        return bool(false);
-    }
-
-    /**
-     * Compare the object against a given value for equality.
-     *
-     * @param string|StringObject $string
-     * @param bool|BoolObject $case_insensitive
-     *
-     * @return BoolObject
-     */
-    public function equals($string, $case_insensitive = false): BoolObject
-    {
-        return $this->compare($string, $case_insensitive)->equals(0);
-    }
-
-    /**
-     * Cap the value with a single instance of a given value.
-     *
-     * @param string|StringObject $cap
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function finish($cap): self
-    {
-        $value = $this->object_value;
-        $cap = self::unwrap($cap);
-
-        $quoted = preg_quote($cap, '/');
-
-        return string(preg_replace('/(?:' . $quoted . ')+$/u', '', $value) . $cap);
-    }
-
-    /**
-     * Determine if a given string matches the given patterns.
-     *
-     * @param string|StringObject|array $patterns
-     *
-     * @return BoolObject
-     */
-    public function is($patterns): BoolObject
-    {
-        $value = $this->object_value;
-        if (!is_array($patterns)) {
-            $patterns = [$patterns];
-        }
-
-        foreach ($patterns as $pattern) {
-            $pattern = self::unwrap($pattern);
-
-            // If the given value is an exact match we can of course return true right
-            // from the beginning. Otherwise, we will translate asterisks and do an
-            // actual pattern match against the two strings to see if they match.
-            if ($pattern === $value) {
-                return bool(true);
-            }
-
-            $pattern = preg_quote($pattern, '#');
-
-            // Asterisks are translated into zero-or-more regular expression wildcards
-            // to make it convenient to check if the strings starts with the given
-            // pattern such as "library/*", making any string check convenient.
-            $pattern = str_replace('\*', '.*', $pattern);
-            if (preg_match('#^' . $pattern . '\z#u', $value) === 1) {
-                return bool(true);
-            }
-        }
-
-        return bool(false);
-    }
-
-    /**
-     * Convert the value to kebab case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function kebab(): self
-    {
-        return $this->snake('-');
-    }
-
-    /**
-     * Make a string's first character lowercase.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function lcfirst(): self
-    {
-        return $this->substr(0, 1)->lower()->concat($this->substr(1));
-    }
-
-    /**
-     * Return the length of the given string.
-     *
-     * @param string|StringObject $encoding
-     *
-     * @return IntObject
-     */
-    public function length($encoding = null): IntObject
-    {
-        $value = $this->object_value;
-
-        if ($encoding) {
-            $encoding = self::unwrap($encoding);
-
-            return int(mb_strlen($value, $encoding));
-        }
-
-        return int(mb_strlen($value));
-    }
-
-    /**
-     * Limit the number of characters in a string.
-     *
-     * @param int|IntObject $limit
-     * @param string|StringObject $end
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function limit($limit = 100, $end = '...'): self
-    {
-        $value = $this->object_value;
-        $limit = IntObject::unwrap($limit);
-        $end = self::unwrap($end);
-
-        if (mb_strwidth($value, 'UTF-8') <= $limit) {
-            return string($value);
-        }
-
-        return string(rtrim(mb_strimwidth($value, 0, $limit, '', 'UTF-8')) . $end);
-    }
-
-    /**
-     * Convert the value to lower-case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function lower(): self
-    {
-        $value = $this->object_value;
-
-        return string(mb_strtolower($value, 'UTF-8'));
-    }
 
     /**
      * Generate a time-ordered UUID (version 4).
@@ -379,235 +122,6 @@ class StringObject extends ImmutableValueObject implements Countable
     }
 
     /**
-     * Replace a given value in the string sequentially with an array.
-     *
-     * @param string|StringObject $search
-     * @param array<string|StringObject> $replace
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function replaceArray($search, array $replace): self
-    {
-        $subject = $this;
-
-        foreach ($replace as $value) {
-            $value = self::unwrap($value);
-
-            $subject = $subject->replaceFirst($search, $value);
-        }
-
-        return string($subject);
-    }
-
-    /**
-     * Replace the first occurrence of a given value in the string.
-     *
-     * @param string|StringObject $search
-     * @param string|StringObject $replace
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function replaceFirst($search, $replace): self
-    {
-        $subject = $this->object_value;
-        $search = self::unwrap($search);
-
-        if ($search === '') {
-            return string($subject);
-        }
-
-        $position = strpos($subject, $search);
-
-        if ($position !== false) {
-            $replace = self::unwrap($replace);
-
-            return string(substr_replace($subject, $replace, $position, strlen($search)));
-        }
-
-        return string($subject);
-    }
-
-    /**
-     * Replace the last occurrence of a given value in the string.
-     *
-     * @param string|StringObject $search
-     * @param string|StringObject $replace
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function replaceLast($search, $replace): self
-    {
-        $subject = $this->object_value;
-        $search = self::unwrap($search);
-
-        if ($search === '') {
-            return string($subject);
-        }
-
-        $position = strrpos($subject, $search);
-
-        if ($position !== false) {
-            return string(substr_replace($subject, $replace, $position, strlen($search)));
-        }
-
-        return string($subject);
-    }
-
-    /**
-     * Generate a URL friendly "slug" from a given string.
-     *
-     * @param string|StringObject $separator
-     * @param string|StringObject|null $language
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function slug($separator = '-', $language = 'en'): self
-    {
-        $title = $language ? $this->ascii($language)->value : $this->value;
-        $separator = self::unwrap($separator);
-
-        // Convert all dashes/underscores into separator
-        $flip = $separator === '-' ? '_' : '-';
-
-        $title = preg_replace('![' . preg_quote($flip, '!') . ']+!u', $separator, $title);
-
-        // Replace @ with the word 'at'
-        $title = str_replace('@', $separator . 'at' . $separator, $title);
-
-        // Remove all characters that are not the separator, letters, numbers, or whitespace.
-        $title = preg_replace('![^' . preg_quote($separator, '!') . '\pL\pN\s]+!u', '', string($title)->lower()->value);
-
-        // Replace all separator characters and whitespace by a single separator
-        $title = preg_replace('![' . preg_quote($separator, '!') . '\s]+!u', $separator, $title);
-
-        return string(trim($title, $separator));
-    }
-
-    /**
-     * Convert a string to snake case.
-     *
-     * @param string|StringObject $delimiter
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function snake($delimiter = '_'): self
-    {
-        $value = $this->object_value;
-
-        if (!ctype_lower($value)) {
-            $delimiter = self::unwrap($delimiter);
-
-            $value = preg_replace('/\s+/u', '', ucwords($value));
-            $value = preg_replace('/(.)(?=[A-Z])/u', '$1' . $delimiter, $value);
-            return string($value)->lower();
-        }
-
-        return string($value);
-    }
-
-    /**
-     * Begin a string with a single instance of a given value.
-     *
-     * @param string|StringObject $prefix
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function start($prefix): self
-    {
-        $value = $this->object_value;
-        $prefix = self::unwrap($prefix);
-        $quoted = preg_quote($prefix, '/');
-
-        return string($prefix . preg_replace('/^(?:' . $quoted . ')+/u', '', $value));
-    }
-
-    /**
-     * Determine if a given string starts with a given substring.
-     *
-     * @param string|StringObject|array $needles
-     *
-     * @return BoolObject
-     */
-    public function startsWith($needles): BoolObject
-    {
-        foreach ((array)$needles as $needle) {
-            $needle = self::unwrap($needle);
-
-            if (is_string($needle) && $needle !== ''
-                && $this->substr(0, string($needle)->length()->value)->equals($needle)->isTrue()
-            ) {
-                return bool(true);
-            }
-        }
-
-        return bool(false);
-    }
-
-    /**
-     * Convert the value to studly caps case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function studly(): self
-    {
-        $value = $this->object_value;
-        $value = ucwords(str_replace(['-', '_'], ' ', $value));
-
-        return string(str_replace(' ', '', $value));
-    }
-
-    /**
-     * Returns the portion of string specified by the start and length parameters.
-     *
-     * @param int|IntObject $start
-     * @param int|IntObject|null $length
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function substr($start, $length = null): self
-    {
-        $string = $this->object_value;
-        $start = IntObject::unwrap($start);
-        $length = IntObject::unwrap($length);
-
-        return string(mb_substr($string, $start, $length, 'UTF-8'));
-    }
-
-    /**
-     * Convert the given string to title case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function title(): self
-    {
-        $value = $this->object_value;
-
-        return string(mb_convert_case($value, MB_CASE_TITLE, 'UTF-8'));
-    }
-
-    /**
-     * Make a string's first character uppercase.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function ucfirst(): self
-    {
-        return $this->substr(0, 1)->upper()->concat($this->substr(1));
-    }
-
-    /**
-     * Convert the value to upper-case.
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function upper(): self
-    {
-        $value = $this->object_value;
-
-        return string(mb_strtoupper($value, 'UTF-8'));
-    }
-
-    /**
      * Generate a UUID (version 4).
      *
      * @return \Ramsey\Uuid\UuidInterface
@@ -616,30 +130,6 @@ class StringObject extends ImmutableValueObject implements Countable
     public static function uuid(): UuidInterface
     {
         return Uuid::uuid4();
-    }
-
-    /**
-     * Limit the number of words in a string.
-     *
-     * @param int|IntObject $words
-     * @param string|StringObject $end
-     *
-     * @return \NorseBlue\Prim\Scalars\StringObject
-     */
-    public function words($words = 100, $end = '...'): self
-    {
-        $value = $this->object_value;
-        $words = IntObject::unwrap($words);
-
-        preg_match('/^\s*+(?:\S++\s*+){1,' . $words . '}/u', $value, $matches);
-
-        if (!isset($matches[0]) || string($value)->length()->equals(string($matches[0])->length())->isTrue()) {
-            return string($value);
-        }
-
-        $end = self::unwrap($end);
-
-        return string(rtrim($matches[0]) . $end);
     }
 
     // region === Countable ===
