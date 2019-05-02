@@ -37,8 +37,8 @@ class BoolOrExtension extends BoolObject implements ExtensionMethod
                     return bool(true);
                 }
 
-                if (is_array($bool) && bool(array_shift($bool))->or(...$bool)->value === true) {
-                    return bool(true);
+                if (is_array($bool)) {
+                    return bool(array_shift($bool))->or(...$bool);
                 }
             }
 
