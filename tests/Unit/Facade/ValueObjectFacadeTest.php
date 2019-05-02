@@ -5,10 +5,10 @@ namespace NorseBlue\Prim\Tests\Unit\Facade;
 use BadMethodCallException;
 use Exception;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
-use NorseBlue\Prim\Tests\_Helpers_\DummyValueObject;
-use NorseBlue\Prim\Tests\_Helpers_\Facades\DummyCompleteFacade;
-use NorseBlue\Prim\Tests\_Helpers_\Facades\DummyInvalidFacade;
-use NorseBlue\Prim\Tests\_Helpers_\Facades\DummyNonValueObjectFacade;
+use NorseBlue\Prim\Tests\Helpers\DummyValueObject;
+use NorseBlue\Prim\Tests\Helpers\Facades\DummyCompleteFacade;
+use NorseBlue\Prim\Tests\Helpers\Facades\DummyInvalidFacade;
+use NorseBlue\Prim\Tests\Helpers\Facades\DummyNonValueObjectFacade;
 use NorseBlue\Prim\Tests\TestCase;
 use RuntimeException;
 

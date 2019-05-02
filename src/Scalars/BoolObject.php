@@ -3,15 +3,23 @@
 namespace NorseBlue\Prim\Scalars;
 
 use NorseBlue\Prim\ImmutableValueObject;
-use function NorseBlue\Prim\bool;
 
 /**
  * Class BoolObject
  *
  * @package NorseBlue\Prim\Scalars
+ *
+ * @method self and (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolAndExtension
+ * @method self equals(bool|self $bool) ExtensionMethod BoolEqualsExtension
+ * @method self not() ExtensionMethod BoolNotExtension
+ * @method self or (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolOrExtension
+ * @method self xor (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolXorExtension
  */
 class BoolObject extends ImmutableValueObject
 {
+    /** @inheritDoc */
+    protected static $extensions = [];
+
     // region === Overrides ===
 
     /**
@@ -35,48 +43,6 @@ class BoolObject extends ImmutableValueObject
     // endregion Overrides
 
     /**
-     * Apply the AND logical operation to the BoolObject with the given values.
-     *
-     * @param bool|BoolObject|array<bool|BoolObject> ...$bools
-     *
-     * @return \NorseBlue\Prim\Scalars\BoolObject
-     */
-    public function and(...$bools): self
-    {
-        if ($this->object_value === false) {
-            return bool(false);
-        }
-
-        foreach ($bools as $bool) {
-            $bool = self::unwrap($bool);
-
-            if ($bool === false) {
-                return bool(false);
-            }
-
-            if (is_array($bool) && bool(array_shift($bool))->and(...$bool)->value === false) {
-                return bool(false);
-            }
-        }
-
-        return bool(true);
-    }
-
-    /**
-     * Compare the object against a given value for equality.
-     *
-     * @param bool|BoolObject $bool
-     *
-     * @return \NorseBlue\Prim\Scalars\BoolObject
-     */
-    public function equals($bool): self
-    {
-        $bool = self::unwrap($bool);
-
-        return bool($this->object_value === $bool);
-    }
-
-    /**
      * Return true if the object value is false.
      *
      * @return bool
@@ -94,66 +60,5 @@ class BoolObject extends ImmutableValueObject
     public function isTrue(): bool
     {
         return $this->equals(true)->value;
-    }
-
-    /**
-     * Apply the NOT logical operation.
-     *
-     * @return \NorseBlue\Prim\Scalars\BoolObject
-     */
-    public function not(): self
-    {
-        return bool(!$this->object_value);
-    }
-
-    /**
-     * Apply the OR logical operation to the BoolObject with the given values.
-     *
-     * @param bool|BoolObject|array<bool|BoolObject> ...$bools
-     *
-     * @return \NorseBlue\Prim\Scalars\BoolObject
-     */
-    public function or(...$bools): self
-    {
-        if ($this->object_value === true) {
-            return bool(true);
-        }
-
-        foreach ($bools as $bool) {
-            $bool = self::unwrap($bool);
-
-            if ($bool === true) {
-                return bool(true);
-            }
-
-            if (is_array($bool) && bool(array_shift($bool))->or(...$bool)->value === true) {
-                return bool(true);
-            }
-        }
-
-        return bool(false);
-    }
-
-    /**
-     * Apply the XOR logical operation to the BoolObject with the given values.
-     *
-     * @param bool|BoolObject|array<bool|BoolObject> ...$bools
-     *
-     * @return \NorseBlue\Prim\Scalars\BoolObject
-     */
-    public function xor(...$bools): self
-    {
-        $carry = $this->object_value;
-
-        foreach ($bools as $bool) {
-            $bool = self::unwrap($bool);
-
-            $carry = ($carry xor (is_array($bool)
-                    ? bool(array_shift($bool))->xor(...$bool)->value
-                    : $bool
-                ));
-        }
-
-        return bool($carry);
     }
 }

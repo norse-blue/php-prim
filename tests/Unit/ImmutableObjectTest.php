@@ -6,7 +6,7 @@ use Exception;
 use NorseBlue\Prim\Exceptions\ImmutableValueException;
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
 use NorseBlue\Prim\ImmutableValueObject;
-use NorseBlue\Prim\Tests\_Helpers_\ImmutableDummy;
+use NorseBlue\Prim\Tests\Helpers\ImmutableDummy;
 use NorseBlue\Prim\Tests\TestCase;
 
 /**
