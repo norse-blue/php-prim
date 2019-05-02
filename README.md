@@ -92,7 +92,8 @@ Please refer to the [CHANGELOG.md](CHANGELOG.md) file for more information about
 
 ## Contributing
 
-Contributions to this project are accepted and encouraged. Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for details on contributions.
+Contributions to this project are accepted and encouraged. Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md)
+file for details on contributions.
 
 ## Credits
 
@@ -101,13 +102,16 @@ Contributions to this project are accepted and encouraged. Please read the [CONT
 
 ## Security
 
-If you discover any security related issues, please email [security@norse.blue](mailto:security@norse.blue) instead of using the issue tracker.
+If you discover any security related issues, please email [security@norse.blue](mailto:security@norse.blue) instead
+of using the issue tracker.
 
 ## Support the development
 
 **Do you like this project? Support it by donating**
 
-<a href="https://www.buymeacoffee.com/axelitus"><img src=".assets/buy-me-a-coffee.svg" width="180" alt="Buy me a coffee"></img></a>
+<a href="https://www.buymeacoffee.com/axelitus">
+    <img src=".assets/buy-me-a-coffee.svg" width="180" alt="Buy me a coffee" />
+</a>
 
 ## License
 
