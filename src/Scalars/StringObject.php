@@ -34,6 +34,8 @@ use function NorseBlue\Prim\string;
  * @method IntObject length(string|self $encoding = null)
  * @method self limit(int $limit = 100, string|self $end = '...')
  * @method self lower()
+ * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0)
+ * @method self regexQuote(string|self $delimiter = '#')
  * @method self replace(string|StringObject $search, string|StringObject $replace)
  * @method self replaceArray(string|self $search, string[]|self[] $replace)
  * @method self replaceFirst(string|self $search, string|self $replace)
