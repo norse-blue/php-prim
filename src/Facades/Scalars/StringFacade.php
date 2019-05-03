@@ -30,6 +30,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject lower(string|StringObject $value)
  * @method static UuidInterface orderedUuid()
  * @method static StringObject random(int $length = 16)
+ * @method static StringObject replace(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, string[]|StringObject[] $replace)
  * @method static StringObject replaceFirst(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceLast(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
