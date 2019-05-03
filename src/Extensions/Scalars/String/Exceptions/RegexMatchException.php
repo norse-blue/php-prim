@@ -7,12 +7,16 @@ use Throwable;
 
 class RegexMatchException extends RuntimeException
 {
+    /** @var int */
     protected $preg_error_code;
+
+    /** @var string */
+    protected $preg_error_name;
 
     /**
      * RegexMatchException constructor.
      *
-     * @param string $preg_error_code
+     * @param int $preg_error_code
      * @param string $message
      * @param int $code
      * @param \Throwable|null $previous
@@ -20,7 +24,7 @@ class RegexMatchException extends RuntimeException
      * @see https://www.php.net/manual/en/function.preg-last-error.php
      */
     public function __construct(
-        string $preg_error_code,
+        int $preg_error_code,
         string $message = '',
         int $code = 0,
         Throwable $previous = null
@@ -28,20 +32,40 @@ class RegexMatchException extends RuntimeException
         parent::__construct($message, $code, $previous);
 
         $this->preg_error_code = $preg_error_code;
+        $this->preg_error_name = $this->translatePregErrorCode($this->preg_error_code);
     }
 
     /**
-     * Get the PCRE regex execution error.
+     * Get the PCRE regex execution error code.
      *
-     * @return string
+     * @return int
      */
-    public function getPregErrorCode(): string
+    public function getPregErrorCode(): int
     {
         return $this->preg_error_code;
     }
 
-    public function getPregErrorName()
+    /**
+     * Get the PCRE regex execution error name.
+     *
+     * @return string
+     */
+    public function getPregErrorName(): string
     {
-        return array_flip(get_defined_constants(true)['pcre'])[$this->preg_error_code];
+        return $this->preg_error_name;
+    }
+
+    /**
+     * Translate the PCRE execution regex error code.
+     *
+     * @param int $preg_error_code
+     *
+     * @return string
+     */
+    protected function translatePregErrorCode(int $preg_error_code): string
+    {
+        $pcre_constants = get_defined_constants(true)['pcre'];
+
+        return @array_flip($pcre_constants)[$preg_error_code];
     }
 }
