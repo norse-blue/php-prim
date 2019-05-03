@@ -9,7 +9,7 @@ use function NorseBlue\Prim\string;
 class StringSlugExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $separator = '-', string|StringObject|null $language = 'en')
+     * @return callable(string|StringObject $separator = '-', string|StringObject|null $language = 'en'): StringObject
      */
     public function __invoke(): callable
     {

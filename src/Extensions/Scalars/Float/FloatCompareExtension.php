@@ -15,7 +15,7 @@ use function NorseBlue\Prim\float;
 class FloatCompareExtension extends FloatObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject|float|FloatObject $number)
+     * @return callable(int|IntObject|float|FloatObject $number): FloatObject
      */
     public function __invoke(): callable
     {

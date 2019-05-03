@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringUpperExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable()
+     * @return callable(): StringObject
      */
     public function __invoke(): callable
     {

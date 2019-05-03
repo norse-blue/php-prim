@@ -17,7 +17,7 @@ use function NorseBlue\Prim\int;
 class StringCompareExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false)
+     * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false): IntObject
      */
     public function __invoke(): callable
     {

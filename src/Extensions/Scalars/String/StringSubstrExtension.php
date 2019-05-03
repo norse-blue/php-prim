@@ -15,7 +15,7 @@ use function NorseBlue\Prim\string;
 class StringSubstrExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject $start, int|IntObject|null $length = null)
+     * @return callable(int|IntObject $start, int|IntObject|null $length = null): StringObject
      */
     public function __invoke(): callable
     {

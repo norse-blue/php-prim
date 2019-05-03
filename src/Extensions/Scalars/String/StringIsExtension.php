@@ -15,7 +15,7 @@ use function NorseBlue\Prim\bool;
 class StringIsExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject|array $patterns)
+     * @return callable(string|StringObject|array $patterns): BoolObject
      */
     public function __invoke(): callable
     {

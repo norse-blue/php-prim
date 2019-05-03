@@ -14,7 +14,7 @@ use NorseBlue\Prim\Scalars\StringObject;
 class StringEqualsExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false)
+     * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false): BoolObject
      */
     public function __invoke(): callable
     {
