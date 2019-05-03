@@ -19,6 +19,8 @@ class StringRegexQuoteExtension extends StringObject implements ExtensionMethod
          * @param string|StringObject|null $delimiter
          *
          * @return \NorseBlue\Prim\Scalars\StringObject
+         *
+         * @see https://www.php.net/manual/en/function.preg-quote.php
          */
         return function ($delimiter = null): StringObject {
             return string(preg_quote($this->object_value, self::unwrap($delimiter)));
