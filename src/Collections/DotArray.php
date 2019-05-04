@@ -133,10 +133,8 @@ class DotArray extends ValueObject implements DotArrayAccess
     }
 
     /**
-     * Traverse the array using dot-notation and execute a callback
-     * on the found item.
-     *
-     * The callback is passed this params in this order: $item, $parent, $key_part, $full_key
+     * Traverse the array using dot-notation and execute the given callback.
+     *Callback signature: mixed callable($item, $parent, $key_part, $full_key)
      *
      * @param string $key
      * @param \Closure|null $callback
