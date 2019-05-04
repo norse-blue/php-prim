@@ -3,7 +3,7 @@
 namespace NorseBlue\Prim\Tests\Unit\Scalars\String;
 
 use Exception;
-use NorseBlue\Prim\Extensions\Scalars\String\Exceptions\RegexMatchException;
+use NorseBlue\Prim\Scalars\Extensions\String\Exceptions\RegexMatchException;
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
