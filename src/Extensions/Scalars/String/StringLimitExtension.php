@@ -15,7 +15,7 @@ use function NorseBlue\Prim\string;
 class StringLimitExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject $limit = 100, string|StringObject $end = '...')
+     * @return callable(int|IntObject $limit = 100, string|StringObject $end = '...'): StringObject
      */
     public function __invoke(): callable
     {

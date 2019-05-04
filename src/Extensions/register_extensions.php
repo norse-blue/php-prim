@@ -7,6 +7,9 @@ use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\StringObject;
 
+/**
+ * @codeCoverageIgnore
+ */
 (static function () {
     $extensible_classes = [
         BoolObject::class,

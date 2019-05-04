@@ -45,6 +45,9 @@ There are three ways to create a primitive object data type instance
     ```
     
 2. Using the facades:
+
+    _**Note:** params passed by reference are not supported in facades because the calls depend on `__callStatic`,
+        which does not pass params by reference. See [Overloading][php_overloading_url]._
     
     ```php
     use NorseBlue\Prim\Facades\Scalar\StringFacade as Str;
@@ -92,7 +95,8 @@ Please refer to the [CHANGELOG.md](CHANGELOG.md) file for more information about
 
 ## Contributing
 
-Contributions to this project are accepted and encouraged. Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md) file for details on contributions.
+Contributions to this project are accepted and encouraged. Please read the [CONTRIBUTING.md](.github/CONTRIBUTING.md)
+file for details on contributions.
 
 ## Credits
 
@@ -101,14 +105,19 @@ Contributions to this project are accepted and encouraged. Please read the [CONT
 
 ## Security
 
-If you discover any security related issues, please email [security@norse.blue](mailto:security@norse.blue) instead of using the issue tracker.
+If you discover any security related issues, please email [security@norse.blue](mailto:security@norse.blue) instead
+of using the issue tracker.
 
 ## Support the development
 
 **Do you like this project? Support it by donating**
 
-<a href="https://www.buymeacoffee.com/axelitus"><img src=".assets/buy-me-a-coffee.svg" width="180" alt="Buy me a coffee"></img></a>
+<a href="https://www.buymeacoffee.com/axelitus">
+    <img src=".assets/buy-me-a-coffee.svg" width="180" alt="Buy me a coffee" />
+</a>
 
 ## License
 
 PHP Prim is open-sourced software licensed under the [MIT](LICENSE.md) license.
+
+[php_overloading_url]: https://www.php.net/manual/en/language.oop5.overloading.php

@@ -15,7 +15,7 @@ use function NorseBlue\Prim\string;
 class StringAsciiExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $language = 'en')
+     * @return callable(string|StringObject $language = 'en'): StringObject
      */
     public function __invoke(): callable
     {

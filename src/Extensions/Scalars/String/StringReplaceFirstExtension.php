@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringReplaceFirstExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $search, string|StringObject $replace)
+     * @return callable(string|StringObject $search, string|StringObject $replace): StringObject
      */
     public function __invoke(): callable
     {

@@ -14,7 +14,7 @@ use function NorseBlue\Prim\bool;
 class BoolAndExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools)
+     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools): BoolObject
      */
     public function __invoke(): callable
     {
@@ -37,8 +37,8 @@ class BoolAndExtension extends BoolObject implements ExtensionMethod
                     return bool(false);
                 }
 
-                if (is_array($bool) && bool(array_shift($bool))->and(...$bool)->value === false) {
-                    return bool(false);
+                if (is_array($bool)) {
+                    return bool(array_shift($bool))->and(...$bool);
                 }
             }
 

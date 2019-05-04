@@ -14,7 +14,7 @@ use function NorseBlue\Prim\bool;
 class BoolXorExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools)
+     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools): BoolObject
      */
     public function __invoke(): callable
     {

@@ -13,7 +13,7 @@ use NorseBlue\Prim\Scalars\StringObject;
 class StringKebabExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable()
+     * @return callable(): StringObject
      */
     public function __invoke(): callable
     {

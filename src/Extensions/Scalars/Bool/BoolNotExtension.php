@@ -14,7 +14,7 @@ use function NorseBlue\Prim\bool;
 class BoolNotExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable()
+     * @return callable(): BollObject
      */
     public function __invoke(): callable
     {

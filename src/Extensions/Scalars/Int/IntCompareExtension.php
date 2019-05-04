@@ -15,7 +15,7 @@ use function NorseBlue\Prim\int;
 class IntCompareExtension extends IntObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject|float|FloatObject $number)
+     * @return callable(int|IntObject|float|FloatObject $number): IntObject
      */
     public function __invoke(): callable
     {

@@ -14,9 +14,11 @@ Please be considerate towards maintainers when raising issues or presenting pull
 world that developers are civilized and selfless people.
 
 It's the duty of the maintainer to ensure that all submissions to the project are of sufficient
-quality to benefit the project. Many developers have different skill sets, strengths, and weaknesses. Respect the maintainer's decision, and do not be upset or abusive if your submission is not used.
+quality to benefit the project. Many developers have different skill sets, strengths, and weaknesses.
+Respect the maintainer's decision, and do not be upset or abusive if your submission is not used.
 
-Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
+Please note that this project is released with a [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
 
 ## Viability
 
@@ -42,16 +44,24 @@ Before submitting a pull request:
 
 If the project maintainer has any additional requirements, you will find them listed here.
 
-- **[PSR-2 Coding Standard](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md)** - The easiest way to apply the conventions is to install [PHP Code Sniffer](https://github.com/squizlabs/PHP_CodeSniffer).
+- **[PSR-2 Coding Standard][php_psr2_url]** - The easiest way to apply the conventions is to install
+  [PHP Code Sniffer][php_code_sniffer_url].
 
 - **Add tests!** - Your patch won't be accepted if it doesn't have tests.
 
-- **Document any change in behavior** - Make sure the `README.md` and any other relevant documentation are kept up-to-date.
+- **Document any change in behavior** - Make sure the `README.md` and any other relevant documentation are
+  kept up-to-date.
 
-- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/). Randomly breaking public APIs is not an option.
+- **Consider our release cycle** - We try to follow [SemVer v2.0.0](http://semver.org/).
+  Randomly breaking public APIs is not an option.
 
 - **One pull request per feature** - If you want to do more than one thing, send multiple pull requests.
 
-- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had to make multiple intermediate commits while developing, please [squash them](http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages) before submitting.
+- **Send coherent history** - Make sure each individual commit in your pull request is meaningful. If you had
+  to make multiple intermediate commits while developing, please [squash them][git_squash_url] before submitting.
 
 **Happy coding**!
+
+[php_psr2_url]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
+[php_code_sniffer_url]: https://github.com/squizlabs/PHP_CodeSniffer
+[git_squash_url]: http://www.git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Changing-Multiple-Commit-Messages
