@@ -1,5 +1,5 @@
 <div align="center">
-  <img src=".assets/prim-logo.png">
+  <h1>PHP Primitive Objects</h1>
   <p align="center"> 
     <a href="https://circleci.com/gh/norse-blue/php-prim/tree/master"><img alt="Build Status" src="https://img.shields.io/circleci/project/github/norse-blue/php-prim/master.svg?color=%23a3be8c&style=popout-square"></a>
     <a href="https://php.net/releases"><img alt="PHP Version" src="https://img.shields.io/packagist/php-v/norse-blue/prim.svg?color=%23b48ead&style=popout-square"></a>
@@ -12,7 +12,7 @@
 </div>
 <hr>
 
-**PHP Prim** is a PHP library that exposes primitive object data types for your convenience.
+**PHP Prim** is a PHP library that exposes primitive types as immutable objects with convenience methods to operate on them.
 
 ## Installation
 
@@ -30,7 +30,7 @@ composer require norse-blue/prim
 
 ## Usage
 
-There are three ways to create a primitive object data type instance
+There are three ways to create a primitive object instance:
 
 1. Using the `new` keyword:
 

@@ -1,7 +1,7 @@
 {
     "name": "norse-blue/prim",
-    "description": "PHP Prim: Primitive Object Data Types",
-    "keywords": ["primitive", "data", "data-types"],
+    "description": "PHP Primitive Objects",
+    "keywords": ["primitive", "data", "data-types", "object", "scalars"],
     "homepage": "https://norse.blue/open-source/php-prim",
     "license": "MIT",
     "support": {
