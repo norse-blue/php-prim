@@ -1,6 +1,6 @@
 <?php
 
-namespace NorseBlue\Prim\Scalars\Extensions\String\Exceptions;
+namespace NorseBlue\Prim\Exceptions\Scalars\String;
 
 use RuntimeException;
 use Throwable;

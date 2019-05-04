@@ -3,7 +3,7 @@
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
-use NorseBlue\Prim\Scalars\Extensions\String\Exceptions\RegexMatchException;
+use NorseBlue\Prim\Exceptions\Scalars\String\RegexMatchException;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\StringObject;
 
@@ -27,7 +27,7 @@ class StringRegexMatchesExtension extends StringObject implements ExtensionMetho
          *
          * @return array
          *
-         * @throws \NorseBlue\Prim\Scalars\Extensions\String\Exceptions\RegexMatchException
+         * @throws \NorseBlue\Prim\Exceptions\Scalars\String\RegexMatchException
          * @see https://www.php.net/manual/en/function.preg-match.php
          */
         return function ($pattern, $flags = 0): array {
