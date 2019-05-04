@@ -14,7 +14,7 @@ use function NorseBlue\Prim\int;
 class IntAbsExtension extends IntObject implements ExtensionMethod
 {
     /**
-     * @return callable()
+     * @return callable(): IntObject
      */
     public function __invoke(): callable
     {

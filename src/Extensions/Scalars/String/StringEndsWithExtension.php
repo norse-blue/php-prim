@@ -16,7 +16,7 @@ use function NorseBlue\Prim\string;
 class StringEndsWithExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject|array $needles)
+     * @return callable(string|StringObject|array $needles): BoolObject
      */
     public function __invoke(): callable
     {

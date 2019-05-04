@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringBeforeExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $search)
+     * @return callable(string|StringObject $search): StringObject
      */
     public function __invoke(): callable
     {

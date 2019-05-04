@@ -152,7 +152,6 @@ class DotArray extends ValueObject implements DotArrayAccess
         $array = &$this->object_value;
         $key_part = '';
 
-        //$callback = ($callback) ? $callback->bindTo($this) : null;
         foreach (explode('.', $key) as $key_part) {
             if (trim($key_part) === '') {
                 continue;

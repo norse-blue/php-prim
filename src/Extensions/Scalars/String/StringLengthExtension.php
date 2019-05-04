@@ -15,7 +15,7 @@ use function NorseBlue\Prim\int;
 class StringLengthExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $encoding = null)
+     * @return callable(string|StringObject $encoding = null): IntObject
      */
     public function __invoke(): callable
     {

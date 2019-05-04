@@ -18,38 +18,38 @@ use function NorseBlue\Prim\string;
  *
  * @property string $value
  *
- * @method self after(string|self $search)
- * @method self ascii(string|self $language = 'en')
- * @method self before(string|self $search)
- * @method self camel()
- * @method IntObject compare(string|self $string, bool $case_insensitive = false)
- * @method self concat(string|self ...$strings)
- * @method BoolObject contains(string|self|array $needles)
- * @method BoolObject endsWith(string|self|array $needles)
- * @method BoolObject equals(string|self $string, bool $case_insensitive = false)
- * @method self finish(string|self $cap)
- * @method self is(string|self|array $patterns)
- * @method self kebab()
- * @method self lcfirst()
- * @method IntObject length(string|self $encoding = null)
- * @method self limit(int $limit = 100, string|self $end = '...')
- * @method self lower()
- * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0)
- * @method self regexQuote(string|self $delimiter = '#')
- * @method self replace(string|StringObject $search, string|StringObject $replace)
- * @method self replaceArray(string|self $search, string[]|self[] $replace)
- * @method self replaceFirst(string|self $search, string|self $replace)
- * @method self replaceLast(string|self $search, string|self $replace)
- * @method self slug(string|self $separator = '-', string|self|null $language = 'en')
- * @method self snake(string|self $delimiter = '_')
- * @method self start(string|self $prefix)
- * @method BoolObject startsWith(string|self|array $needles)
- * @method self studly()
- * @method self substr(int $start, int|null $length = null)
- * @method self title()
- * @method self ucfirst()
- * @method self upper()
- * @method self words(int $words = 100, string|self $end = '...')
+ * @method self after(string|self $search) From extension method StringAfterExtension
+ * @method self ascii(string|self $language = 'en') From extension method StringAsciiExtension
+ * @method self before(string|self $search) From extension method StringBeforeExtension
+ * @method self camel() From extension method StringCamelExtension
+ * @method IntObject compare(string|self $string, bool $case_insensitive = false) From extension method StringCompareExtension
+ * @method self concat(string|self ...$strings) From extension method StringConcatExtension
+ * @method BoolObject contains(string|self|array $needles) From extension method StringContainsExtension
+ * @method BoolObject endsWith(string|self|array $needles) From extension method StringEndsWithExtension
+ * @method BoolObject equals(string|self $string, bool $case_insensitive = false) From extension method StringEqualsExtension
+ * @method self finish(string|self $cap) From extension method StringFinishExtension
+ * @method self is(string|self|array $patterns) From extension method StringIsExtension
+ * @method self kebab() From extension method StringKebabExtension
+ * @method self lcfirst() From extension method StringLcfirstExtension
+ * @method IntObject length(string|self $encoding = null) From extension method StringLengthExtension
+ * @method self limit(int $limit = 100, string|self $end = '...') From extension method StringLimitExtension
+ * @method self lower() From extension method StringLowerExtension
+ * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) From extension method StringRegexMatchesExtension
+ * @method self regexQuote(string|self $delimiter = '#') From extension method StringRegexQuoteExtension
+ * @method self replace(string|StringObject $search, string|StringObject $replace) From extension method StringReplaceExtension
+ * @method self replaceArray(string|self $search, string[]|self[] $replace) From extension method StringReplaceArrayExtension
+ * @method self replaceFirst(string|self $search, string|self $replace) From extension method StringReplaceFirstExtension
+ * @method self replaceLast(string|self $search, string|self $replace) From extension method StringReplaceLastExtension
+ * @method self slug(string|self $separator = '-', string|self|null $language = 'en') From extension method StringSlugExtension
+ * @method self snake(string|self $delimiter = '_') From extension method StringSnakeExtension
+ * @method self start(string|self $prefix) From extension method StringStartExtension
+ * @method BoolObject startsWith(string|self|array $needles) From extension method StringStartsWithExtension
+ * @method self studly() From extension method StringStudlyExtension
+ * @method self substr(int $start, int|null $length = null) From extension method StringSubstrExtension
+ * @method self title() From extension method StringTitleExtension
+ * @method self ucfirst() From extension method StringUcfirstExtension
+ * @method self upper() From extension method StringUpperExtension
+ * @method self words(int $words = 100, string|self $end = '...') From extension method StringWordsExtension
  */
 class StringObject extends ImmutableValueObject implements Countable
 {

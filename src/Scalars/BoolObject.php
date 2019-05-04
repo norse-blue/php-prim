@@ -9,11 +9,11 @@ use NorseBlue\Prim\ImmutableValueObject;
  *
  * @package NorseBlue\Prim\Scalars
  *
- * @method self and (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolAndExtension
- * @method self equals(bool|self $bool) ExtensionMethod BoolEqualsExtension
- * @method self not() ExtensionMethod BoolNotExtension
- * @method self or (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolOrExtension
- * @method self xor (bool|self|bool[]|self[] ...$bools) ExtensionMethod BoolXorExtension
+ * @method self and (bool|self|bool[]|self[] ...$bools) From extension method BoolAndExtension
+ * @method self equals(bool|self $bool) From extension method BoolEqualsExtension
+ * @method self not() From extension method BoolNotExtension
+ * @method self or (bool|self|bool[]|self[] ...$bools) From extension method BoolOrExtension
+ * @method self xor (bool|self|bool[]|self[] ...$bools) From extension method BoolXorExtension
  */
 class BoolObject extends ImmutableValueObject
 {

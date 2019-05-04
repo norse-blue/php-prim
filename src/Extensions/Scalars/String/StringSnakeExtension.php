@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringSnakeExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $delimiter)
+     * @return callable(string|StringObject $delimiter): StringObject
      */
     public function __invoke(): callable
     {

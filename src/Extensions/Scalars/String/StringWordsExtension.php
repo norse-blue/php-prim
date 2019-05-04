@@ -15,7 +15,7 @@ use function NorseBlue\Prim\string;
 class StringWordsExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject $words = 100, string|StringObject $end = '...')
+     * @return callable(int|IntObject $words = 100, string|StringObject $end = '...'): StringObject
      */
     public function __invoke(): callable
     {

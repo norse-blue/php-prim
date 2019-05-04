@@ -20,6 +20,7 @@
     </rule>
     <rule ref="Generic.Files.LineLength.TooLong">
         <exclude-pattern>./src/Facades/Scalars/StringFacade.php</exclude-pattern>
+        <exclude-pattern>./src/Scalars/StringObject.php</exclude-pattern>
         <exclude-pattern>./src/Support/Character.php</exclude-pattern>
     </rule>
 

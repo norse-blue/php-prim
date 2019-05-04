@@ -9,8 +9,8 @@ use NorseBlue\Prim\ImmutableValueObject;
  *
  * @package NorseBlue\Prim\Scalars
  *
- * @method self compare(int|IntObject|float|FloatObject $number) ExtensionMethod IntCompareExtension
- * @method BoolObject equals(int|IntObject|float|FloatObject $number) ExtensionMethod IntEqualsExtension
+ * @method self compare(int|IntObject|float|FloatObject $number) From extension method IntCompareExtension
+ * @method BoolObject equals(int|IntObject|float|FloatObject $number) From extension method IntEqualsExtension
  */
 class IntObject extends ImmutableValueObject
 {

@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringFinishExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $cap)
+     * @return callable(string|StringObject $cap): StringObject
      */
     public function __invoke(): callable
     {

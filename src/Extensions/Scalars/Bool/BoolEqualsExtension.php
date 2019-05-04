@@ -14,7 +14,7 @@ use function NorseBlue\Prim\bool;
 class BoolEqualsExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable(bool|BoolObject $bool)
+     * @return callable(bool|BoolObject $bool): BoolObject
      */
     public function __invoke(): callable
     {

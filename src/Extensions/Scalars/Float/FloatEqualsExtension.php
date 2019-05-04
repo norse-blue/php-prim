@@ -16,7 +16,7 @@ use function NorseBlue\Prim\bool;
 class FloatEqualsExtension extends FloatObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject|float|FloatObject $number)
+     * @return callable(int|IntObject|float|FloatObject $number): BoolObject
      */
     public function __invoke(): callable
     {

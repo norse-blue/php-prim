@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
 class StringConcatExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject ...$strings)
+     * @return callable(string|StringObject ...$strings): StringObject
      */
     public function __invoke(): callable
     {
