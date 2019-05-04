@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>PHP Primitive Objects</h1>
+  <h1>PHP Prim</h1>
+  <h2>Primitive Objects</h2>
   <p align="center"> 
     <a href="https://circleci.com/gh/norse-blue/php-prim/tree/master"><img alt="Build Status" src="https://img.shields.io/circleci/project/github/norse-blue/php-prim/master.svg?color=%23a3be8c&style=popout-square"></a>
     <a href="https://php.net/releases"><img alt="PHP Version" src="https://img.shields.io/packagist/php-v/norse-blue/prim.svg?color=%23b48ead&style=popout-square"></a>
