@@ -5,7 +5,6 @@ namespace NorseBlue\Prim\Facades;
 use BadMethodCallException;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
 use NorseBlue\Prim\ValueObject;
-use RuntimeException;
 
 /**
  * Class ValueObjectFacade
@@ -41,9 +40,29 @@ abstract class ValueObjectFacade
     final public static function __callStatic(string $method, array $arguments)
     {
         $class = static::$class;
+        self::validateFacadeClass($class);
+        self::validateFacadeMethod($class, $method);
 
+        if (in_array($method, array_merge(self::$statics, static::$statics), true)) {
+            return $class::$method(...$arguments);
+        }
+
+        return (new $class(array_shift($arguments)))->$method(...$arguments);
+    }
+
+    // endregion Magic Methods
+
+    /**
+     * Validate the facade class.
+     *
+     * @param string $class
+     *
+     * @throws \NorseBlue\Prim\Exceptions\InvalidFacadeClassException
+     */
+    final protected static function validateFacadeClass(string $class): void
+    {
         if (!is_string($class) || $class === '' || !class_exists($class)) {
-            throw new RuntimeException('A valid facade class has not been set.');
+            throw new InvalidFacadeClassException('A valid facade class has not been set.');
         }
 
         if (!is_subclass_of($class, ValueObject::class)) {
@@ -51,20 +70,19 @@ abstract class ValueObjectFacade
                 sprintf('The class %s does not extend class %s.', $class, ValueObject::class)
             );
         }
+    }
 
+    /**
+     * Validate the facade method.
+     *
+     * @param string $class
+     * @param string $method
+     */
+    final protected static function validateFacadeMethod(string $class, string $method): void
+    {
         /** @var ValueObject $class */
         if (!method_exists($class, $method) && !$class::hasExtensionMethod($method)) {
             throw new BadMethodCallException("The method $method does not exist for class $class.");
         }
-
-        if (in_array($method, array_merge(self::$statics, static::$statics), true)) {
-            return $class::$method(...$arguments);
-        }
-
-        $value = array_shift($arguments);
-
-        return (new $class($value))->$method(...$arguments);
     }
-
-    // endregion Magic Methods
 }
