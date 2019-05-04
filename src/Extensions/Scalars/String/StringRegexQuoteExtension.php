@@ -9,7 +9,7 @@ use function NorseBlue\Prim\string;
 class StringRegexQuoteExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(): StringObject
+     * @return callable(string|StringObject|null $delimiter = null): StringObject
      */
     public function __invoke(): callable
     {
