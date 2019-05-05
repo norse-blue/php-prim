@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars\Int;
 use NorseBlue\Prim\Facades\Scalars\IntFacade as Integer;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class IntCompareTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\Int
+ */
 class IntCompareTest extends TestCase
 {
     /** @test */

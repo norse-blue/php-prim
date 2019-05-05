@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars\Int;
 use NorseBlue\Prim\Facades\Scalars\FloatFacade as Floating;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class FloatEqualsTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\Int
+ */
 class FloatEqualsTest extends TestCase
 {
     /** @test */

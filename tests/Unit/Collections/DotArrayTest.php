@@ -7,6 +7,11 @@ use NorseBlue\Prim\Collections\DotArray;
 use NorseBlue\Prim\Tests\TestCase;
 use RuntimeException;
 
+/**
+ * Class DotArrayTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Collections
+ */
 class DotArrayTest extends TestCase
 {
     /** @test */

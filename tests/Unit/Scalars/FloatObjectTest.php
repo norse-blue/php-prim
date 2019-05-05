@@ -7,6 +7,11 @@ use NorseBlue\Prim\Exceptions\InvalidValueException;
 use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class FloatObjectTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars
+ */
 class FloatObjectTest extends TestCase
 {
     /** @test */
