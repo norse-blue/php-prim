@@ -31,6 +31,7 @@ use function NorseBlue\Prim\string;
  * @method self is(string|self|array $patterns) From extension method StringIsExtension
  * @method self kebab() From extension method StringKebabExtension
  * @method self lcfirst() From extension method StringLcfirstExtension
+ * @method self left(int|IntObject $length) From extension method StringLeftExtension
  * @method IntObject length(string|self $encoding = null) From extension method StringLengthExtension
  * @method self limit(int $limit = 100, string|self $end = '...') From extension method StringLimitExtension
  * @method self lower() From extension method StringLowerExtension
@@ -40,6 +41,7 @@ use function NorseBlue\Prim\string;
  * @method self replaceArray(string|self $search, string[]|self[] $replace) From extension method StringReplaceArrayExtension
  * @method self replaceFirst(string|self $search, string|self $replace) From extension method StringReplaceFirstExtension
  * @method self replaceLast(string|self $search, string|self $replace) From extension method StringReplaceLastExtension
+ * @method self right(int|IntObject $length) From extension method StringLeftExtension
  * @method self slug(string|self $separator = '-', string|self|null $language = 'en') From extension method StringSlugExtension
  * @method self snake(string|self $delimiter = '_') From extension method StringSnakeExtension
  * @method self start(string|self $prefix) From extension method StringStartExtension
