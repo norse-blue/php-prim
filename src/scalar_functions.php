@@ -14,7 +14,7 @@ if (!function_exists('bool')) {
     /**
      * Create a new BoolObject.
      *
-     * @param bool $value
+     * @param bool|BoolObject $value
      *
      * @return \NorseBlue\Prim\Scalars\BoolObject
      */
@@ -31,7 +31,7 @@ if (!function_exists('float')) {
     /**
      * Create a new FloatObject.
      *
-     * @param float $value
+     * @param float|FloatObject|int|IntObject $value
      *
      * @return \NorseBlue\Prim\Scalars\FloatObject
      */
@@ -48,7 +48,7 @@ if (!function_exists('int')) {
     /**
      * Create a new IntObject.
      *
-     * @param int $value
+     * @param int|IntObject $value
      *
      * @return \NorseBlue\Prim\Scalars\IntObject
      */
