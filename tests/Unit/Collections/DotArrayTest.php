@@ -4,6 +4,7 @@ namespace NorseBlue\Prim\Tests\Unit\Collections;
 
 use Exception;
 use NorseBlue\Prim\Collections\DotArray;
+use function NorseBlue\Prim\dotarr;
 use NorseBlue\Prim\Tests\TestCase;
 use RuntimeException;
 
@@ -19,7 +20,15 @@ class DotArrayTest extends TestCase
     {
         $arr = new DotArray;
 
-        $this->assertEquals([], $arr->value);
+        $this->assertEquals([], $arr->all());
+    }
+
+    /** @test */
+    public function dot_array_can_be_created_with_function()
+    {
+        $arr = dotarr();
+
+        $this->assertEquals([], $arr->all());
     }
 
     /** @test */
@@ -42,14 +51,14 @@ class DotArrayTest extends TestCase
         ]);
 
         // create
-        $arr = new DotArray($original);
+        $arr = dotarr($original);
 
         // set
         $arr->set('j', 'value of j');
         $arr['k'] = 'value of k';
 
         // has, get
-        $this->assertEquals($output, $arr->value);
+        $this->assertEquals($output, $arr->all());
         $this->assertTrue($arr->has('a'));
         $this->assertTrue(isset($arr['a']));
         $this->assertEquals('value of a', $arr->get('a'));
@@ -105,7 +114,7 @@ class DotArrayTest extends TestCase
 
         // clear
         $arr->clear();
-        $this->assertEquals([], $arr->value);
+        $this->assertEquals([], $arr->all());
     }
 
     /** @test */
@@ -134,14 +143,14 @@ class DotArrayTest extends TestCase
         $output['a']['b']['c']['d']['e']['f']['g']['h']['i'] = ['j' => ['k' => 'value of k']];
 
         // create
-        $arr = new DotArray($original);
+        $arr = dotarr($original);
 
         // set
         $arr->set('a.b.c.d.e.f.g.h.i.j', 'value of j');
         $arr['a.b.c.d.e.f.g.h.i.j.k'] = 'value of k';
 
         // has, get
-        $this->assertEquals($output, $arr->value);
+        $this->assertEquals($output, $arr->all());
         $this->assertTrue($arr->has('a'));
         $this->assertTrue(isset($arr['a']));
         $this->assertEquals($output['a'], $arr->get('a'));
@@ -212,37 +221,22 @@ class DotArrayTest extends TestCase
 
         // clear
         $arr->clear();
-        $this->assertEquals([], $arr->value);
+        $this->assertEquals([], $arr->all());
     }
 
     /** @test */
-    public function it_converts_dot_array_to_json_when_casting_as_string()
+    public function dot_array_converts_to_json()
     {
         $original = ['a' => 'value of a', 'b' => ['c' => ['d' => ' value of a.b.c.d']]];
-        $arr = new DotArray($original);
+        $arr = dotarr($original);
 
-        $this->assertEquals($original, json_decode((string)$arr, true));
-    }
-
-    /** @test */
-    public function throws_an_exception_when_setting_dot_array_value_directly()
-    {
-        $arr = new DotArray;
-
-        try {
-            $arr->value = 'whatever';
-        } catch (Exception $e) {
-            $this->assertInstanceOf(RuntimeException::class, $e);
-            return;
-        }
-
-        $this->fail(RuntimeException::class . ' was not thrown.');
+        $this->assertEquals($original, json_decode($arr->toJson(), true));
     }
 
     /** @test */
     public function dots_in_key_are_handled_correctly()
     {
-        $arr = new DotArray(['a' => 'value of a', 'b' => ['c' => ['d' => ' value of a.b.c.d']]]);
+        $arr = dotarr(['a' => 'value of a', 'b' => ['c' => ['d' => ' value of a.b.c.d']]]);
 
         $this->assertTrue($arr->has('b.c.d'));
         $this->assertTrue($arr->has('b...c.d'));
