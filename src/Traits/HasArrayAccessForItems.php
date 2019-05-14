@@ -79,6 +79,4 @@ trait HasArrayAccessForItems
     }
 
     //endregion ArrayAccess
-
-
 }
