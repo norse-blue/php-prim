@@ -28,3 +28,6 @@ parameters:
         -
             message: '~Call to an undefined method Exception::getPregError[a-zA-z0-9_\|\\]+\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/String/StringRegexMatchesTest.php
+        -
+            message: '~Parameter #1 \$key of method NorseBlue\\Prim\\Collections\\SimpleArray::set\(\) expects string, int given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Collections/SimpleArrayTest.php
