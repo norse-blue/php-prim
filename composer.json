@@ -38,7 +38,8 @@
     "autoload": {
         "files": [
             "src/register_extensions.php",
-            "src/scalar_functions.php"
+            "src/scalar_functions.php",
+            "src/collection_functions.php"
         ],
         "psr-4": {
             "NorseBlue\\Prim\\": "src/"
