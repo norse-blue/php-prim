@@ -33,6 +33,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject random(int $length = 16)
  * @method static array regexMatches(string|self $value, string|self $pattern, int|IntObject $flags = 0)
  * @method static StringObject regexQuote(string|self $value, string|self $delimiter = '#')
+ * @method static StringObject repeat(string|self $value, int|IntObject $times = 2)
  * @method static StringObject replace(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, string[]|StringObject[] $replace)
  * @method static StringObject replaceFirst(string|StringObject $value, string|StringObject $search, string|StringObject $replace)

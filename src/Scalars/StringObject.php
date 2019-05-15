@@ -37,6 +37,7 @@ use function NorseBlue\Prim\string;
  * @method self lower() From extension method StringLowerExtension
  * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) From extension method StringRegexMatchesExtension
  * @method self regexQuote(string|self $delimiter = '#') From extension method StringRegexQuoteExtension
+ * @method self repeat(int|IntObject $times = 2) From extension method StringRepeatExtension
  * @method self replace(string|StringObject $search, string|StringObject $replace) From extension method StringReplaceExtension
  * @method self replaceArray(string|self $search, string[]|self[] $replace) From extension method StringReplaceArrayExtension
  * @method self replaceFirst(string|self $search, string|self $replace) From extension method StringReplaceFirstExtension
