@@ -9,6 +9,7 @@ use NorseBlue\Prim\ImmutableValueObject;
  *
  * @package NorseBlue\Prim\Scalars
  *
+ * @method self abs() From extension method FloatAbsExtension
  * @method self compare(int|IntObject|float|FloatObject $number) From extension method FloatCompareExtension
  * @method BoolObject equals(int|IntObject|float|FloatObject $number) From extension method FloatEqualsExtension
  * @method BoolObject greaterThan(int|IntObject|float|FloatObject $number) From extension method FloatGreaterThanExtension
