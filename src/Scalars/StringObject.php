@@ -35,6 +35,7 @@ use function NorseBlue\Prim\string;
  * @method IntObject length(string|self $encoding = null) From extension method StringLengthExtension
  * @method self limit(int $limit = 100, string|self $end = '...') From extension method StringLimitExtension
  * @method self lower() From extension method StringLowerExtension
+ * @method self prefix(string|StringObject $prefix) From extension method StringPrefixExtension
  * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) From extension method StringRegexMatchesExtension
  * @method self regexQuote(string|self $delimiter = '#') From extension method StringRegexQuoteExtension
  * @method self repeat(int|IntObject $times = 2) From extension method StringRepeatExtension
@@ -49,6 +50,8 @@ use function NorseBlue\Prim\string;
  * @method BoolObject startsWith(string|self|array $needles) From extension method StringStartsWithExtension
  * @method self studly() From extension method StringStudlyExtension
  * @method self substr(int $start, int|null $length = null) From extension method StringSubstrExtension
+ * @method self suffix(string|StringObject $suffix) From extension method StringSuffixExtension
+ * @method self surround(string|StringObject $prefix, string|StringObject|null $suffix = null) From extension method StringSurroundExtension
  * @method self title() From extension method StringTitleExtension
  * @method self ucfirst() From extension method StringUcfirstExtension
  * @method self upper() From extension method StringUpperExtension
