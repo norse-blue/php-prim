@@ -4,7 +4,7 @@ namespace NorseBlue\Prim\Traits;
 
 trait HasArrayAccessForItems
 {
-    //region ===== ArrayAccess =====
+    // region === ArrayAccess ===
 
     /**
      * Whether a offset exists
@@ -78,5 +78,5 @@ trait HasArrayAccessForItems
         $this->delete($offset);
     }
 
-    //endregion ArrayAccess
+    // endregion ArrayAccess
 }

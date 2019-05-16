@@ -31,7 +31,7 @@ class SimpleArray implements ArrayAccess, Extensible, ItemContainer, Jsonable
         $this->items = (array)$items;
     }
 
-    //region ===== Jsonable =====
+    // region === Jsonable ===
 
     /**
      * @inheritDoc
@@ -41,5 +41,5 @@ class SimpleArray implements ArrayAccess, Extensible, ItemContainer, Jsonable
         return json_encode($this->items, $options, $depth);
     }
 
-    //endregion
+    // endregion
 }
