@@ -4,6 +4,7 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
+use function NorseBlue\Prim\int;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Tests\TestCase;
 
@@ -18,7 +19,7 @@ class IntObjectTest extends TestCase
     public function it_creates_a_default_int_object(): void
     {
         $int = new IntObject;
-        $int_wrap = new IntObject($int);
+        $int_wrap = int($int);
 
         $this->assertEquals(0, $int->value);
         $this->assertEquals(0, $int_wrap->value);
@@ -31,8 +32,8 @@ class IntObjectTest extends TestCase
     public function it_creates_a_int_object_with_value(): void
     {
         $int = new IntObject(9);
-        $int_wrap = new IntObject($int);
-        $int_float = new IntObject(9.3);
+        $int_wrap = int($int);
+        $int_float = int(9.3);
 
         $this->assertEquals(9, $int->value);
         $this->assertEquals(9, $int_wrap->value);

@@ -5,6 +5,7 @@ namespace NorseBlue\Prim;
 use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Scalars\IntObject;
+use NorseBlue\Prim\Scalars\NumericObject;
 use NorseBlue\Prim\Scalars\StringObject;
 
 /**
@@ -31,7 +32,7 @@ if (!function_exists('float')) {
     /**
      * Create a new FloatObject.
      *
-     * @param float|FloatObject|int|IntObject $value
+     * @param int|float|NumericObject $value
      *
      * @return \NorseBlue\Prim\Scalars\FloatObject
      */
@@ -54,6 +55,27 @@ if (!function_exists('int')) {
      */
     function int($value = 0): IntObject
     {
+        return new IntObject($value);
+    }
+}
+
+/**
+ * NumericObject helper function
+ */
+if (!function_exists('numeric')) {
+    /**
+     * Create a new NumericObject.
+     *
+     * @param int|float|NumericObject $value
+     *
+     * @return \NorseBlue\Prim\Scalars\NumericObject
+     */
+    function numeric($value = 0): NumericObject
+    {
+        if (is_float($value)) {
+            return new FloatObject($value);
+        }
+
         return new IntObject($value);
     }
 }

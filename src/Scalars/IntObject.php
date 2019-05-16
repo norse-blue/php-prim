@@ -6,14 +6,6 @@ namespace NorseBlue\Prim\Scalars;
  * Class IntObject
  *
  * @package NorseBlue\Prim\Scalars
- *
- * @method self abs() From extension method IntAbsExtension
- * @method self compare(int|IntObject|float|FloatObject $number) From extension method IntCompareExtension
- * @method BoolObject equals(int|IntObject|float|FloatObject $number) From extension method IntEqualsExtension
- * @method BoolObject greaterThan(int|IntObject|float|FloatObject $number) From extension method IntGreaterThanExtension
- * @method BoolObject greaterThanOrEqual(int|IntObject|float|FloatObject $number) From extension method IntGreaterThanOrEqualExtension
- * @method BoolObject lessThan(int|IntObject|float|FloatObject $number) From extension method IntLessThanExtension
- * @method BoolObject lessThanOrEqual(int|IntObject|float|FloatObject $number) From extension method IntLessThanOrEqualExtension
  */
 class IntObject extends NumericObject
 {
@@ -25,7 +17,7 @@ class IntObject extends NumericObject
     /**
      * IntObject constructor.
      *
-     * @param int|IntObject|float|FloatObject $value
+     * @param int|float|NumericObject $value
      */
     public function __construct($value = 0)
     {
