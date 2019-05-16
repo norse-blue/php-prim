@@ -2,6 +2,7 @@
 
 namespace NorseBlue\Prim;
 
+use NorseBlue\ExtensibleObjects\Contracts\Extensible;
 use NorseBlue\ExtensibleObjects\Traits\HandlesExtensionMethods;
 use NorseBlue\Prim\Contracts\ValueObject as ValueObjectContract;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
@@ -15,7 +16,7 @@ use NorseBlue\Prim\Traits\HasPropertyMutators;
  *
  * @property mixed $value
  */
-class ValueObject implements ValueObjectContract
+class ValueObject implements Extensible, ValueObjectContract
 {
     use HandlesExtensionMethods;
     use HasPropertyAccessors;
