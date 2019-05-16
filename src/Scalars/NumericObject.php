@@ -17,6 +17,9 @@ use NorseBlue\Prim\ImmutableValueObject;
  * @method BoolObject greaterThanOrEqual(int|float|NumericObject $number) From extension method NumericGreaterThanOrEqualExtension
  * @method BoolObject lessThan(int|float|NumericObject $number) From extension method NumericLessThanExtension
  * @method BoolObject lessThanOrEqual(int|float|NumericObject $number) From extension method NumericLessThanOrEqualExtension
+ * @method StringObject pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH) From extension method NumericPadExtension
+ * @method StringObject padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0') From extension method NumericPadLeftExtension
+ * @method StringObject padRight(int|IntObject $pad_length, string|StringObject $pad_string = '0') From extension method NumericPadRightExtension
  */
 class NumericObject extends ImmutableValueObject
 {
