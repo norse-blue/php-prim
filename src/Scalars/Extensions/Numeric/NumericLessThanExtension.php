@@ -1,29 +1,28 @@
 <?php
 
-namespace NorseBlue\Prim\Scalars\Extensions\Int;
+namespace NorseBlue\Prim\Scalars\Extensions\Numeric;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Scalars\BoolObject;
-use NorseBlue\Prim\Scalars\FloatObject;
-use NorseBlue\Prim\Scalars\IntObject;
+use NorseBlue\Prim\Scalars\NumericObject;
 use function NorseBlue\Prim\bool;
 
 /**
- * Class IntLessThanExtension
+ * Class NumericLessThanExtension
  *
- * @package NorseBlue\Prim\Scalars\Extensions\Int
+ * @package NorseBlue\Prim\Scalars\Extensions\Numeric
  */
-class IntLessThanExtension extends IntObject implements ExtensionMethod
+class NumericLessThanExtension extends NumericObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject|float|FloatObject $number): BoolObject
+     * @return callable(int|float|NumericObject $number): BoolObject
      */
     public function __invoke(): callable
     {
         /**
          * Check if the value is less than the given number.
          *
-         * @param int|IntObject|float|FloatObject $number
+         * @param int|float|NumericObject $number
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
          */

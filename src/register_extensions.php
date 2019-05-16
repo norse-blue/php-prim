@@ -5,6 +5,7 @@ namespace NorseBlue\Prim\Extensions;
 use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Scalars\IntObject;
+use NorseBlue\Prim\Scalars\NumericObject;
 use NorseBlue\Prim\Scalars\StringObject;
 
 /**
@@ -15,6 +16,7 @@ use NorseBlue\Prim\Scalars\StringObject;
         BoolObject::class,
         FloatObject::class,
         IntObject::class,
+        NumericObject::class,
         StringObject::class,
     ];
 
