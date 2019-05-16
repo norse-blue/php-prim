@@ -2,8 +2,6 @@
 
 namespace NorseBlue\Prim\Scalars;
 
-use NorseBlue\Prim\ImmutableValueObject;
-
 /**
  * Class FloatObject
  *
@@ -17,7 +15,7 @@ use NorseBlue\Prim\ImmutableValueObject;
  * @method BoolObject lessThan(int|IntObject|float|FloatObject $number) From extension method FloatLessThanExtension
  * @method BoolObject lessThanOrEqual(int|IntObject|float|FloatObject $number) From extension method FloatLessThanOrEqualExtension
  */
-class FloatObject extends ImmutableValueObject
+class FloatObject extends NumericObject
 {
     /** @inheritDoc */
     protected static $extensions = [];
@@ -36,14 +34,6 @@ class FloatObject extends ImmutableValueObject
         }
 
         parent::__construct($value);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    final public function valueIsValid($value): bool
-    {
-        return is_float($value) || is_int($value);
     }
 
     // endregion Overrides

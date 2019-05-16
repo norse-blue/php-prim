@@ -25,6 +25,7 @@
         <exclude-pattern>./src/Facades/Scalars/StringFacade.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/FloatObject.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/IntObject.php</exclude-pattern>
+        <exclude-pattern>./src/Scalars/NumericObject.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/StringObject.php</exclude-pattern>
         <exclude-pattern>./src/Support/Character.php</exclude-pattern>
     </rule>
