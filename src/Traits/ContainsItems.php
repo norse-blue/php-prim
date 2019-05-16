@@ -83,7 +83,7 @@ trait ContainsItems
         $this->items = [];
     }
 
-    //region ===== Countable =====
+    // region === Countable ===
 
     /**
      * Get the item count.
@@ -95,5 +95,5 @@ trait ContainsItems
         return count($this->items);
     }
 
-    //endregion
+    // endregion
 }

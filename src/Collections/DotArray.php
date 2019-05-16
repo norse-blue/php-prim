@@ -12,7 +12,7 @@ use NorseBlue\Prim\Contracts\DotArrayAccess;
  */
 class DotArray extends SimpleArray implements DotArrayAccess
 {
-    //region ===== Overrides =====
+    // region === Overrides ===
 
     /**
      * @inheritDoc
@@ -69,7 +69,7 @@ class DotArray extends SimpleArray implements DotArrayAccess
         });
     }
 
-    //endregion
+    // endregion
 
     /**
      * Traverse the array using dot-notation and execute the given callback.
@@ -114,7 +114,7 @@ class DotArray extends SimpleArray implements DotArrayAccess
         return ($callback) ? $callback($array, $parent, $key_part, $key) : array_key_exists($key_part, $parent);
     }
 
-    //region ===== DotArrayAccess =====
+    // region === DotArrayAccess ===
 
     /**
      * @inheritDoc
@@ -124,5 +124,5 @@ class DotArray extends SimpleArray implements DotArrayAccess
         return explode('.', $key);
     }
 
-    //endregion
+    // endregion
 }
