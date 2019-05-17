@@ -11,7 +11,7 @@ See the [UNRELEASED.md](.changelog/UNRELEASED.md) file to see the upcoming chang
 
 ## Current Release [0.0.1] - yyyy-MM-dd
 
-See the [CURRENT.md](.changelog/CURRENT.md) file for the changelog of the latest released version.
+See the [changelog](.changelog/UNRELEASED.md) file of the current release for the latest changes.
 
 ## Roadmap
 
