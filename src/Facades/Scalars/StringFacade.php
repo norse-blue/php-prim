@@ -3,6 +3,7 @@
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
+use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\StringObject;
 use Ramsey\Uuid\UuidInterface;
@@ -22,7 +23,6 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject endsWith(string|StringObject $value, string|StringObject|array $needles)
  * @method static StringObject equals(string|StringObject $value, string|StringObject $string, bool $case_insensitive = false)
  * @method static StringObject finish(string|StringObject $value, string|StringObject $cap)
- * @method static StringObject is(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject kebab(string|StringObject $value)
  * @method static StringObject lcfirst(string|StringObject $value)
  * @method static StringObject left(string|StringObject $value, int|IntObject $length)
@@ -36,6 +36,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject prefix(string|StringObject $value, string|StringObject $prefix)
  * @method static StringObject random(int $length = 16)
  * @method static array regexMatches(string|self $value, string|self $pattern, int|IntObject $flags = 0)
+ * @method static BoolObject regexPatternMatch(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject regexQuote(string|self $value, string|self $delimiter = '#')
  * @method static StringObject repeat(string|self $value, int|IntObject $times = 2)
  * @method static StringObject replace(string|StringObject $value, string|StringObject $search, string|StringObject $replace)

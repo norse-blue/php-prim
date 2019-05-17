@@ -9,11 +9,11 @@ use function NorseBlue\Prim\bool;
 use function NorseBlue\Prim\string;
 
 /**
- * Class StringIsExtension
+ * Class StringRegexPatternMatchExtension
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsExtension extends StringObject implements ExtensionMethod
+class StringRegexPatternMatchExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array $patterns): BoolObject
@@ -21,7 +21,7 @@ class StringIsExtension extends StringObject implements ExtensionMethod
     public function __invoke(): callable
     {
         /**
-         * Determine if a given string matches the given patterns.
+         * Determine if a given string matches at least one of the given patterns.
          *
          * @param string|StringObject|array $patterns
          *
