@@ -27,7 +27,7 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "moontoast/math": "^1.1",
-        "norse-blue/extensible-objects": "^0.1.0",
+        "norse-blue/extensible-objects": "^0.2.1",
         "ramsey/uuid": "^3.8"
     },
     "require-dev": {
