@@ -15,7 +15,7 @@ use NorseBlue\Prim\Scalars\StringObject;
 class StringRegexMatchesExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $pattern, array &$matches = []): array
+     * @return callable(string|StringObject $pattern, int|IntObject $flags = 0): array
      */
     public function __invoke(): callable
     {

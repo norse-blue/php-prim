@@ -30,7 +30,14 @@ use function NorseBlue\Prim\string;
  * @method BoolObject contains(string|self|array $needles) @see StringContainsExtension
  * @method BoolObject endsWith(string|self|array $needles) @see StringEndsWithExtension
  * @method BoolObject equals(string|self $string, bool $case_insensitive = false) @see StringEqualsExtension
+ * @method array explode(string|StringObject $delimiter, int|IntObject|null $limit = PHP_INT_MAX) @see StringExplodeExtension
  * @method self finish(string|self $cap) @see StringFinishExtension
+ * @method BoolObject isDomain(bool|BoolObject $is_hostname = false) @see StringIsDomainExtension
+ * @method BoolObject isEmail(bool|BoolObject $email_unicode = false) @see StringIsEmailExtension
+ * @method BoolObject isHostname() @see StringIsHostnameExtension
+ * @method BoolObject isIp(int|IntObject $flags = FILTER_FLAG_NONE) @see StringIsIpExtension
+ * @method BoolObject isMac(string|StringObject $separator = null) @see StringIsMacExtension
+ * @method BoolObject isUrl(int|IntObject $flags = FILTER_FLAG_NONE) @see StringIsUrlExtension
  * @method self kebab() @see StringKebabExtension
  * @method self lcfirst() @see StringLcfirstExtension
  * @method self left(int|IntObject $length) @see StringLeftExtension
@@ -40,16 +47,20 @@ use function NorseBlue\Prim\string;
  * @method self pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH) @see StringPadExtension
  * @method self padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see StringPadLeftExtension
  * @method self padRight(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see StringPadRightExtension
+ * @method self plural() @see StringPluralExtension
  * @method self prefix(string|StringObject $prefix) @see StringPrefixExtension
  * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) @see StringRegexMatchesExtension
  * @method BoolObject regexPatternMatch(string|self|array $patterns) @see StringRegexPatternMatchExtension
  * @method self regexQuote(string|self $delimiter = '#') @see StringRegexQuoteExtension
+ * @method self regexReplace(string|StringObject|string[]|StringObject[] $pattern, string|StringObject|string[]|StringObject[] $replacement, int|IntObject $limit = -1) @see StringRegexReplaceExtension
+ * @method self remove(string|StringObject|string[]|StringObject[] $remove) @see StringRemoveExtension
  * @method self repeat(int|IntObject $times = 2) @see StringRepeatExtension
  * @method self replace(string|StringObject $search, string|StringObject $replace) @see StringReplaceExtension
  * @method self replaceArray(string|self $search, string[]|self[] $replace) @see StringReplaceArrayExtension
  * @method self replaceFirst(string|self $search, string|self $replace) @see StringReplaceFirstExtension
  * @method self replaceLast(string|self $search, string|self $replace) @see StringReplaceLastExtension
  * @method self right(int|IntObject $length) @see StringLeftExtension
+ * @method self singular() @see StringSingularExtension
  * @method self slug(string|self $separator = '-', string|self|null $language = 'en') @see StringSlugExtension
  * @method self snake(string|self $delimiter = '_') @see StringSnakeExtension
  * @method self start(string|self $prefix) @see StringStartExtension
@@ -59,6 +70,10 @@ use function NorseBlue\Prim\string;
  * @method self suffix(string|StringObject $suffix) @see StringSuffixExtension
  * @method self surround(string|StringObject $prefix, string|StringObject|null $suffix = null) @see StringSurroundExtension
  * @method self title() @see StringTitleExtension
+ * @method self toggle(string[]|StringObject[] $options, bool|BoolObject $strict = false) @see StringToggleExtension
+ * @method self trim(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimExtension
+ * @method self trimLeft(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimLeftExtension
+ * @method self trimRight(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimRightExtension
  * @method self ucfirst() @see StringUcfirstExtension
  * @method self upper() @see StringUpperExtension
  * @method self words(int $words = 100, string|self $end = '...') @see StringWordsExtension
@@ -89,6 +104,34 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     }
 
     // endregion Overrides
+
+    /**
+     * Create a string from a number.
+     * You can provide a %d placeholder to insert the actual count into the final string.
+     *
+     * @param int|IntObject $count
+     * @param string|StringObject $many
+     * @param string|StringObject $one
+     * @param string|StringObject|null $zero
+     *
+     * @return \NorseBlue\Prim\Scalars\StringObject
+     */
+    public static function accord($count, $many, $one, $zero = null): StringObject
+    {
+        $count = IntObject::unwrap($count);
+
+        if ($count === 1) {
+            $output = $one;
+        } else {
+            if ($count === 0 and !empty($zero)) {
+                $output = $zero;
+            } else {
+                $output = $many;
+            }
+        }
+
+        return string(sprintf($output, $count));
+    }
 
     /**
      * Generate a time-ordered UUID (version 4).

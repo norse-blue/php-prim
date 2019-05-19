@@ -7,8 +7,8 @@ use NorseBlue\ExtensibleObjects\Contracts\Extensible;
 use NorseBlue\ExtensibleObjects\Traits\HandlesExtensionMethods;
 use NorseBlue\Prim\Contracts\ItemContainer;
 use NorseBlue\Prim\Contracts\Jsonable;
-use NorseBlue\Prim\Traits\HasArrayAccessForItems;
 use NorseBlue\Prim\Traits\ContainsItems;
+use NorseBlue\Prim\Traits\HasArrayAccessForItems;
 
 /**
  * Class SimpleArray

@@ -19,10 +19,15 @@
         <exclude-pattern>./tests/*</exclude-pattern>
     </rule>
     <rule ref="Generic.Files.LineLength.TooLong">
+        <exclude-pattern>./tests/*</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/BoolFacade.php</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/FloatFacade.php</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/IntFacade.php</exclude-pattern>
+        <exclude-pattern>./src/Facades/Scalars/NumericFacade.php</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/StringFacade.php</exclude-pattern>
+        <exclude-pattern>./src/Scalars/Extensions/Numeric/NumericPadExtension.php</exclude-pattern>
+        <exclude-pattern>./src/Scalars/Extensions/String/StringPadExtension.php</exclude-pattern>
+        <exclude-pattern>./src/Scalars/Extensions/String/StringRegexReplaceExtension.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/FloatObject.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/IntObject.php</exclude-pattern>
         <exclude-pattern>./src/Scalars/NumericObject.php</exclude-pattern>
