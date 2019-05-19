@@ -21,6 +21,5 @@ class StringToggleTest extends TestCase
         $this->assertEquals('two', Str::toggle('one', ['one', 'two', 'three'])->value);
         $this->assertEquals('three', Str::toggle('two', ['one', 'two', 'three'])->value);
         $this->assertEquals('one', Str::toggle('three', ['one', 'two', 'three'])->value);
-
     }
 }
