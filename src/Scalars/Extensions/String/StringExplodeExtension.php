@@ -6,6 +6,11 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\StringObject;
 
+/**
+ * Class StringExplodeExtension
+ *
+ * @package NorseBlue\Prim\Scalars\Extensions\String
+ */
 class StringExplodeExtension extends StringObject implements ExtensionMethod
 {
     /**
