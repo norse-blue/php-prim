@@ -2,8 +2,8 @@
 
 namespace NorseBlue\Prim\Scalars;
 
-use function NorseBlue\Prim\bool;
 use NorseBlue\Prim\ImmutableValueObject;
+use function NorseBlue\Prim\bool;
 
 /**
  * Class NumericObject
