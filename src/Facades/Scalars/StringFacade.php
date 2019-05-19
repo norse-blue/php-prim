@@ -13,6 +13,7 @@ use Ramsey\Uuid\UuidInterface;
  *
  * @package NorseBlue\Prim\Facades\Scalars
  *
+ * @method static StringObject accord(int|IntObject $count, string|StringObject $many, string|StringObject $one, string|StringObject|null $zero = null)
  * @method static StringObject after(string|StringObject $value, string|StringObject $search)
  * @method static StringObject ascii(string|StringObject $value, string|StringObject $language = 'en')
  * @method static StringObject before(string|StringObject $value, string|StringObject $search)
@@ -71,6 +72,7 @@ final class StringFacade extends ValueObjectFacade
 
     /** @inheritDoc */
     protected static $statics = [
+        'accord',
         'orderedUuid',
         'random',
         'uuid',

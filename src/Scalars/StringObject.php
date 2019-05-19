@@ -97,6 +97,34 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     // endregion Overrides
 
     /**
+     * Create a string from a number.
+     * You can provide a %d placeholder to insert the actual count into the final string.
+     *
+     * @param int|IntObject $count
+     * @param string|StringObject $many
+     * @param string|StringObject $one
+     * @param string|StringObject|null $zero
+     *
+     * @return \NorseBlue\Prim\Scalars\StringObject
+     */
+    public static function accord($count, $many, $one, $zero = null): StringObject
+    {
+        $count = IntObject::unwrap($count);
+
+        if ($count === 1) {
+            $output = $one;
+        } else {
+            if ($count === 0 and !empty($zero)) {
+                $output = $zero;
+            } else {
+                $output = $many;
+            }
+        }
+
+        return string(sprintf($output, $count));
+    }
+
+    /**
      * Generate a time-ordered UUID (version 4).
      *
      * @return \Ramsey\Uuid\UuidInterface
