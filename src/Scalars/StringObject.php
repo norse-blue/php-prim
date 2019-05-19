@@ -31,6 +31,12 @@ use function NorseBlue\Prim\string;
  * @method BoolObject endsWith(string|self|array $needles) @see StringEndsWithExtension
  * @method BoolObject equals(string|self $string, bool $case_insensitive = false) @see StringEqualsExtension
  * @method self finish(string|self $cap) @see StringFinishExtension
+ * @method BoolObject isDomain(bool|BoolObject $is_hostname = false) @see StringIsDomainExtension
+ * @method BoolObject isEmail(bool|BoolObject $email_unicode = false) @see StringIsEmailExtension
+ * @method BoolObject isHostname() @see StringIsHostnameExtension
+ * @method BoolObject isIp(int|IntObject $flags = FILTER_FLAG_NONE) @see StringIsIpExtension
+ * @method BoolObject isMac(string|StringObject $separator = null) @see StringIsMacExtension
+ * @method BoolObject isUrl(int|IntObject $flags = FILTER_FLAG_NONE) @see StringIsUrlExtension
  * @method self kebab() @see StringKebabExtension
  * @method self lcfirst() @see StringLcfirstExtension
  * @method self left(int|IntObject $length) @see StringLeftExtension
