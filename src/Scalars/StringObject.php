@@ -52,6 +52,7 @@ use function NorseBlue\Prim\string;
  * @method BoolObject regexPatternMatch(string|self|array $patterns) @see StringRegexPatternMatchExtension
  * @method self regexQuote(string|self $delimiter = '#') @see StringRegexQuoteExtension
  * @method self regexReplace(string|StringObject|string[]|StringObject[] $pattern, string|StringObject|string[]|StringObject[] $replacement, int|IntObject $limit = -1) @see StringRegexReplaceExtension
+ * @method self remove(string|StringObject|string[]|StringObject[] $remove) @see StringRemoveExtension
  * @method self repeat(int|IntObject $times = 2) @see StringRepeatExtension
  * @method self replace(string|StringObject $search, string|StringObject $replace) @see StringReplaceExtension
  * @method self replaceArray(string|self $search, string[]|self[] $replace) @see StringReplaceArrayExtension

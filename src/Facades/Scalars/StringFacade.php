@@ -47,6 +47,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static BoolObject regexPatternMatch(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject regexQuote(string|StringOBject $value, string|StringObject $delimiter = '#')
  * @method static StringObject regexReplace(string|StringObject $value, string|StringObject|string[]|StringObject[] $pattern, string|StringObject|string[]|StringObject[] $replacement, int|IntObject $limit = -1)
+ * @method static StringObject remove(string|StringObject $value, string|StringObject|string[]|StringObject[] $remove)
  * @method static StringObject repeat(string|StringOBject $value, int|IntObject $times = 2)
  * @method static StringObject replace(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, string[]|StringObject[] $replace)
