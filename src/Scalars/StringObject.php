@@ -30,6 +30,7 @@ use function NorseBlue\Prim\string;
  * @method BoolObject contains(string|self|array $needles) @see StringContainsExtension
  * @method BoolObject endsWith(string|self|array $needles) @see StringEndsWithExtension
  * @method BoolObject equals(string|self $string, bool $case_insensitive = false) @see StringEqualsExtension
+ * @method array explode(string|StringObject $delimiter, int|IntObject|null $limit = PHP_INT_MAX) @see StringExplodeExtension
  * @method self finish(string|self $cap) @see StringFinishExtension
  * @method BoolObject isDomain(bool|BoolObject $is_hostname = false) @see StringIsDomainExtension
  * @method BoolObject isEmail(bool|BoolObject $email_unicode = false) @see StringIsEmailExtension

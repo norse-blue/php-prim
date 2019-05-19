@@ -23,6 +23,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject contains(string|StringObject $value, string|StringObject|array $needles)
  * @method static StringObject endsWith(string|StringObject $value, string|StringObject|array $needles)
  * @method static StringObject equals(string|StringObject $value, string|StringObject $string, bool $case_insensitive = false)
+ * @method static array explode(string|StringObject $value, string|StringObject $delimiter, int|IntObject|null $limit = PHP_INT_MAX)
  * @method static StringObject finish(string|StringObject $value, string|StringObject $cap)
  * @method static BoolObject isDomain(string|StringObject $value, bool|BoolObject $is_hostname = false)
  * @method static BoolObject isEmail(string|StringObject $value, bool|BoolObject $email_unicode = false)
