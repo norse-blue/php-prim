@@ -63,6 +63,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject suffix(string|StringObject $value, string|StringObject $suffix)
  * @method static StringObject surround(string|StringObject $value, string|StringObject $prefix, string|StringObject|null $suffix = null)
  * @method static StringObject title(string|StringObject $value)
+ * @method static StringObject toggle(string|StringObject $value, string[]|StringObject[] $options, bool|BoolObject $strict = false)
  * @method static StringObject trim(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")
  * @method static StringObject trimLeft(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")
  * @method static StringObject trimRight(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")

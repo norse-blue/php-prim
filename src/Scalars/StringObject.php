@@ -68,6 +68,7 @@ use function NorseBlue\Prim\string;
  * @method self suffix(string|StringObject $suffix) @see StringSuffixExtension
  * @method self surround(string|StringObject $prefix, string|StringObject|null $suffix = null) @see StringSurroundExtension
  * @method self title() @see StringTitleExtension
+ * @method self toggle(string[]|StringObject[] $options, bool|BoolObject $strict = false) @see StringToggleExtension
  * @method self trim(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimExtension
  * @method self trimLeft(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimLeftExtension
  * @method self trimRight(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimRightExtension
