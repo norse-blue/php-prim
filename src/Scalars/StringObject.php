@@ -47,6 +47,7 @@ use function NorseBlue\Prim\string;
  * @method self pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH) @see StringPadExtension
  * @method self padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see StringPadLeftExtension
  * @method self padRight(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see StringPadRightExtension
+ * @method self plural() @see StringPluralExtension
  * @method self prefix(string|StringObject $prefix) @see StringPrefixExtension
  * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) @see StringRegexMatchesExtension
  * @method BoolObject regexPatternMatch(string|self|array $patterns) @see StringRegexPatternMatchExtension
@@ -59,6 +60,7 @@ use function NorseBlue\Prim\string;
  * @method self replaceFirst(string|self $search, string|self $replace) @see StringReplaceFirstExtension
  * @method self replaceLast(string|self $search, string|self $replace) @see StringReplaceLastExtension
  * @method self right(int|IntObject $length) @see StringLeftExtension
+ * @method self singular() @see StringSingularExtension
  * @method self slug(string|self $separator = '-', string|self|null $language = 'en') @see StringSlugExtension
  * @method self snake(string|self $delimiter = '_') @see StringSnakeExtension
  * @method self start(string|self $prefix) @see StringStartExtension
