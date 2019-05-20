@@ -9,7 +9,7 @@ use RuntimeException;
  *
  * @package NorseBlue\Prim\Exceptions\Scalars\String
  */
-class MacSeparatorLengthException extends RuntimeException
+final class MacSeparatorLengthException extends RuntimeException
 {
 
 }

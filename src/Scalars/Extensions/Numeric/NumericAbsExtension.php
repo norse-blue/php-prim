@@ -11,7 +11,7 @@ use function NorseBlue\Prim\numeric;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Numeric
  */
-class NumericAbsExtension extends NumericObject implements ExtensionMethod
+final class NumericAbsExtension extends NumericObject implements ExtensionMethod
 {
     /**
      * @return callable(): NumericObject

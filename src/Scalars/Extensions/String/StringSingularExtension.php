@@ -12,7 +12,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringSingularExtension extends StringObject implements ExtensionMethod
+final class StringSingularExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject

@@ -12,7 +12,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringSubstrExtension extends StringObject implements ExtensionMethod
+final class StringSubstrExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $start, int|IntObject|null $length = null): StringObject

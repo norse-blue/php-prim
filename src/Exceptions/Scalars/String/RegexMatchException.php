@@ -5,7 +5,7 @@ namespace NorseBlue\Prim\Exceptions\Scalars\String;
 use RuntimeException;
 use Throwable;
 
-class RegexMatchException extends RuntimeException
+final class RegexMatchException extends RuntimeException
 {
     /** @var int */
     protected $preg_error_code;

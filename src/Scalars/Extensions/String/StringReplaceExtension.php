@@ -6,7 +6,12 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Scalars\StringObject;
 use function NorseBlue\Prim\string;
 
-class StringReplaceExtension extends StringObject implements ExtensionMethod
+/**
+ * Class StringReplaceExtension
+ *
+ * @package NorseBlue\Prim\Scalars\Extensions\String
+ */
+final class StringReplaceExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $search, string|StringObject $replace): StringObject

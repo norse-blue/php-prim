@@ -13,7 +13,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringStartsWithExtension extends StringObject implements ExtensionMethod
+final class StringStartsWithExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array $needles): BoolObject

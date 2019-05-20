@@ -12,7 +12,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRegexMatchesExtension extends StringObject implements ExtensionMethod
+final class StringRegexMatchesExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $pattern, int|IntObject $flags = 0): array

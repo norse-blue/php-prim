@@ -11,7 +11,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringTrimRightExtension extends StringObject implements ExtensionMethod
+final class StringTrimRightExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $character_mask = " \t\n\r\0\x0B"): StringObject

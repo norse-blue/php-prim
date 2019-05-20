@@ -10,7 +10,7 @@ use Throwable;
  *
  * @package NorseBlue\Prim\Exceptions
  */
-class PropertyNotFoundException extends OutOfBoundsException
+final class PropertyNotFoundException extends OutOfBoundsException
 {
     /** @var string The property that was not found. */
     protected $property;

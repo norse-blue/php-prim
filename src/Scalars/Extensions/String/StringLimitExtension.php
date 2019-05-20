@@ -12,7 +12,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringLimitExtension extends StringObject implements ExtensionMethod
+final class StringLimitExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $limit = 100, string|StringObject $end = '...'): StringObject

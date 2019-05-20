@@ -11,7 +11,7 @@ use function NorseBlue\Prim\numeric;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Numeric
  */
-class NumericCompareExtension extends NumericObject implements ExtensionMethod
+final class NumericCompareExtension extends NumericObject implements ExtensionMethod
 {
     /**
      * @return callable(int|float|NumericObject $number): NumericObject

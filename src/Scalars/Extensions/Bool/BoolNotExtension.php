@@ -11,7 +11,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Bool
  */
-class BoolNotExtension extends BoolObject implements ExtensionMethod
+final class BoolNotExtension extends BoolObject implements ExtensionMethod
 {
     /**
      * @return callable(): BollObject

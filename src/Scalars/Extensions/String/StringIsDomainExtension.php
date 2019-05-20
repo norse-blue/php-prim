@@ -12,7 +12,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsDomainExtension extends StringObject implements ExtensionMethod
+final class StringIsDomainExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(bool|BoolObject $is_hostname = false): BoolObject

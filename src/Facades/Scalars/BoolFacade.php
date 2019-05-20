@@ -16,7 +16,7 @@ use NorseBlue\Prim\Scalars\BoolObject;
  * @method static BoolObject or(bool|BoolObject $value, bool|BoolObject|bool[]|BoolObject[] ...$bools)
  * @method static BoolObject xor(bool|BoolObject $value, bool|BoolObject|bool[]|BoolObject[] ...$bools)
  */
-class BoolFacade extends ValueObjectFacade
+final class BoolFacade extends ValueObjectFacade
 {
     /** @inheritDoc */
     protected static $class = BoolObject::class;

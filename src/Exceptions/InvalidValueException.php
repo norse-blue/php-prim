@@ -9,6 +9,6 @@ use UnexpectedValueException;
  *
  * @package NorseBlue\Prim\Exceptions
  */
-class InvalidValueException extends UnexpectedValueException
+final class InvalidValueException extends UnexpectedValueException
 {
 }

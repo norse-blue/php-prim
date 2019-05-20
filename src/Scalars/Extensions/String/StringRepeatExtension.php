@@ -12,7 +12,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRepeatExtension extends StringObject implements ExtensionMethod
+final class StringRepeatExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $times = 2): StringObject

@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRegexReplaceExtension extends StringObject implements ExtensionMethod
+final class StringRegexReplaceExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array<string|StringObject> $pattern, string|StringObject|array<string|StringObject> $replacement, int|IntObject $limit = -1): StringObject

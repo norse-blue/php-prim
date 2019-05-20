@@ -11,7 +11,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringSurroundExtension extends StringObject implements ExtensionMethod
+final class StringSurroundExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $prefix, string|StringObject|null $suffix = null): StringObject

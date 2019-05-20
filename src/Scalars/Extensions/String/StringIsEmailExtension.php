@@ -12,7 +12,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsEmailExtension extends StringObject implements ExtensionMethod
+final class StringIsEmailExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(bool|BoolObject $email_unicode = false): BoolObject

@@ -11,7 +11,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringPadRightExtension extends StringObject implements ExtensionMethod
+final class StringPadRightExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $pad_length, string|StringObject $pad_string = '0'): StringObject

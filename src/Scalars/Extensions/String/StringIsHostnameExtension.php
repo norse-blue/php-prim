@@ -11,7 +11,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsHostnameExtension extends StringObject implements ExtensionMethod
+final class StringIsHostnameExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): BoolObject

@@ -6,7 +6,12 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Scalars\StringObject;
 use function NorseBlue\Prim\string;
 
-class StringRegexQuoteExtension extends StringObject implements ExtensionMethod
+/**
+ * Class StringRegexQuoteExtension
+ *
+ * @package NorseBlue\Prim\Scalars\Extensions\String
+ */
+final class StringRegexQuoteExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|null $delimiter = null): StringObject

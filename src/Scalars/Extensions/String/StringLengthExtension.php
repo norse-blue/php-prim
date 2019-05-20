@@ -12,7 +12,7 @@ use function NorseBlue\Prim\int;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringLengthExtension extends StringObject implements ExtensionMethod
+final class StringLengthExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $encoding = null): IntObject

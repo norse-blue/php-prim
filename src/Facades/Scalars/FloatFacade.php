@@ -9,7 +9,7 @@ use NorseBlue\Prim\Scalars\FloatObject;
  *
  * @package NorseBlue\Prim\Facades\Scalars
  */
-class FloatFacade extends NumericFacade
+final class FloatFacade extends NumericFacade
 {
     /** @inheritDoc */
     protected static $class = FloatObject::class;

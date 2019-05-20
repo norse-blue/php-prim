@@ -11,7 +11,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRemoveExtension extends StringObject implements ExtensionMethod
+final class StringRemoveExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array<string|StringObject> $remove): StringObject

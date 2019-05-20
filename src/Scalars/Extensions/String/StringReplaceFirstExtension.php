@@ -11,7 +11,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringReplaceFirstExtension extends StringObject implements ExtensionMethod
+final class StringReplaceFirstExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $search, string|StringObject $replace): StringObject

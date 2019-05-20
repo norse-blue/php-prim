@@ -12,7 +12,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Numeric
  */
-class NumericEqualsExtension extends NumericObject implements ExtensionMethod
+final class NumericEqualsExtension extends NumericObject implements ExtensionMethod
 {
     /**
      * @return callable(int|float|NumericObject $number): BoolObject

@@ -11,7 +11,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringUpperExtension extends StringObject implements ExtensionMethod
+final class StringUpperExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject

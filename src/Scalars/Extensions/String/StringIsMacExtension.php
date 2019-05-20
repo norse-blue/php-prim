@@ -14,7 +14,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsMacExtension extends StringObject implements ExtensionMethod
+final class StringIsMacExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $separator = null): BoolObject

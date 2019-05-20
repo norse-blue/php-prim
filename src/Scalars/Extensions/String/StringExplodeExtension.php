@@ -11,7 +11,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringExplodeExtension extends StringObject implements ExtensionMethod
+final class StringExplodeExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $delimiter, int|IntObject|null $limit = null): array

@@ -12,7 +12,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringToggleExtension extends StringObject implements ExtensionMethod
+final class StringToggleExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(array<string|StringObject> $options, bool|BoolObject $strict = false): StringObject

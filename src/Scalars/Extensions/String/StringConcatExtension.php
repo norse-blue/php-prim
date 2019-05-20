@@ -11,7 +11,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringConcatExtension extends StringObject implements ExtensionMethod
+final class StringConcatExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject ...$strings): StringObject

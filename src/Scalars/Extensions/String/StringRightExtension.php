@@ -13,7 +13,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRightExtension extends StringObject implements ExtensionMethod
+final class StringRightExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $length): StringObject

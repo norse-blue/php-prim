@@ -13,7 +13,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringIsIpExtension extends StringObject implements ExtensionMethod
+final class StringIsIpExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $flags = FILTER_FLAG_NONE): BoolObject

@@ -9,6 +9,6 @@ use RuntimeException;
  *
  * @package NorseBlue\Prim\Exceptions
  */
-class InvalidFacadeClassException extends RuntimeException
+final class InvalidFacadeClassException extends RuntimeException
 {
 }

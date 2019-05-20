@@ -13,7 +13,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Numeric
  */
-class NumericPadExtension extends NumericObject implements ExtensionMethod
+final class NumericPadExtension extends NumericObject implements ExtensionMethod
 {
     /**
      * @return callable(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH): StringObject

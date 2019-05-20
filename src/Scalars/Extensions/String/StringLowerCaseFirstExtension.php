@@ -10,7 +10,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringLowerCaseFirstExtension extends StringObject implements ExtensionMethod
+final class StringLowerCaseFirstExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject

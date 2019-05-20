@@ -11,7 +11,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringEqualsExtension extends StringObject implements ExtensionMethod
+final class StringEqualsExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false): BoolObject

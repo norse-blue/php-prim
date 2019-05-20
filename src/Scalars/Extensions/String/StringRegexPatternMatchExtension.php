@@ -13,7 +13,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringRegexPatternMatchExtension extends StringObject implements ExtensionMethod
+final class StringRegexPatternMatchExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array $patterns): BoolObject

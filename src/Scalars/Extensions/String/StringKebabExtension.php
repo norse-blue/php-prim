@@ -10,7 +10,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringKebabExtension extends StringObject implements ExtensionMethod
+final class StringKebabExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject

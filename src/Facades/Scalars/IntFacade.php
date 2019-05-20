@@ -19,7 +19,7 @@ use NorseBlue\Prim\Scalars\NumericObject;
  * @method static BoolObject lessThan(int|IntObject $value, int|float|NumericObject $number)
  * @method static BoolObject lessThanOrEqual(int|IntObject $value, int|float|NumericObject $number)
  */
-class IntFacade extends NumericFacade
+final class IntFacade extends NumericFacade
 {
     /** @inheritDoc */
     protected static $class = IntObject::class;
