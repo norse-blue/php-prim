@@ -39,10 +39,10 @@ use function NorseBlue\Prim\string;
  * @method BoolObject isMac(string|StringObject $separator = null) @see StringIsMacExtension
  * @method BoolObject isUrl(int|IntObject $flags = FILTER_FLAG_NONE) @see StringIsUrlExtension
  * @method self kebab() @see StringKebabExtension
- * @method self lcfirst() @see StringLcfirstExtension
  * @method self left(int|IntObject $length) @see StringLeftExtension
  * @method IntObject length(string|self $encoding = null) @see StringLengthExtension
  * @method self limit(int $limit = 100, string|self $end = '...') @see StringLimitExtension
+ * @method self lowerCaseFirst() @see StringLowerCaseFirstExtension
  * @method self lower() @see StringLowerExtension
  * @method self pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH) @see StringPadExtension
  * @method self padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see StringPadLeftExtension
@@ -74,7 +74,7 @@ use function NorseBlue\Prim\string;
  * @method self trim(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimExtension
  * @method self trimLeft(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimLeftExtension
  * @method self trimRight(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimRightExtension
- * @method self ucfirst() @see StringUcfirstExtension
+ * @method self upperCaseFirst() @see StringUpperCaseFirstExtension
  * @method self upper() @see StringUpperExtension
  * @method self words(int $words = 100, string|self $end = '...') @see StringWordsExtension
  */

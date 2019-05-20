@@ -23,7 +23,7 @@ class StringCamelExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Scalars\StringObject
          */
         return function (): StringObject {
-            return $this->studly()->lcfirst();
+            return $this->studly()->lowerCaseFirst();
         };
     }
 }
