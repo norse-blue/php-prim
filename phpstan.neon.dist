@@ -39,4 +39,4 @@ parameters:
             path: %currentWorkingDirectory%/tests/Unit/Scalars/String/StringRegexMatchesTest.php
         -
             message: '~Parameter #1 \$key of method [a-zA-z0-9_\\]+::set\(\) expects string, int given.~'
-            path: %currentWorkingDirectory%/tests/Unit/Collections/ArrTest.php
+            path: %currentWorkingDirectory%/tests/Unit/Collections/ArrObjectTest.php

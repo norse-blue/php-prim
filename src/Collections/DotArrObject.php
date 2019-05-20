@@ -9,11 +9,11 @@ use NorseBlue\Prim\Traits\Collections\TraversesDotItems;
 use NorseBlue\Prim\Traits\ContainerArrayAccess;
 
 /**
- * Class DotArr
+ * Class DotArrObject
  *
  * @package NorseBlue\Prim\Collections
  */
-class DotArr extends ItemContainer implements DotArrayAccess, Jsonable
+class DotArrObject extends ItemContainer implements DotArrayAccess, Jsonable
 {
     use ContainsDotItems;
     use ContainerArrayAccess;

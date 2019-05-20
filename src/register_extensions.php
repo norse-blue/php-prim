@@ -2,6 +2,8 @@
 
 namespace NorseBlue\Prim\Extensions;
 
+use NorseBlue\Prim\Collections\ArrObject;
+use NorseBlue\Prim\Collections\DotArrObject;
 use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Scalars\IntObject;
@@ -14,6 +16,8 @@ use RuntimeException;
  */
 (static function () {
     $extensible_classes = [
+        ArrObject::class,
+        DotArrObject::class,
         BoolObject::class,
         FloatObject::class,
         IntObject::class,

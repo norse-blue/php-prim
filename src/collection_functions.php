@@ -2,8 +2,8 @@
 
 namespace NorseBlue\Prim;
 
-use NorseBlue\Prim\Collections\DotArr;
-use NorseBlue\Prim\Collections\Arr;
+use NorseBlue\Prim\Collections\DotArrObject;
+use NorseBlue\Prim\Collections\ArrObject;
 
 /**
  * DotArr helper function
@@ -14,11 +14,11 @@ if (!function_exists('dotarr')) {
      *
      * @param iterable $value
      *
-     * @return \NorseBlue\Prim\Collections\DotArr
+     * @return \NorseBlue\Prim\Collections\DotArrObject
      */
-    function dotarr(iterable $value = []): DotArr
+    function dotarr(iterable $value = []): DotArrObject
     {
-        return new DotArr($value);
+        return new DotArrObject($value);
     }
 }
 
@@ -31,10 +31,10 @@ if (!function_exists('arr')) {
      *
      * @param iterable $value
      *
-     * @return \NorseBlue\Prim\Collections\Arr
+     * @return \NorseBlue\Prim\Collections\ArrObject
      */
-    function arr(iterable $value = []): Arr
+    function arr(iterable $value = []): ArrObject
     {
-        return new Arr($value);
+        return new ArrObject($value);
     }
 }

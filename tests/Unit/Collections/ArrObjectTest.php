@@ -3,22 +3,22 @@
 namespace NorseBlue\Prim\Tests\Unit\Collections;
 
 use Exception;
-use NorseBlue\Prim\Collections\Arr;
+use NorseBlue\Prim\Collections\ArrObject;
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\arr;
 use OutOfBoundsException;
 
 /**
- * Class ArrTest
+ * Class ArrObjectTest
  *
  * @package NorseBlue\Prim\Tests\Unit\Collections
  */
-class ArrTest extends TestCase
+class ArrObjectTest extends TestCase
 {
     /** @test */
     public function simple_array_can_be_created_empty_by_default()
     {
-        $arr = new Arr;
+        $arr = new ArrObject;
 
         $this->assertEquals([], $arr->all());
     }
@@ -120,7 +120,7 @@ class ArrTest extends TestCase
     /** @test */
     public function simple_array_works_with_int_and_string_keys()
     {
-        $arr = new Arr;
+        $arr = new ArrObject;
 
         $arr->set('a', 'a value');
         $arr->set(1, 'one value');
@@ -131,7 +131,7 @@ class ArrTest extends TestCase
     /** @test */
     public function simple_array_treats_int_and_string_int_keys_as_same()
     {
-        $arr = new Arr;
+        $arr = new ArrObject;
 
         $arr->set(1, '1 value');
         $arr->set('1', 'one value');
@@ -151,7 +151,7 @@ class ArrTest extends TestCase
     /** @test */
     public function simple_array_treats_dot_string_as_normal_string_key()
     {
-        $arr = new Arr;
+        $arr = new ArrObject;
 
         $arr->set('a.b.c', 'the value');
 
@@ -161,7 +161,7 @@ class ArrTest extends TestCase
     /** @test */
     public function throws_an_exception_when_getting_unknown_key_from_simple_array()
     {
-        $arr = new Arr;
+        $arr = new ArrObject;
 
         try {
             $arr->get('unknown');
@@ -176,7 +176,7 @@ class ArrTest extends TestCase
     /** @test */
     public function simple_array_is_countable()
     {
-        $empty_arr = new Arr;
+        $empty_arr = new ArrObject;
         $arr1 = arr(['a' => 1, 'b' => 2, 'c' => 3]);
         $arr2 = arr(['a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5]);
 

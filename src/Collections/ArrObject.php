@@ -7,11 +7,13 @@ use NorseBlue\Prim\Contracts\Jsonable;
 use NorseBlue\Prim\Traits\ContainerArrayAccess;
 
 /**
- * Class Arr
+ * Class ArrObject
  *
  * @package NorseBlue\Prim\Collections
+ *
+ * @method self each(callable $callback)
  */
-class Arr extends ItemContainer implements ArrayAccess, Jsonable
+class ArrObject extends ItemContainer implements ArrayAccess, Jsonable
 {
     use ContainerArrayAccess;
 
