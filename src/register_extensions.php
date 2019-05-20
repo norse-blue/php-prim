@@ -7,6 +7,7 @@ use NorseBlue\Prim\Scalars\FloatObject;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Scalars\NumericObject;
 use NorseBlue\Prim\Scalars\StringObject;
+use RuntimeException;
 
 /**
  * @codeCoverageIgnore
@@ -22,8 +23,14 @@ use NorseBlue\Prim\Scalars\StringObject;
 
     foreach ($extensible_classes as $class) {
         $type = preg_replace('%^.+\\\(.+)Object$%', '\1', $class);
+        $glob = glob("src/Scalars/Extensions/$type/$type*Extension.php");
+
+        if ($glob === false) {
+            throw new RuntimeException('An error occurred while trying to get the extension methods.');
+        }
+
         $extensions = array_reduce(
-            glob("src/Scalars/Extensions/$type/$type*Extension.php"),
+            $glob,
             function ($carry, $extension) use ($type) {
                 $extension = preg_replace('%^.*/(.+)\.php$%', '\1', $extension);
                 $item = preg_replace("%^$type(.+)Extension$%", '\1', $extension);
