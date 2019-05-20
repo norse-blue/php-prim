@@ -3,22 +3,22 @@
 namespace NorseBlue\Prim\Tests\Unit\Collections;
 
 use Exception;
-use NorseBlue\Prim\Collections\DotArray;
+use NorseBlue\Prim\Collections\DotArr;
 use function NorseBlue\Prim\dotarr;
 use NorseBlue\Prim\Tests\TestCase;
 use RuntimeException;
 
 /**
- * Class DotArrayTest
+ * Class DotArrTest
  *
  * @package NorseBlue\Prim\Tests\Unit\Collections
  */
-class DotArrayTest extends TestCase
+class DotArrTest extends TestCase
 {
     /** @test */
     public function dot_array_can_be_created_empty_by_default()
     {
-        $arr = new DotArray;
+        $arr = new DotArr;
 
         $this->assertEquals([], $arr->all());
     }

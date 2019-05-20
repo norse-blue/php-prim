@@ -1,76 +1,16 @@
 <?php
 
-namespace NorseBlue\Prim\Collections;
+namespace NorseBlue\Prim\Traits\Collections;
 
 use Closure;
-use NorseBlue\Prim\Contracts\DotArrayAccess;
 
 /**
- * Class DotArray
+ * Trait TraversesItemsWithDot
  *
- * @package NorseBlue\Prim\Collections
+ * @package NorseBlue\Prim\Traits\Collections
  */
-class DotArray extends SimpleArray implements DotArrayAccess
+trait TraversesDotItems
 {
-    // region === Overrides ===
-
-    /**
-     * @inheritDoc
-     */
-    public function has(string $key): bool
-    {
-        if (parent::has($key)) {
-            return true;
-        }
-
-        return (bool)$this->dotTraverseCallback($key);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function get(string $key)
-    {
-        if (parent::has($key)) {
-            return $this->items[$key];
-        }
-
-        return $this->dotTraverseCallback($key, function ($item) {
-            return $item;
-        });
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function set(string $key, $value): void
-    {
-        if (strpos($key, '.') === false) {
-            $this->items[$key] = $value;
-            return;
-        }
-
-        $this->dotTraverseCallback($key, function ($item, &$parent, $key_part) use ($value) {
-            $parent[$key_part] = $value;
-        }, true);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function delete(string $key): void
-    {
-        if (parent::has($key)) {
-            unset($this->items[$key]);
-        }
-
-        $this->dotTraverseCallback($key, function ($item, &$parent, $key_part) {
-            unset($parent[$key_part]);
-        });
-    }
-
-    // endregion
-
     /**
      * Traverse the array using dot-notation and execute the given callback.
      *Callback signature: mixed callable($item, $parent, $key_part, $full_key)
@@ -114,8 +54,6 @@ class DotArray extends SimpleArray implements DotArrayAccess
         return ($callback) ? $callback($array, $parent, $key_part, $key) : array_key_exists($key_part, $parent);
     }
 
-    // region === DotArrayAccess ===
-
     /**
      * @inheritDoc
      */
@@ -123,6 +61,4 @@ class DotArray extends SimpleArray implements DotArrayAccess
     {
         return explode('.', $key);
     }
-
-    // endregion
 }

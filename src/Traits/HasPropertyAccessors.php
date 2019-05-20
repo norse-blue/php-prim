@@ -4,6 +4,11 @@ namespace NorseBlue\Prim\Traits;
 
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
 
+/**
+ * Trait HasPropertyAccessors
+ *
+ * @package NorseBlue\Prim\Traits
+ */
 trait HasPropertyAccessors
 {
     /**

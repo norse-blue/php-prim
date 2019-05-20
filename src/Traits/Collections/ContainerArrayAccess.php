@@ -2,7 +2,12 @@
 
 namespace NorseBlue\Prim\Traits;
 
-trait HasArrayAccessForItems
+/**
+ * Trait HasArrayAccessForItems
+ *
+ * @package NorseBlue\Prim\Traits
+ */
+trait ContainerArrayAccess
 {
     // region === ArrayAccess ===
 

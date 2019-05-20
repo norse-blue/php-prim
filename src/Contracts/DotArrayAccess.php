@@ -2,7 +2,14 @@
 
 namespace NorseBlue\Prim\Contracts;
 
-interface DotArrayAccess
+use ArrayAccess;
+
+/**
+ * Interface DotArrayAccess
+ *
+ * @package NorseBlue\Prim\Contracts
+ */
+interface DotArrayAccess extends ArrayAccess
 {
     /**
      * Get the key parts.

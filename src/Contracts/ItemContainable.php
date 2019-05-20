@@ -4,7 +4,7 @@ namespace NorseBlue\Prim\Contracts;
 
 use Countable;
 
-interface ItemContainer extends Countable
+interface ItemContainable extends Countable
 {
     /**
      * Get all items.

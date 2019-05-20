@@ -4,6 +4,11 @@ namespace NorseBlue\Prim\Traits;
 
 use OutOfBoundsException;
 
+/**
+ * Trait ContainsItems
+ *
+ * @package NorseBlue\Prim\Traits
+ */
 trait ContainsItems
 {
     /** @var array Items */

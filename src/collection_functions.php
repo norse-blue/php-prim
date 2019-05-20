@@ -2,28 +2,28 @@
 
 namespace NorseBlue\Prim;
 
-use NorseBlue\Prim\Collections\DotArray;
-use NorseBlue\Prim\Collections\SimpleArray;
+use NorseBlue\Prim\Collections\DotArr;
+use NorseBlue\Prim\Collections\Arr;
 
 /**
- * DotArray helper function
+ * DotArr helper function
  */
 if (!function_exists('dotarr')) {
     /**
-     * Create a new DotArray.
+     * Create a new DotArr.
      *
      * @param iterable $value
      *
-     * @return \NorseBlue\Prim\Collections\DotArray
+     * @return \NorseBlue\Prim\Collections\DotArr
      */
-    function dotarr(iterable $value = []): DotArray
+    function dotarr(iterable $value = []): DotArr
     {
-        return new DotArray($value);
+        return new DotArr($value);
     }
 }
 
 /**
- * SimpleArray helper function
+ * Arr helper function
  */
 if (!function_exists('arr')) {
     /**
@@ -31,10 +31,10 @@ if (!function_exists('arr')) {
      *
      * @param iterable $value
      *
-     * @return \NorseBlue\Prim\Collections\SimpleArray
+     * @return \NorseBlue\Prim\Collections\Arr
      */
-    function arr(iterable $value = []): SimpleArray
+    function arr(iterable $value = []): Arr
     {
-        return new SimpleArray($value);
+        return new Arr($value);
     }
 }
