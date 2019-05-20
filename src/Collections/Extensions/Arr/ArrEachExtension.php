@@ -20,7 +20,7 @@ class ArrEachExtension extends ArrObject implements ExtensionMethod
         /**
          * Execute a callback over each item.
          *
-         * @param callable $callback
+         * @param callable($item, $key) $callback
          *
          * @return \NorseBlue\Prim\Collections\Extensions\Arr\ArrEachExtension
          */
