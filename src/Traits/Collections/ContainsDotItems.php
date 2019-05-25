@@ -32,7 +32,7 @@ trait ContainsDotItems
             return $this->items[$key];
         }
 
-        return $this->dotTraverseCallback($key, function ($item) {
+        return $this->dotTraverseCallback($key, static function ($item) {
             return $item;
         });
     }
@@ -47,7 +47,7 @@ trait ContainsDotItems
             return;
         }
 
-        $this->dotTraverseCallback($key, function ($item, &$parent, $key_part) use ($value) {
+        $this->dotTraverseCallback($key, static function ($item, &$parent, $key_part) use ($value): void {
             $parent[$key_part] = $value;
         }, true);
     }
@@ -61,7 +61,7 @@ trait ContainsDotItems
             unset($this->items[$key]);
         }
 
-        $this->dotTraverseCallback($key, function ($item, &$parent, $key_part) {
+        $this->dotTraverseCallback($key, static function ($item, &$parent, $key_part): void {
             unset($parent[$key_part]);
         });
     }

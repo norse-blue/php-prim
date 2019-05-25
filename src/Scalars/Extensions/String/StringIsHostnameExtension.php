@@ -24,6 +24,7 @@ final class StringIsHostnameExtension extends StringObject implements ExtensionM
          * Checks if the string is a hostname.
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
+         *
          * @see https://www.php.net/manual/en/function.filter-var.php
          */
         return function (): BoolObject {

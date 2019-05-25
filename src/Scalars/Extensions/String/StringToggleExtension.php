@@ -44,7 +44,8 @@ final class StringToggleExtension extends StringObject implements ExtensionMetho
                 $index = -1;
             }
 
-            return string($options[++$index % count($options)]);
+            $index++;
+            return string($options[$index % count($options)]);
         };
     }
 }

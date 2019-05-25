@@ -31,7 +31,7 @@ final class StringSurroundExtension extends StringObject implements ExtensionMet
         return function ($prefix, $suffix = null): StringObject {
             $surrounded = $prefix . $this->object_value;
 
-            $surrounded .= ($suffix === null) ? $prefix : $suffix;
+            $surrounded .= $suffix === null ? $prefix : $suffix;
 
             return string($surrounded);
         };

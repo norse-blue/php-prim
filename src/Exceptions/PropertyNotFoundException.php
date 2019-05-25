@@ -25,7 +25,7 @@ final class PropertyNotFoundException extends OutOfBoundsException
      * @param int $code
      * @param \Throwable|null $previous
      */
-    public function __construct(string $property, string $message = '', int $code = 0, Throwable $previous = null)
+    public function __construct(string $property, string $message = '', int $code = 0, ?Throwable $previous = null)
     {
         parent::__construct($message, $code, $previous);
 

@@ -13,13 +13,13 @@ use OutOfBoundsException;
  */
 trait ContainsItems
 {
-    /** @var array Items */
+    /** @var array<mixed> Items */
     protected $items = [];
 
     /**
      * Get all items.
      *
-     * @return array
+     * @return array<mixed>
      */
     final public function all(): array
     {
@@ -44,6 +44,7 @@ trait ContainsItems
      * @param string $key
      *
      * @return mixed
+     *
      * @throws \OutOfBoundsException
      */
     public function get(string $key)

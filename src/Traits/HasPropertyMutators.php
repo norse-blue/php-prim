@@ -38,7 +38,7 @@ trait HasPropertyMutators
      *
      * @return bool
      */
-    protected function hasMutator(string $key, string &$mutator = null): bool
+    protected function hasMutator(string $key, ?string &$mutator = null): bool
     {
         $studly_key = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
         $mutator = 'set' . $studly_key . 'Property';

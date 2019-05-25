@@ -2,16 +2,14 @@
 
 declare(strict_types=1);
 
-namespace NorseBlue\Prim\Traits;
+namespace NorseBlue\Prim\Traits\Scalars;
 
-/**
- * Trait HasArrayAccessForItems
- *
- * @package NorseBlue\Prim\Traits
- */
-trait ContainerArrayAccess
+use NorseBlue\Prim\Exceptions\Scalars\String\StringUnsetOffsetException;
+use OutOfBoundsException;
+
+trait StringArrayAccess
 {
-    // region === ArrayAccess ===
+// region === ArrayAccess ===
 
     /**
      * Whether a offset exists
@@ -31,7 +29,7 @@ trait ContainerArrayAccess
      */
     public function offsetExists($offset): bool
     {
-        return $this->has($offset);
+        return $this->length()->greaterThanOrEqual($offset + 1)->value;
     }
 
     /**
@@ -39,7 +37,9 @@ trait ContainerArrayAccess
      *
      * @link https://php.net/manual/en/arrayaccess.offsetget.php
      *
-     * @param mixed $offset
+     * @param mixed $offset <p>
+     * The offset to retrieve.
+     * </p>
      *
      * @return mixed Can return all value types.
      *
@@ -47,7 +47,11 @@ trait ContainerArrayAccess
      */
     public function offsetGet($offset)
     {
-        return $this->get($offset);
+        if (!$this->offsetExists($offset)) {
+            throw new OutOfBoundsException('The given index does not exist.');
+        }
+
+        return $this->substr($offset, 1);
     }
 
     /**
@@ -68,7 +72,7 @@ trait ContainerArrayAccess
      */
     public function offsetSet($offset, $value): void
     {
-        $this->set($offset, $value);
+        $this->object_value[$offset] = $value;
     }
 
     /**
@@ -86,8 +90,8 @@ trait ContainerArrayAccess
      */
     public function offsetUnset($offset): void
     {
-        $this->delete($offset);
+        throw new StringUnsetOffsetException('Cannot unset string offsets.');
     }
 
-    // endregion ArrayAccess
+    // endregion
 }

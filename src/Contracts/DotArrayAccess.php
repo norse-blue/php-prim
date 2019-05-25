@@ -18,7 +18,7 @@ interface DotArrayAccess extends ArrayAccess
      *
      * @param string $key
      *
-     * @return array
+     * @return array<string>
      */
     public function getKeyParts(string $key): array;
 }

@@ -22,7 +22,7 @@ class ItemContainer implements ItemContainable, Extensible
     /**
      * ItemContainer constructor.
      *
-     * @param iterable $items
+     * @param iterable<mixed> $items
      */
     public function __construct(iterable $items = [])
     {

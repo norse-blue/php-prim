@@ -16,7 +16,7 @@ use function NorseBlue\Prim\string;
 final class StringReplaceArrayExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $search, string[]|StringObject[] $replace): StringObject
+     * @return callable(string|StringObject $search, array<string|StringObject> $replace): StringObject
      */
     public function __invoke(): callable
     {
@@ -24,7 +24,7 @@ final class StringReplaceArrayExtension extends StringObject implements Extensio
          * Replace a given value in the string sequentially with an array.
          *
          * @param string|StringObject $search
-         * @param string[]|StringObject[] $replace
+         * @param array<string|StringObject> $replace
          *
          * @return \NorseBlue\Prim\Scalars\StringObject
          */

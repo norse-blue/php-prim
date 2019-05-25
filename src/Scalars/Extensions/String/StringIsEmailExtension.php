@@ -27,6 +27,7 @@ final class StringIsEmailExtension extends StringObject implements ExtensionMeth
          * @param bool|BoolObject $email_unicode
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
+         *
          * @see https://www.php.net/manual/en/function.filter-var.php
          */
         return function ($email_unicode = false): BoolObject {

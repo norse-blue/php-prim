@@ -18,7 +18,7 @@ abstract class Character
      *
      * @see https://github.com/danielstjules/Stringy/blob/3.1.0/LICENSE.txt
      *
-     * @return array
+     * @return array<int|string, array<string>>
      */
     public static function charsArray(): array
     {
@@ -156,9 +156,9 @@ abstract class Character
      *
      * @param string|null $language
      *
-     * @return array|null
+     * @return array<int, string>|null
      */
-    public static function languageSpecificCharsArray($language): ?array
+    public static function languageSpecificCharsArray(?string $language): ?array
     {
         static $languageSpecific;
 

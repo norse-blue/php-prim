@@ -54,7 +54,7 @@ trait HasPropertyAccessors
      *
      * @return bool
      */
-    protected function hasAccessor(string $key, string &$accessor = null): bool
+    protected function hasAccessor(string $key, ?string &$accessor = null): bool
     {
         $studly_key = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
         $accessor = 'get' . $studly_key . 'Property';

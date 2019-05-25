@@ -13,7 +13,7 @@ abstract class Facade
     /** @var string The class that this facade is for. */
     protected static $class = '';
 
-    /** @var array The name of the methods that are actually static. */
+    /** @var array<string> The name of the methods that are actually static. */
     protected static $statics = [
         'unwrap',
     ];
@@ -53,6 +53,7 @@ abstract class Facade
      * @param string $class
      *
      * @return void
+     *
      * @throws \NorseBlue\Prim\Exceptions\InvalidFacadeClassException
      */
     final protected static function validateFacadeClass(string $class): void

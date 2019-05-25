@@ -16,14 +16,14 @@ use function NorseBlue\Prim\bool;
 final class BoolXorExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools): BoolObject
+     * @return callable(bool|BoolObject|array<bool|BoolObject> ...$bools): BoolObject
      */
     public function __invoke(): callable
     {
         /**
          * Apply the XOR logical operation to the BoolObject with the given values.
          *
-         * @param bool|BoolObject|bool[]|BoolObject[] ...$bools
+         * @param bool|BoolObject|array<bool|BoolObject> ...$bools
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
          */
@@ -33,10 +33,7 @@ final class BoolXorExtension extends BoolObject implements ExtensionMethod
             foreach ($bools as $bool) {
                 $bool = self::unwrap($bool);
 
-                $carry = ($carry xor (is_array($bool)
-                        ? bool(array_shift($bool))->xor(...$bool)->value
-                        : $bool
-                    ));
+                $carry = ($carry xor (is_array($bool) ? bool(array_shift($bool))->xor(...$bool)->value : $bool));
             }
 
             return bool($carry);

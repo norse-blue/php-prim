@@ -11,7 +11,7 @@ interface ItemContainable extends Countable
     /**
      * Get all items.
      *
-     * @return array
+     * @return array<mixed>
      */
     public function all(): array;
 

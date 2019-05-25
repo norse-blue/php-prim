@@ -26,6 +26,7 @@ final class StringTrimExtension extends StringObject implements ExtensionMethod
          * @param string|StringObject $character_mask
          *
          * @return \NorseBlue\Prim\Scalars\StringObject
+         *
          * @see https://www.php.net/manual/en/function.trim.php
          */
         return function ($character_mask = " \t\n\r\0\x0B"): StringObject {

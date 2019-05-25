@@ -29,7 +29,7 @@ final class RegexMatchException extends RuntimeException
         int $preg_error_code,
         string $message = '',
         int $code = 0,
-        Throwable $previous = null
+        ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
 

@@ -27,6 +27,7 @@ final class StringIsDomainExtension extends StringObject implements ExtensionMet
          * @param bool|BoolObject $is_hostname
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
+         *
          * @see https://www.php.net/manual/en/function.filter-var.php
          */
         return function ($is_hostname = false): BoolObject {

@@ -6,9 +6,9 @@ namespace NorseBlue\Prim\Scalars;
 
 use ArrayAccess;
 use Countable;
-use NorseBlue\Prim\Exceptions\Scalars\String\StringUnsetOffsetException;
 use NorseBlue\Prim\ImmutableValueObject;
-use OutOfBoundsException;
+use NorseBlue\Prim\Traits\Scalars\StringArrayAccess;
+use NorseBlue\Prim\Traits\Scalars\StringCountable;
 use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
 use Ramsey\Uuid\Generator\CombGenerator;
 use Ramsey\Uuid\Uuid;
@@ -54,11 +54,11 @@ use function NorseBlue\Prim\string;
  * @method array regexMatches(string|self $pattern, int|IntObject $flags = 0) @see StringRegexMatchesExtension
  * @method BoolObject regexPatternMatch(string|self|array $patterns) @see StringRegexPatternMatchExtension
  * @method self regexQuote(string|self $delimiter = '#') @see StringRegexQuoteExtension
- * @method self regexReplace(string|StringObject|string[]|StringObject[] $pattern, string|StringObject|string[]|StringObject[] $replacement, int|IntObject $limit = -1) @see StringRegexReplaceExtension
- * @method self remove(string|StringObject|string[]|StringObject[] $remove) @see StringRemoveExtension
+ * @method self regexReplace(string|StringObject|array<string|StringObject> $pattern, string|StringObject|array<string|StringObject> $replacement, int|IntObject $limit = -1) @see StringRegexReplaceExtension
+ * @method self remove(string|StringObject|array<string|StringObject> $remove) @see StringRemoveExtension
  * @method self repeat(int|IntObject $times = 2) @see StringRepeatExtension
  * @method self replace(string|StringObject $search, string|StringObject $replace) @see StringReplaceExtension
- * @method self replaceArray(string|self $search, string[]|self[] $replace) @see StringReplaceArrayExtension
+ * @method self replaceArray(string|self $search, array<string|self> $replace) @see StringReplaceArrayExtension
  * @method self replaceFirst(string|self $search, string|self $replace) @see StringReplaceFirstExtension
  * @method self replaceLast(string|self $search, string|self $replace) @see StringReplaceLastExtension
  * @method self right(int|IntObject $length) @see StringLeftExtension
@@ -72,7 +72,7 @@ use function NorseBlue\Prim\string;
  * @method self suffix(string|StringObject $suffix) @see StringSuffixExtension
  * @method self surround(string|StringObject $prefix, string|StringObject|null $suffix = null) @see StringSurroundExtension
  * @method self title() @see StringTitleExtension
- * @method self toggle(string[]|StringObject[] $options, bool|BoolObject $strict = false) @see StringToggleExtension
+ * @method self toggle(array<string|StringObject> $options, bool|BoolObject $strict = false) @see StringToggleExtension
  * @method self trim(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimExtension
  * @method self trimLeft(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimLeftExtension
  * @method self trimRight(string|StringObject $character_mask = " \t\n\r\0\x0B") @see StringTrimRightExtension
@@ -82,6 +82,9 @@ use function NorseBlue\Prim\string;
  */
 class StringObject extends ImmutableValueObject implements ArrayAccess, Countable
 {
+    use StringArrayAccess;
+    use StringCountable;
+
     /** @inheritDoc */
     protected static $extensions = [];
 
@@ -121,11 +124,12 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     public static function accord($count, $many, $one, $zero = null): StringObject
     {
         $count = IntObject::unwrap($count);
+        $zero = self::unwrap($zero);
 
         if ($count === 1) {
             $output = $one;
         } else {
-            if ($count === 0 and !empty($zero)) {
+            if ($count === 0 and $zero !== '') {
                 $output = $zero;
             } else {
                 $output = $many;
@@ -139,11 +143,12 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
      * Generate a time-ordered UUID (version 4).
      *
      * @return \Ramsey\Uuid\UuidInterface
+     *
      * @throws \Exception
      */
     public static function orderedUuid(): UuidInterface
     {
-        $factory = new UuidFactory;
+        $factory = new UuidFactory();
 
         $factory->setRandomGenerator(new CombGenerator(
             $factory->getRandomGenerator(),
@@ -163,6 +168,7 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
      * @param int|IntObject $length
      *
      * @return \NorseBlue\Prim\Scalars\StringObject
+     *
      * @throws \Exception
      */
     public static function random($length = 16): self
@@ -185,112 +191,11 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
      * Generate a UUID (version 4).
      *
      * @return \Ramsey\Uuid\UuidInterface
+     *
      * @throws \Exception
      */
     public static function uuid(): UuidInterface
     {
         return Uuid::uuid4();
     }
-
-    // region === ArrayAccess ===
-
-    /**
-     * Whether a offset exists
-     *
-     * @link https://php.net/manual/en/arrayaccess.offsetexists.php
-     *
-     * @param mixed $offset <p>
-     * An offset to check for.
-     * </p>
-     *
-     * @return boolean true on success or false on failure.
-     * </p>
-     * <p>
-     * The return value will be casted to boolean if non-boolean was returned.
-     * @since 5.0.0
-     */
-    public function offsetExists($offset): bool
-    {
-        return $this->length()->greaterThanOrEqual($offset + 1)->value;
-    }
-
-    /**
-     * Offset to retrieve
-     *
-     * @link https://php.net/manual/en/arrayaccess.offsetget.php
-     *
-     * @param mixed $offset <p>
-     * The offset to retrieve.
-     * </p>
-     *
-     * @return mixed Can return all value types.
-     * @since 5.0.0
-     */
-    public function offsetGet($offset)
-    {
-        if (!$this->offsetExists($offset)) {
-            throw new OutOfBoundsException('The given index does not exist');
-        }
-
-        return $this->substr($offset, 1);
-    }
-
-    /**
-     * Offset to set
-     *
-     * @link https://php.net/manual/en/arrayaccess.offsetset.php
-     *
-     * @param mixed $offset <p>
-     * The offset to assign the value to.
-     * </p>
-     * @param mixed $value <p>
-     * The value to set.
-     * </p>
-     *
-     * @return void
-     * @since 5.0.0
-     */
-    public function offsetSet($offset, $value): void
-    {
-        $this->object_value[$offset] = $value;
-    }
-
-    /**
-     * Offset to unset
-     *
-     * @link https://php.net/manual/en/arrayaccess.offsetunset.php
-     *
-     * @param mixed $offset <p>
-     * The offset to unset.
-     * </p>
-     *
-     * @return void
-     * @since 5.0.0
-     */
-    public function offsetUnset($offset): void
-    {
-        throw new StringUnsetOffsetException('Cannot unset string offsets');
-    }
-
-    // endregion
-
-    // region === Countable ===
-
-    /**
-     * Count elements of an object
-     *
-     * @link https://php.net/manual/en/countable.count.php
-     *
-     * @return int The custom count as an integer.
-     * </p>
-     * <p>
-     * The return value is cast to an integer.
-     * @since 5.1.0
-     */
-    public function count()
-    {
-        return $this->length()->value;
-    }
-
-    // endregion Countable
 }
