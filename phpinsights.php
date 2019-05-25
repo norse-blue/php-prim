@@ -5,6 +5,7 @@ declare(strict_types=1);
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenDefineFunctions;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenNormalClasses;
 use NunoMaduro\PhpInsights\Domain\Insights\ForbiddenTraits;
+use ObjectCalisthenics\Sniffs\Files\FunctionLengthSniff;
 use ObjectCalisthenics\Sniffs\NamingConventions\NoSetterSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UnusedFunctionParameterSniff;
 use PHP_CodeSniffer\Standards\Generic\Sniffs\CodeAnalysis\UselessOverridingMethodSniff;
@@ -57,6 +58,7 @@ return [
         ForbiddenNormalClasses::class,
         ForbiddenDefineFunctions::class,
         ForbiddenTraits::class,
+        FunctionLengthSniff::class,
         LineLengthSniff::class,
         NoSetterSniff::class,
         NoSilencedErrorsSniff::class,
