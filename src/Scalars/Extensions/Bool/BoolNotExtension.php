@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\Bool;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Collections\Extensions\Arr;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
