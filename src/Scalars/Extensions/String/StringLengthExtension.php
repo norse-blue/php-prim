@@ -32,7 +32,7 @@ final class StringLengthExtension extends StringObject implements ExtensionMetho
             $value = $this->object_value;
 
             if ($encoding) {
-                $encoding = static::unwrap($encoding);
+                $encoding = self::unwrap($encoding);
 
                 return int(mb_strlen($value, $encoding));
             }
