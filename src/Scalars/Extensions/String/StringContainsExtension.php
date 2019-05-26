@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -12,7 +14,7 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringContainsExtension extends StringObject implements ExtensionMethod
+final class StringContainsExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject|array $needles): BoolObject

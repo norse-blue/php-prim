@@ -1,11 +1,13 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Exceptions\Scalars\String;
 
 use RuntimeException;
 use Throwable;
 
-class RegexMatchException extends RuntimeException
+final class RegexMatchException extends RuntimeException
 {
     /** @var int */
     protected $preg_error_code;
@@ -27,7 +29,7 @@ class RegexMatchException extends RuntimeException
         int $preg_error_code,
         string $message = '',
         int $code = 0,
-        Throwable $previous = null
+        ?Throwable $previous = null
     ) {
         parent::__construct($message, $code, $previous);
 

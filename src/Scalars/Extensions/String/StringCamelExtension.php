@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -10,7 +12,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringCamelExtension extends StringObject implements ExtensionMethod
+final class StringCamelExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject
@@ -23,7 +25,7 @@ class StringCamelExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Scalars\StringObject
          */
         return function (): StringObject {
-            return $this->studly()->lcfirst();
+            return $this->studly()->lowerCaseFirst();
         };
     }
 }

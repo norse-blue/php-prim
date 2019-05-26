@@ -1,9 +1,16 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Traits;
 
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
 
+/**
+ * Trait HasPropertyAccessors
+ *
+ * @package NorseBlue\Prim\Traits
+ */
 trait HasPropertyAccessors
 {
     /**
@@ -47,7 +54,7 @@ trait HasPropertyAccessors
      *
      * @return bool
      */
-    protected function hasAccessor(string $key, string &$accessor = null): bool
+    protected function hasAccessor(string $key, ?string &$accessor = null): bool
     {
         $studly_key = str_replace(' ', '', ucwords(str_replace(['-', '_'], ' ', $key)));
         $accessor = 'get' . $studly_key . 'Property';

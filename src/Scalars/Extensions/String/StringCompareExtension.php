@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -14,7 +16,7 @@ use function NorseBlue\Prim\int;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringCompareExtension extends StringObject implements ExtensionMethod
+final class StringCompareExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false): IntObject

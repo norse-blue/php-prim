@@ -6,6 +6,11 @@ use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Scalars\StringObject;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class StringCompareTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\String
+ */
 class StringCompareTest extends TestCase
 {
     /** @test */

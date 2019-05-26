@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars\Bool;
 use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class BoolAndTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\Bool
+ */
 class BoolAndTest extends TestCase
 {
     /** @test */

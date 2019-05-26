@@ -1,18 +1,15 @@
 <?php
 
-namespace NorseBlue\Prim\Scalars;
+declare(strict_types=1);
 
-use NorseBlue\Prim\ImmutableValueObject;
+namespace NorseBlue\Prim\Scalars;
 
 /**
  * Class IntObject
  *
  * @package NorseBlue\Prim\Scalars
- *
- * @method self compare(int|IntObject|float|FloatObject $number) From extension method IntCompareExtension
- * @method BoolObject equals(int|IntObject|float|FloatObject $number) From extension method IntEqualsExtension
  */
-class IntObject extends ImmutableValueObject
+class IntObject extends NumericObject
 {
     /** @inheritDoc */
     protected static $extensions = [];
@@ -22,7 +19,7 @@ class IntObject extends ImmutableValueObject
     /**
      * IntObject constructor.
      *
-     * @param int|IntObject|float|FloatObject $value
+     * @param int|float|NumericObject $value
      */
     public function __construct($value = 0)
     {
@@ -31,14 +28,6 @@ class IntObject extends ImmutableValueObject
         }
 
         parent::__construct($value);
-    }
-
-    /**
-     * @inheritDoc
-     */
-    final public function valueIsValid($value): bool
-    {
-        return is_int($value) || is_float($value);
     }
 
     // endregion Overrides

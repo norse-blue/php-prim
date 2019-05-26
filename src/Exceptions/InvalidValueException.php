@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Exceptions;
 
 use UnexpectedValueException;
@@ -9,6 +11,6 @@ use UnexpectedValueException;
  *
  * @package NorseBlue\Prim\Exceptions
  */
-class InvalidValueException extends UnexpectedValueException
+final class InvalidValueException extends UnexpectedValueException
 {
 }

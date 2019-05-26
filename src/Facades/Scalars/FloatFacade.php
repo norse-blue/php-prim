@@ -1,20 +1,17 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Facades\Scalars;
 
-use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Scalars\FloatObject;
-use NorseBlue\Prim\Scalars\IntObject;
 
 /**
  * Class FloatFacade
  *
  * @package NorseBlue\Prim\Facades\Scalars
- *
- * @method static FloatObject compare(int|IntObject|float|FloatObject $value, int|IntObject|float|FloatObject $number)
- * @method static FloatObject equals(int|IntObject|float|FloatObject $value, int|IntObject|float|FloatObject $number)
  */
-class FloatFacade extends ValueObjectFacade
+final class FloatFacade extends NumericFacade
 {
     /** @inheritDoc */
     protected static $class = FloatObject::class;

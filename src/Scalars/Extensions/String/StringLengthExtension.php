@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -12,7 +14,7 @@ use function NorseBlue\Prim\int;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringLengthExtension extends StringObject implements ExtensionMethod
+final class StringLengthExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $encoding = null): IntObject
@@ -30,7 +32,7 @@ class StringLengthExtension extends StringObject implements ExtensionMethod
             $value = $this->object_value;
 
             if ($encoding) {
-                $encoding = static::unwrap($encoding);
+                $encoding = self::unwrap($encoding);
 
                 return int(mb_strlen($value, $encoding));
             }

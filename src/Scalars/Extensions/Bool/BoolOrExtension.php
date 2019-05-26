@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\Bool;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -11,17 +13,17 @@ use function NorseBlue\Prim\bool;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\Bool
  */
-class BoolOrExtension extends BoolObject implements ExtensionMethod
+final class BoolOrExtension extends BoolObject implements ExtensionMethod
 {
     /**
-     * @return callable(bool|BoolObject|bool[]|BoolObject[] ...$bools): BoolObject
+     * @return callable(bool|BoolObject|array<bool|BoolObject> ...$bools): BoolObject
      */
     public function __invoke(): callable
     {
         /**
          * Apply the OR logical operation to the BoolObject with the given values.
          *
-         * @param bool|BoolObject|bool[]|BoolObject[] ...$bools
+         * @param bool|BoolObject|array<bool|BoolObject> ...$bools
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
          */

@@ -14,17 +14,29 @@ parameters:
             message: '~Call to an undefined static method NorseBlue\\Prim\\Tests\\Helpers\\Facades\\DummyCompleteFacade::nonexistent\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Facade/ValueObjectFacadeTest.php
         -
-            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\BoolObject constructor expects [a-zA-z0-9_\|\\]+, int given.~'
+            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\BoolObject constructor expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/BoolObjectTest.php
         -
-            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\FloatObject constructor expects [a-zA-z0-9_\|\\]+, string given.~'
+            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\FloatObject constructor expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/FloatObjectTest.php
         -
-            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\IntObject constructor expects [a-zA-z0-9_\|\\]+, string given.~'
+            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\IntObject constructor expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/IntObjectTest.php
         -
-            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\StringObject constructor expects [a-zA-z0-9_\|\\]+, int given.~'
+            message: '~Parameter #1 \$value of function NorseBlue\\Prim\\int expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/IntObjectTest.php
+        -
+            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\NumericObject constructor expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/NumericObjectTest.php
+        -
+            message: '~Parameter #1 \$value of class NorseBlue\\Prim\\Scalars\\StringObject constructor expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/StringObjectTest.php
+        -
+            message: '~Parameter #1 \$value of static method NorseBlue\\Prim\\Facades\\Scalars\\IntFacade::abs\(\) expects [a-zA-z0-9_\|\\]+, [a-zA-z0-9_\|\\]+ given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Scalars/Int/IntAbsTest.php
         -
             message: '~Call to an undefined method Exception::getPregError[a-zA-z0-9_\|\\]+\(\).~'
             path: %currentWorkingDirectory%/tests/Unit/Scalars/String/StringRegexMatchesTest.php
+        -
+            message: '~Parameter #1 \$key of method [a-zA-z0-9_\\]+::set\(\) expects string, int given.~'
+            path: %currentWorkingDirectory%/tests/Unit/Collections/ArrObjectTest.php

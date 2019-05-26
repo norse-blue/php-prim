@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -11,10 +13,10 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringReplaceArrayExtension extends StringObject implements ExtensionMethod
+final class StringReplaceArrayExtension extends StringObject implements ExtensionMethod
 {
     /**
-     * @return callable(string|StringObject $search, string[]|StringObject[] $replace): StringObject
+     * @return callable(string|StringObject $search, array<string|StringObject> $replace): StringObject
      */
     public function __invoke(): callable
     {
@@ -22,7 +24,7 @@ class StringReplaceArrayExtension extends StringObject implements ExtensionMetho
          * Replace a given value in the string sequentially with an array.
          *
          * @param string|StringObject $search
-         * @param string[]|StringObject[] $replace
+         * @param array<string|StringObject> $replace
          *
          * @return \NorseBlue\Prim\Scalars\StringObject
          */

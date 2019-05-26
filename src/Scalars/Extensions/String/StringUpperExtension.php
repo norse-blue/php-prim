@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -11,7 +13,7 @@ use function NorseBlue\Prim\string;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringUpperExtension extends StringObject implements ExtensionMethod
+final class StringUpperExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(): StringObject

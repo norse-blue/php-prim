@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars\String;
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class StringSubstrTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\String
+ */
 class StringSubstrTest extends TestCase
 {
     /** @test */

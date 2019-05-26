@@ -5,6 +5,11 @@ namespace NorseBlue\Prim\Tests\Unit\Scalars\String;
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
+/**
+ * Class StringReplaceArrayTest
+ *
+ * @package NorseBlue\Prim\Tests\Unit\Scalars\String
+ */
 class StringReplaceArrayTest extends TestCase
 {
     /** @test */

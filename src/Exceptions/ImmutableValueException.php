@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Exceptions;
 
 use RuntimeException;
@@ -9,6 +11,6 @@ use RuntimeException;
  *
  * @package NorseBlue\Prim\Exceptions
  */
-class ImmutableValueException extends RuntimeException
+final class ImmutableValueException extends RuntimeException
 {
 }

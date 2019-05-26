@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -11,7 +13,7 @@ use NorseBlue\Prim\Scalars\StringObject;
  *
  * @package NorseBlue\Prim\Scalars\Extensions\String
  */
-class StringEqualsExtension extends StringObject implements ExtensionMethod
+final class StringEqualsExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $string, bool|BoolObject $case_insensitive = false): BoolObject

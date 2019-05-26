@@ -1,12 +1,19 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Scalars\StringObject;
 use function NorseBlue\Prim\string;
 
-class StringSlugExtension extends StringObject implements ExtensionMethod
+/**
+ * Class StringSlugExtension
+ *
+ * @package NorseBlue\Prim\Scalars\Extensions\String
+ */
+final class StringSlugExtension extends StringObject implements ExtensionMethod
 {
     /**
      * @return callable(string|StringObject $separator = '-', string|StringObject|null $language = 'en'): StringObject
