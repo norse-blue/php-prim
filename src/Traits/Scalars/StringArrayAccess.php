@@ -9,7 +9,7 @@ use OutOfBoundsException;
 
 trait StringArrayAccess
 {
-// region === ArrayAccess ===
+    // region === ArrayAccess ===
 
     /**
      * Whether a offset exists
