@@ -6,6 +6,7 @@ namespace NorseBlue\Prim\Collections;
 
 use ArrayAccess;
 use NorseBlue\Prim\Contracts\Jsonable;
+use NorseBlue\Prim\Scalars\BoolObject;
 use NorseBlue\Prim\Scalars\IntObject;
 use NorseBlue\Prim\Traits\ContainerArrayAccess;
 
@@ -15,6 +16,7 @@ use NorseBlue\Prim\Traits\ContainerArrayAccess;
  * @package NorseBlue\Prim\Collections
  *
  * @method IntObject average(int|IntObject $decimals = 0)
+ * @method BoolObject contains(mixed $needle, bool|BoolObject $strict = false)
  * @method self each(callable $callback)
  */
 class ArrObject extends ItemContainer implements ArrayAccess, Jsonable
