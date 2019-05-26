@@ -27,13 +27,15 @@ commands:
             - run: ./cc-test-reporter before-build
     run_tests:
         steps:
-            - run: composer style-check
-            - run: composer analyse
+            - run: composer style-check | return 0
+            - run: composer analyse | return 0
+            - run: composer insights | return 0
             - run: composer test
     run_tests_coverage:
         steps:
-            - run: composer style-check
-            - run: composer analyse
+            - run: composer style-check | return 0
+            - run: composer analyse | return 0
+            - run: composer insights | return 0
             - run: composer test-coverage
             - run: ./cc-test-reporter format-coverage --input-type clover --output build/code-climate-coverage.json build/coverage.xml
             - store_artifacts:
