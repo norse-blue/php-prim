@@ -82,8 +82,8 @@ echo $str;
 // This is my text.
 ```
 
-You don't need to worry about side-effects, as the objects are immutable and each function returns
-a new immutable object, so to store the value don't forget to assign it to a variable. 
+You don't need to worry about side-effects for scalar objects, as they are implemented as immutable objects and each method returns
+a new object. To store the value don't forget to assign it to a variable or it will be lost.
 
 ## Documentation
 

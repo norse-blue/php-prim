@@ -62,7 +62,7 @@
             "composer test"
         ],
         "insights": [
-            "vendor/bin/phpinsights --ansi"
+            "vendor/bin/phpinsights --ansi --no-interaction"
         ],
         "style-check": [
             "vendor/bin/phpcs"

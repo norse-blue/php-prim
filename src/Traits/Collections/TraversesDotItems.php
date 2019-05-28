@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Traits\Collections;
 
 use Closure;
@@ -17,13 +19,12 @@ trait TraversesDotItems
      *
      * @param string $key
      * @param \Closure|null $callback
-     *
      * @param bool $create_missing
      *
      * @return mixed Return null if the item was not found, true if it was found but no callback was given and
      * the callback return value if it was found and a callback was given.
      */
-    final protected function dotTraverseCallback(string $key, Closure $callback = null, $create_missing = false)
+    final protected function dotTraverseCallback(string $key, ?Closure $callback = null, bool $create_missing = false)
     {
         $parent = [];
         $array = &$this->items;
@@ -37,7 +38,7 @@ trait TraversesDotItems
             $parent = &$array;
             if (!is_array($parent)) {
                 if (!$create_missing) {
-                    return ($callback) ? $callback($array, $parent, $key_part, $key) : null;
+                    return $callback ? $callback($array, $parent, $key_part, $key) : null;
                 }
 
                 $parent = [];
@@ -51,7 +52,7 @@ trait TraversesDotItems
             $array = &$parent[$key_part];
         }
 
-        return ($callback) ? $callback($array, $parent, $key_part, $key) : array_key_exists($key_part, $parent);
+        return $callback ? $callback($array, $parent, $key_part, $key) : array_key_exists($key_part, $parent);
     }
 
     /**

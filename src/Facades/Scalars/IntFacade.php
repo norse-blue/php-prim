@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Scalars\BoolObject;

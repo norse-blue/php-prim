@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Extensions;
 
 use NorseBlue\Prim\Collections\ArrObject;
@@ -14,7 +16,7 @@ use RuntimeException;
 /**
  * @codeCoverageIgnore
  */
-(static function () {
+(static function (): void {
     $extensible_classes = [
         ArrObject::class,
         DotArrObject::class,
@@ -38,7 +40,7 @@ use RuntimeException;
 
         $extensions = array_reduce(
             $glob,
-            function ($carry, $extension) use ($type) {
+            static function ($carry, $extension) use ($type) {
                 $namespace = preg_replace(
                     '%src/(.*)/([a-zA-z0-9_]+).php$%',
                     'NorseBlue/Prim/\1',
@@ -48,7 +50,6 @@ use RuntimeException;
 
                 $extension = preg_replace('%^.*/(.+)\.php$%', '\1', $extension);
                 $item = preg_replace("%^$type(.+)Extension$%", '\1', $extension);
-
 
                 $carry[lcfirst($item)] = "$namespace\\$extension";
                 return $carry;

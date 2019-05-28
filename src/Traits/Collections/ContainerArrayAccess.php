@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Traits;
 
 /**
@@ -20,10 +22,11 @@ trait ContainerArrayAccess
      * An offset to check for.
      * </p>
      *
-     * @return boolean true on success or false on failure.
+     * @return bool true on success or false on failure.
      * </p>
      * <p>
      * The return value will be casted to boolean if non-boolean was returned.
+     *
      * @since 5.0.0
      */
     public function offsetExists($offset): bool
@@ -39,6 +42,7 @@ trait ContainerArrayAccess
      * @param mixed $offset
      *
      * @return mixed Can return all value types.
+     *
      * @since 5.0.0
      */
     public function offsetGet($offset)
@@ -59,9 +63,10 @@ trait ContainerArrayAccess
      * </p>
      *
      * @return void
+     *
      * @since 5.0.0
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         $this->set($offset, $value);
     }
@@ -76,9 +81,10 @@ trait ContainerArrayAccess
      * </p>
      *
      * @return void
+     *
      * @since 5.0.0
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         $this->delete($offset);
     }

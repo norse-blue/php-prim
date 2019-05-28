@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -24,6 +26,7 @@ final class StringTrimLeftExtension extends StringObject implements ExtensionMet
          * @param string|StringObject $character_mask
          *
          * @return \NorseBlue\Prim\Scalars\StringObject
+         *
          * @see https://www.php.net/manual/en/function.ltrim.php
          */
         return function ($character_mask = " \t\n\r\0\x0B"): StringObject {

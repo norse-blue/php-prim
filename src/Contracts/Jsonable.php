@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Contracts;
 
 interface Jsonable
@@ -12,5 +14,5 @@ interface Jsonable
      *
      * @return string
      */
-    public function toJson(int $options = 0, $depth = 512): string;
+    public function toJson(int $options = 0, int $depth = 512): string;
 }

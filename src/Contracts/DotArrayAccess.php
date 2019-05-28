@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Contracts;
 
 use ArrayAccess;
@@ -16,7 +18,7 @@ interface DotArrayAccess extends ArrayAccess
      *
      * @param string $key
      *
-     * @return array
+     * @return array<string>
      */
     public function getKeyParts(string $key): array;
 }

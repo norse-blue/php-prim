@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Contracts;
 
 use Countable;
@@ -9,7 +11,7 @@ interface ItemContainable extends Countable
     /**
      * Get all items.
      *
-     * @return array
+     * @return array<mixed>
      */
     public function all(): array;
 

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars;
 
 use NorseBlue\Prim\ImmutableValueObject;
@@ -9,11 +11,11 @@ use NorseBlue\Prim\ImmutableValueObject;
  *
  * @package NorseBlue\Prim\Scalars
  *
- * @method self and (bool|self|bool[]|self[] ...$bools) From extension method BoolAndExtension
+ * @method self and (bool|self|array<bool|self> ...$bools) From extension method BoolAndExtension
  * @method self equals(bool|self $bool) From extension method BoolEqualsExtension
  * @method self not() From extension method BoolNotExtension
- * @method self or (bool|self|bool[]|self[] ...$bools) From extension method BoolOrExtension
- * @method self xor (bool|self|bool[]|self[] ...$bools) From extension method BoolXorExtension
+ * @method self or (bool|self|array<bool|self> ...$bools) From extension method BoolOrExtension
+ * @method self xor (bool|self|array<bool|self> ...$bools) From extension method BoolXorExtension
  */
 class BoolObject extends ImmutableValueObject
 {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Collections;
 
 use NorseBlue\ExtensibleObjects\Contracts\Extensible;
@@ -20,7 +22,7 @@ class ItemContainer implements ItemContainable, Extensible
     /**
      * ItemContainer constructor.
      *
-     * @param iterable $items
+     * @param iterable<mixed> $items
      */
     public function __construct(iterable $items = [])
     {

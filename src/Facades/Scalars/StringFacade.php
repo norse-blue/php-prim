@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
@@ -47,11 +49,11 @@ use Ramsey\Uuid\UuidInterface;
  * @method static array regexMatches(string|StringObject $value, string|StringObject $pattern, int|IntObject $flags = 0)
  * @method static BoolObject regexPatternMatch(string|StringObject $value, string|StringObject|array $patterns)
  * @method static StringObject regexQuote(string|StringObject $value, string|StringObject $delimiter = '#')
- * @method static StringObject regexReplace(string|StringObject $value, string|StringObject|string[]|StringObject[] $pattern, string|StringObject|string[]|StringObject[] $replacement, int|IntObject $limit = -1)
- * @method static StringObject remove(string|StringObject $value, string|StringObject|string[]|StringObject[] $remove)
+ * @method static StringObject regexReplace(string|StringObject $value, string|StringObject|array<string|StringObject> $pattern, string|StringObject|array<string|StringObject> $replacement, int|IntObject $limit = -1)
+ * @method static StringObject remove(string|StringObject $value, string|StringObject|array<string|StringObject> $remove)
  * @method static StringObject repeat(string|StringObject $value, int|IntObject $times = 2)
  * @method static StringObject replace(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
- * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, string[]|StringObject[] $replace)
+ * @method static StringObject replaceArray(string|StringObject $value, string|StringObject $search, array<string|StringObject> $replace)
  * @method static StringObject replaceFirst(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject replaceLast(string|StringObject $value, string|StringObject $search, string|StringObject $replace)
  * @method static StringObject right(string|StringObject $value, int|IntObject $length)
@@ -65,7 +67,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject suffix(string|StringObject $value, string|StringObject $suffix)
  * @method static StringObject surround(string|StringObject $value, string|StringObject $prefix, string|StringObject|null $suffix = null)
  * @method static StringObject title(string|StringObject $value)
- * @method static StringObject toggle(string|StringObject $value, string[]|StringObject[] $options, bool|BoolObject $strict = false)
+ * @method static StringObject toggle(string|StringObject $value, array<string|StringObject> $options, bool|BoolObject $strict = false)
  * @method static StringObject trim(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")
  * @method static StringObject trimLeft(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")
  * @method static StringObject trimRight(string|StringObject $value, string|StringObject $character_mask = " \t\n\r\0\x0B")

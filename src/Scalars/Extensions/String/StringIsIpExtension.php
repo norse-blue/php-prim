@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -30,6 +32,7 @@ final class StringIsIpExtension extends StringObject implements ExtensionMethod
          *                              - FILTER_FLAG_NO_RES_RANGE
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
+         *
          * @see https://www.php.net/manual/en/filter.filters.validate.php
          */
         return function ($flags = FILTER_FLAG_NONE): BoolObject {

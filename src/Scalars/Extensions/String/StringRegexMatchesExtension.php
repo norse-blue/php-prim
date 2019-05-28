@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -28,6 +30,7 @@ final class StringRegexMatchesExtension extends StringObject implements Extensio
          * @return array
          *
          * @throws \NorseBlue\Prim\Exceptions\Scalars\String\RegexMatchException
+         *
          * @see https://www.php.net/manual/en/function.preg-match.php
          */
         return function ($pattern, $flags = 0): array {

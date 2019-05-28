@@ -6,13 +6,14 @@ use NorseBlue\Prim\Facades\Collections\ArrFacade as Arr;
 use NorseBlue\Prim\Tests\TestCase;
 
 /**
- * Class ArrAverageExtension
+ * Class ArrAverageTest
  *
  * @package NorseBlue\Prim\Tests\Unit\Collections\Arr
  */
-class ArrAverageExtension extends TestCase
+class ArrAverageTest extends TestCase
 {
-    public function arr_object_value()
+    /** @test */
+    public function arr_average()
     {
         $average1 = [5, 10, 15, 20];
         $average2 = ['foo', 'b', 'ar'];

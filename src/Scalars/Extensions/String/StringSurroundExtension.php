@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -29,7 +31,7 @@ final class StringSurroundExtension extends StringObject implements ExtensionMet
         return function ($prefix, $suffix = null): StringObject {
             $surrounded = $prefix . $this->object_value;
 
-            $surrounded .= ($suffix === null) ? $prefix : $suffix;
+            $surrounded .= $suffix === null ? $prefix : $suffix;
 
             return string($surrounded);
         };

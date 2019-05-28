@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -27,6 +29,7 @@ final class StringIsMacExtension extends StringObject implements ExtensionMethod
          * @param string|StringObject|null $separator
          *
          * @return \NorseBlue\Prim\Scalars\BoolObject
+         *
          * @see https://www.php.net/manual/en/function.filter-var.php
          */
         return function ($separator = null): BoolObject {

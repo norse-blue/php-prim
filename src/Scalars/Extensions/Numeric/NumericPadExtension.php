@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace NorseBlue\Prim\Scalars\Extensions\Numeric;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
@@ -31,7 +33,7 @@ final class NumericPadExtension extends NumericObject implements ExtensionMethod
          */
         return function ($pad_length, $pad_string = '0', $pad_side = STR_PAD_BOTH): StringObject {
             return string(str_pad(
-                $this->object_value,
+                (string)$this->object_value,
                 IntObject::unwrap($pad_length),
                 StringObject::unwrap($pad_string),
                 IntObject::unwrap($pad_side)
