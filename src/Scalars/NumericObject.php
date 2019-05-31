@@ -28,6 +28,20 @@ class NumericObject extends ImmutableValueObject
     /** @inheritDoc */
     protected static $extensions = [];
 
+    /** @inheritDoc */
+    protected static $guarded_extensions = [
+        'abs',
+        'compare',
+        'equals',
+        'greaterThan',
+        'greaterThanOrEqual',
+        'lessThan',
+        'lessThanOrEqual',
+        'pad',
+        'padLeft',
+        'padRight',
+    ];
+
     // region === Overrides ===
 
     /**
