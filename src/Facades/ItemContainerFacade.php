@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Facades;
 
-use NorseBlue\Prim\Collections\ItemContainer;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
+use NorseBlue\Prim\Types\Collections\ItemContainer;
 
 /**
  * Class ItemContainerFacade

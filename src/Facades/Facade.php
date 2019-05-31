@@ -6,7 +6,7 @@ namespace NorseBlue\Prim\Facades;
 
 use BadMethodCallException;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
-use NorseBlue\Prim\ValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 
 abstract class Facade
 {

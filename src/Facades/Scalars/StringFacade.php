@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
-use NorseBlue\Prim\Scalars\BoolObject;
-use NorseBlue\Prim\Scalars\IntObject;
-use NorseBlue\Prim\Scalars\StringObject;
+use NorseBlue\Prim\Types\Scalars\BoolObject;
+use NorseBlue\Prim\Types\Scalars\IntObject;
+use NorseBlue\Prim\Types\Scalars\StringObject;
 use Ramsey\Uuid\UuidInterface;
 
 /**

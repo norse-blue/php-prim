@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Facades\Scalars;
 
-use NorseBlue\Prim\Scalars\BoolObject;
-use NorseBlue\Prim\Scalars\IntObject;
-use NorseBlue\Prim\Scalars\NumericObject;
+use NorseBlue\Prim\Types\Scalars\BoolObject;
+use NorseBlue\Prim\Types\Scalars\IntObject;
+use NorseBlue\Prim\Types\Scalars\NumericObject;
 
 /**
  * Class IntFacade

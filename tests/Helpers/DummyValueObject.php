@@ -2,7 +2,7 @@
 
 namespace NorseBlue\Prim\Tests\Helpers;
 
-use NorseBlue\Prim\ValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 
 /**
  * Class DummyValueObject

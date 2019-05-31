@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Facades\Collections;
 
-use NorseBlue\Prim\Collections\ArrObject;
 use NorseBlue\Prim\Facades\ItemContainerFacade;
-use NorseBlue\Prim\Scalars\BoolObject;
-use NorseBlue\Prim\Scalars\IntObject;
+use NorseBlue\Prim\Types\Collections\ArrObject;
+use NorseBlue\Prim\Types\Scalars\BoolObject;
+use NorseBlue\Prim\Types\Scalars\IntObject;
 
 /**
  * Class ArrFacade

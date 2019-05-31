@@ -2,7 +2,7 @@
 
 namespace NorseBlue\Prim\Tests\Helpers;
 
-use NorseBlue\Prim\ImmutableValueObject;
+use NorseBlue\Prim\Types\ImmutableValueObject;
 
 /**
  * Class ImmutableDummy
