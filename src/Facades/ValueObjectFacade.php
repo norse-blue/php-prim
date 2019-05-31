@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Facades;
 
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
-use NorseBlue\Prim\ValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 
 /**
  * Class ValueObjectFacade

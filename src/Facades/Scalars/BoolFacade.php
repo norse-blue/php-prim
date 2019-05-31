@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Facades\Scalars;
 
 use NorseBlue\Prim\Facades\ValueObjectFacade;
-use NorseBlue\Prim\Scalars\BoolObject;
+use NorseBlue\Prim\Types\Scalars\BoolObject;
 
 /**
  * Class BoolFacade

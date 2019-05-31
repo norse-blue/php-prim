@@ -2,7 +2,7 @@
 
 namespace NorseBlue\Prim\Tests;
 
-use \PHPUnit\Framework\TestCase as BaseTestCase;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
  * Class TestCase

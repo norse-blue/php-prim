@@ -25,13 +25,13 @@
         <exclude-pattern>./src/Facades/Scalars/IntFacade.php</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/NumericFacade.php</exclude-pattern>
         <exclude-pattern>./src/Facades/Scalars/StringFacade.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/Extensions/Numeric/NumericPadExtension.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/Extensions/String/StringPadExtension.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/Extensions/String/StringRegexReplaceExtension.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/FloatObject.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/IntObject.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/NumericObject.php</exclude-pattern>
-        <exclude-pattern>./src/Scalars/StringObject.php</exclude-pattern>
+        <exclude-pattern>./src/Extensions/Scalars/Numeric/NumericPadExtension.php</exclude-pattern>
+        <exclude-pattern>./src/Extensions/Scalars/String/StringPadExtension.php</exclude-pattern>
+        <exclude-pattern>./src/Extensions/Scalars/String/StringRegexReplaceExtension.php</exclude-pattern>
+        <exclude-pattern>./src/Types/Scalars/FloatObject.php</exclude-pattern>
+        <exclude-pattern>./src/Types/Scalars/IntObject.php</exclude-pattern>
+        <exclude-pattern>./src/Types/Scalars/NumericObject.php</exclude-pattern>
+        <exclude-pattern>./src/Types/Scalars/StringObject.php</exclude-pattern>
         <exclude-pattern>./src/Support/Character.php</exclude-pattern>
     </rule>
 
