@@ -8,7 +8,7 @@ namespace NorseBlue\Prim\Functions;
  * Merge the path segments to the base path.
  *
  * @param string $base
- * @param string|array $segments
+ * @param string|array<string> $segments
  * @param string $separator
  * @param bool $trailing_separator
  *

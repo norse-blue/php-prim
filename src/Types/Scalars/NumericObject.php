@@ -12,26 +12,16 @@ use function NorseBlue\Prim\Functions\bool;
  *
  * @package NorseBlue\Prim\Types\Scalars
  *
- * @method self abs()
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericAbsExtension
- * @method self compare(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericCompareExtension
- * @method BoolObject equals(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericEqualsExtension
- * @method BoolObject greaterThan(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericGreaterThanExtension
- * @method BoolObject greaterThanOrEqual(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericGreaterThanOrEqualExtension
- * @method BoolObject lessThan(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericLessThanExtension
- * @method BoolObject lessThanOrEqual(int|float|NumericObject $number)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericLessThanOrEqualExtension
- * @method StringObject pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH)
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadExtension
- * @method StringObject padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0')
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadLeftExtension
- * @method StringObject padRight(int|IntObject $pad_length, string|StringObject $pad_string = '0')
- * @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadRightExtension
+ * @method self abs() @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericAbsExtension
+ * @method self compare(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericCompareExtension
+ * @method BoolObject equals(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericEqualsExtension
+ * @method BoolObject greaterThan(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericGreaterThanExtension
+ * @method BoolObject greaterThanOrEqual(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericGreaterThanOrEqualExtension
+ * @method BoolObject lessThan(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericLessThanExtension
+ * @method BoolObject lessThanOrEqual(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericLessThanOrEqualExtension
+ * @method StringObject pad(int|IntObject $pad_length, string|StringObject $pad_string = '0', int|IntObject $pad_side = STR_PAD_BOTH) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadExtension
+ * @method StringObject padLeft(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadLeftExtension
+ * @method StringObject padRight(int|IntObject $pad_length, string|StringObject $pad_string = '0') @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericPadRightExtension
  */
 class NumericObject extends ImmutableValueObject
 {

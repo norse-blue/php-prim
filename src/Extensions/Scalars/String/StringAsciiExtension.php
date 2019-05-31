@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Extensions\Scalars\String;
 
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
-use NorseBlue\Prim\Types\Scalars\StringObject;
 use NorseBlue\Prim\Support\Character;
+use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
 /**

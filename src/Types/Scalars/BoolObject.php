@@ -11,16 +11,11 @@ use NorseBlue\Prim\Types\ImmutableValueObject;
  *
  * @package NorseBlue\Prim\Types\Scalars
  *
- * @method self and(bool|self|array<bool|self> ...$bools)
- * @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolAndExtension
- * @method self equals(bool|self $bool)
- * @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolEqualsExtension
- * @method self not()
- * @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolNotExtension
- * @method self or(bool|self|array<bool|self> ...$bools)
- * @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolOrExtension
- * @method self xor(bool|self|array<bool|self> ...$bools)
- * @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolXorExtension
+ * @method self and(bool|self|array<bool|self> ...$bools) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolAndExtension
+ * @method self equals(bool|self $bool) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolEqualsExtension
+ * @method self not() @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolNotExtension
+ * @method self or(bool|self|array<bool|self> ...$bools) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolOrExtension
+ * @method self xor(bool|self|array<bool|self> ...$bools) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolXorExtension
  */
 class BoolObject extends ImmutableValueObject
 {
