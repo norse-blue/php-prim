@@ -58,7 +58,8 @@
         "check": [
             "composer style-check",
             "composer analyse",
-            "composer test"
+            "composer test",
+            "composer insights"
         ],
         "insights": [
             "vendor/bin/phpinsights --ansi --no-interaction"
