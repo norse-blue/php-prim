@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Types;
 
+use NorseBlue\ExtensibleObjects\Contracts\Creatable;
 use NorseBlue\ExtensibleObjects\Contracts\Extensible;
 use NorseBlue\ExtensibleObjects\Traits\HandlesExtensionMethods;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
@@ -11,24 +12,30 @@ use NorseBlue\Prim\Traits\HasPropertyAccessors;
 use NorseBlue\Prim\Traits\HasPropertyMutators;
 
 /**
- * Class ValueObject
- *
- * @package NorseBlue\Prim
+ * Defines an extensible value object.
  *
  * @property mixed $value
  */
-class ValueObject implements Extensible
+class ValueObject implements Creatable, Extensible
 {
+    // region === Traits ===
+
     use HandlesExtensionMethods;
     use HasPropertyAccessors;
     use HasPropertyMutators;
 
-    /** @var mixed The value of the object */
-    protected $object_value;
+    // endregion Traits
+
+    // region === Properties ===
+
+    /** @var mixed the value of the object. */
+    protected $value;
+
+    // endregion Properties
+
+    // region === Constructor ===
 
     /**
-     * ValueObject constructor.
-     *
      * @param mixed $value
      */
     public function __construct($value = null)
@@ -38,7 +45,9 @@ class ValueObject implements Extensible
         $this->setValueProperty($value);
     }
 
-    // region === Accessors ===
+    // endregion Constructor
+
+    // region === Property Accessors ===
 
     /**
      * Get the value.
@@ -47,12 +56,12 @@ class ValueObject implements Extensible
      */
     final protected function getValueProperty()
     {
-        return $this->object_value;
+        return $this->value;
     }
 
-    // endregion Accessors
+    // endregion Property Accessors
 
-    // region === Mutators ===
+    // region === Property Mutators ===
 
     /**
      * Set the value.
@@ -61,28 +70,16 @@ class ValueObject implements Extensible
      */
     final protected function setValueProperty($value): void
     {
-        if (!$this->valueIsValid($value) || $value instanceof static) {
+        if (!$value instanceof static && !$this->valueIsValid($value)) {
             throw new InvalidValueException('The given value is not valid.');
         }
 
-        $this->object_value = $value;
+        $this->value = static::unwrap($value);
     }
 
-    // endregion Mutators
+    // endregion Property Mutators
 
-    // region === Magic Methods ===
-
-    /**
-     * Converts the object to string by casting the value.
-     *
-     * @return string
-     */
-    public function __toString(): string
-    {
-        return (string)$this->object_value;
-    }
-
-    // endregion Magic Methods
+    // region === Methods ===
 
     /**
      * Unwraps the value from a ValueObject or returns the value itself.
@@ -93,22 +90,54 @@ class ValueObject implements Extensible
      */
     final public static function unwrap($value)
     {
-        if ($value instanceof self) {
+        if ($value instanceof static) {
             $value = $value->value;
         }
 
         return $value;
     }
 
-    // region === ValueObjectContract ===
-
     /**
-     * @inheritDoc
+     * Check that the given value is valid.
+     *
+     * @param mixed $value
+     *
+     * @return bool
      */
     public function valueIsValid($value): bool
     {
         return true;
     }
 
-    // endregion ValueObjectContract
+    // endregion Methods
+
+    // region === Magic Methods ===
+
+    /**
+     * Converts the object to string by casting the value.
+     *
+     * @return string
+     */
+    public function __toString(): string
+    {
+        return (string)$this->value;
+    }
+
+    // endregion Magic Methods
+
+    // region === implements Creatable ===
+
+    /**
+     * Creates a new instance.
+     *
+     * @param mixed $value
+     *
+     * @return static
+     */
+    public static function create($value = null): self
+    {
+        return new static($value);
+    }
+
+    // endregion Creatable
 }

@@ -4,17 +4,22 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Types;
 
-use NorseBlue\Prim\Exceptions\ImmutableValueException;
+use NorseBlue\Prim\Exceptions\ImmutablePropertyException;
 
 /**
- * Class ImmutableValueObject
- *
- * @package NorseBlue\Prim
+ * Defines an immutable value object.
  *
  * @property-read mixed $value
  */
 class ImmutableValueObject extends ValueObject
 {
+    // region === Properties ===
+
+    /** @inheritDoc */
+    protected static $extensions = [];
+
+    // endregion Properties
+
     // region === Overrides ===
 
     /**
@@ -23,7 +28,7 @@ class ImmutableValueObject extends ValueObject
     final public function __set(string $key, $value): void
     {
         if ($key === 'value') {
-            throw new ImmutableValueException('This value object is immutable.');
+            throw new ImmutablePropertyException($key, "The '$key' property is immutable.");
         }
 
         parent::__set($key, $value);

@@ -4,17 +4,19 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Types\Scalars;
 
+use NorseBlue\Prim\Types\ValueObject;
+
 /**
- * Class IntObject
- *
- * @package NorseBlue\Prim\Types\Scalars
+ * Primitive type int as object.
  */
 class IntObject extends NumericObject
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $extensions = [];
 
-    /** @inheritDoc */
+    /** @var array<string> The guarded extension methods. */
     protected static $guarded_extensions = [
         'abs',
         'compare',
@@ -28,11 +30,11 @@ class IntObject extends NumericObject
         'padRight',
     ];
 
+    // endregion Properties
+
     // region === Overrides ===
 
     /**
-     * IntObject constructor.
-     *
      * @param int|float|NumericObject $value
      */
     public function __construct($value = 0)
@@ -42,6 +44,16 @@ class IntObject extends NumericObject
         }
 
         parent::__construct($value);
+    }
+
+    /**
+     * @param int|float|NumericObject $value
+     *
+     * @return self
+     */
+    public static function create($value = 0): ValueObject
+    {
+        return new static($value);
     }
 
     // endregion Overrides
