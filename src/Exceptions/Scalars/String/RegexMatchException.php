@@ -7,13 +7,22 @@ namespace NorseBlue\Prim\Exceptions\Scalars\String;
 use RuntimeException;
 use Throwable;
 
+/**
+ * Exception thrown when there is a regex match error.
+ */
 final class RegexMatchException extends RuntimeException
 {
-    /** @var int */
+    // region === Properties ===
+
+    /** @var int $preg_error_code */
     protected $preg_error_code;
 
-    /** @var string */
+    /** @var string $preg_error_name */
     protected $preg_error_name;
+
+    // endregion Properties
+
+    // region === Constructor ===
 
     /**
      * RegexMatchException constructor.
@@ -37,6 +46,10 @@ final class RegexMatchException extends RuntimeException
         $this->preg_error_name = $this->translatePregErrorCode($this->preg_error_code);
     }
 
+    // endregion Constructor
+
+    // region === Property Accessors ===
+
     /**
      * Get the PCRE regex execution error code.
      *
@@ -57,6 +70,10 @@ final class RegexMatchException extends RuntimeException
         return $this->preg_error_name;
     }
 
+    // endregion Property Accessors
+
+    // region === Methods ===
+
     /**
      * Translate the PCRE execution regex error code.
      *
@@ -70,4 +87,6 @@ final class RegexMatchException extends RuntimeException
 
         return @array_flip($pcre_constants)[$preg_error_code];
     }
+
+    // endregion Methods
 }
