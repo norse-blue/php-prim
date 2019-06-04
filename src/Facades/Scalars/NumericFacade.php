@@ -11,12 +11,11 @@ use NorseBlue\Prim\Types\Scalars\NumericObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
 /**
- * Class NumericFacade
- *
- * @package NorseBlue\Prim\Facades\Scalars
+ * Facade to class NumericObject.
  *
  * @method static NumericObject abs(int|float|NumericObject $value)
  * @method static NumericObject compare(int|float|NumericObject $value, int|float|NumericObject $number)
+ * @method static NumericObject create(int|float|NumericObject $value)
  * @method static NumericObject equals(int|float|NumericObject $value, int|float|NumericObject $number)
  * @method static BoolObject greaterThan(int|float|NumericObject $value, int|float|NumericObject $number)
  * @method static BoolObject greaterThanOrEqual(int|float|NumericObject $value, int|float|NumericObject $number)
@@ -28,6 +27,10 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
  */
 class NumericFacade extends ValueObjectFacade
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $class = NumericObject::class;
+
+    // endregion Properties
 }

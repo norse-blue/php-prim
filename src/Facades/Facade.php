@@ -8,18 +8,30 @@ use BadMethodCallException;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
 use NorseBlue\Prim\Types\ValueObject;
 
+/**
+ * Facade base class.
+ *
+ * @method static mixed create(mixed $value)
+ */
 abstract class Facade
 {
+    // region === Properties ===
+
     /** @var string The class that this facade is for. */
     protected static $class = '';
 
     /** @var array<string> The name of the methods that are actually static. */
     protected static $statics = [
+        'create',
         'unwrap',
     ];
 
+    // endregion Properties
+
+    // region === Constructor ===
+
     /**
-     * ValueObjectFacade constructor.
+     * Prevent construction outside this class.
      *
      * @codeCoverageIgnore
      */
@@ -27,25 +39,9 @@ abstract class Facade
     {
     }
 
-    // region === Magic Methods ===
+    // endregion Constructor
 
-    /**
-     * @inheritDoc
-     */
-    final public static function __callStatic(string $method, array $arguments)
-    {
-        $class = static::$class;
-        self::validateFacadeClass($class);
-        self::validateFacadeMethod($class, $method);
-
-        if (in_array($method, array_merge(self::$statics, static::$statics), true)) {
-            return $class::$method(...$arguments);
-        }
-
-        return (new $class(array_shift($arguments)))->$method(...$arguments);
-    }
-
-    // endregion Magic Methods
+    // region === Methods ===
 
     /**
      * Validate the facade class.
@@ -87,4 +83,31 @@ abstract class Facade
             throw new BadMethodCallException("The method $method does not exist for class $class.");
         }
     }
+
+    // endregion Methods
+
+    // region === Magic Methods ===
+
+    /**
+     * Handle static method calls.
+     *
+     * @param string $method
+     * @param array<mixed> $arguments
+     *
+     * @return mixed
+     */
+    final public static function __callStatic(string $method, array $arguments)
+    {
+        $class = static::$class;
+        self::validateFacadeClass($class);
+        self::validateFacadeMethod($class, $method);
+
+        if (in_array($method, array_merge(self::$statics, static::$statics), true)) {
+            return $class::$method(...$arguments);
+        }
+
+        return (new $class(array_shift($arguments)))->$method(...$arguments);
+    }
+
+    // endregion Magic Methods
 }

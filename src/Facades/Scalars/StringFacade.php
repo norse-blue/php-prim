@@ -11,9 +11,7 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
 use Ramsey\Uuid\UuidInterface;
 
 /**
- * Class StringFacade
- *
- * @package NorseBlue\Prim\Facades\Scalars
+ * Facade to class StringObject.
  *
  * @method static StringObject accord(int|IntObject $count, string|StringObject $many, string|StringObject $one, string|StringObject|null $zero = null)
  * @method static StringObject after(string|StringObject $value, string|StringObject $search)
@@ -23,6 +21,7 @@ use Ramsey\Uuid\UuidInterface;
  * @method static StringObject compare(string|StringObject $value, string|StringObject $string, bool $case_insensitive = false)
  * @method static StringObject concat(string|StringObject $value, string|StringObject ...$strings)
  * @method static StringObject contains(string|StringObject $value, string|StringObject|array $needles)
+ * @method static StringObject create(string|StringObject $value)
  * @method static StringObject endsWith(string|StringObject $value, string|StringObject|array $needles)
  * @method static StringObject equals(string|StringObject $value, string|StringObject $string, bool $case_insensitive = false)
  * @method static array explode(string|StringObject $value, string|StringObject $delimiter, int|IntObject|null $limit = PHP_INT_MAX)
@@ -78,6 +77,8 @@ use Ramsey\Uuid\UuidInterface;
  */
 final class StringFacade extends ValueObjectFacade
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $class = StringObject::class;
 
@@ -88,4 +89,6 @@ final class StringFacade extends ValueObjectFacade
         'random',
         'uuid',
     ];
+
+    // endregion Properties
 }

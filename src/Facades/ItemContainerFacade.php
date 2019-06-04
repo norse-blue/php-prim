@@ -8,18 +8,21 @@ use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
 use NorseBlue\Prim\Types\Collections\ItemContainer;
 
 /**
- * Class ItemContainerFacade
+ * Facade base class for item containers.
  *
- * @package NorseBlue\Prim\Facades
+ * @method static ItemContainer create(iterable $value)
  */
 abstract class ItemContainerFacade extends Facade
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $class = ItemContainer::class;
 
-    /**
-     * @inheritDoc
-     */
+    // endregion Properties
+
+    // region === Overrides ===
+
     final protected static function validateFacadeClassType(string $class): void
     {
         if (!is_subclass_of($class, self::$class)) {
@@ -28,4 +31,6 @@ abstract class ItemContainerFacade extends Facade
             );
         }
     }
+
+    // endregion Overrides
 }

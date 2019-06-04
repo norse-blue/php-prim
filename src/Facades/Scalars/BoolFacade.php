@@ -8,11 +8,10 @@ use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 
 /**
- * Class BoolFacade
- *
- * @package NorseBlue\Prim\Facades\Scalars
+ * Facade to class BoolObject.
  *
  * @method static BoolObject and(bool|BoolObject $value, bool|BoolObject|array<bool|BoolObject> ...$bools)
+ * @method static BoolObject create(bool|BoolObject $value)
  * @method static BoolObject equals(bool|BoolObject $value, bool|BoolObject $bool)
  * @method static BoolObject not(bool|BoolObject $value)
  * @method static BoolObject or(bool|BoolObject $value, bool|BoolObject|array<bool|BoolObject> ...$bools)
@@ -20,6 +19,10 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
  */
 final class BoolFacade extends ValueObjectFacade
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $class = BoolObject::class;
+
+    // endregion
 }
