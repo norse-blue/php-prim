@@ -7,15 +7,13 @@ namespace NorseBlue\Prim\Traits\Collections;
 use Closure;
 
 /**
- * Trait TraversesItemsWithDot
- *
- * @package NorseBlue\Prim\Traits\Collections
+ * Traverses dot items methods for dot-notation arrays.
  */
 trait TraversesDotItems
 {
     /**
      * Traverse the array using dot-notation and execute the given callback.
-     *Callback signature: mixed callable($item, $parent, $key_part, $full_key)
+     * Callback signature: mixed callable($item, $parent, $key_part, $full_key)
      *
      * @param string $key
      * @param \Closure|null $callback

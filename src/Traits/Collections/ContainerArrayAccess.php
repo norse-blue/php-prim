@@ -5,14 +5,10 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Traits;
 
 /**
- * Trait HasArrayAccessForItems
- *
- * @package NorseBlue\Prim\Traits
+ * Implements ArrayAccess interface for array objects.
  */
 trait ContainerArrayAccess
 {
-    // region === ArrayAccess ===
-
     /**
      * Whether a offset exists
      *
@@ -88,6 +84,4 @@ trait ContainerArrayAccess
     {
         $this->delete($offset);
     }
-
-    // endregion ArrayAccess
 }

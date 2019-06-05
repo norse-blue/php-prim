@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace NorseBlue\Prim\Traits\Scalars;
 
+/**
+ * Implements the Countable interface for string objects.
+ */
 trait StringCountable
 {
-    // region === Countable ===
-
     /**
      * Count elements of an object
      *
@@ -24,6 +25,4 @@ trait StringCountable
     {
         return $this->length()->value;
     }
-
-    // endregion Countable
 }

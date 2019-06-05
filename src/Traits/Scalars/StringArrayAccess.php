@@ -7,10 +7,11 @@ namespace NorseBlue\Prim\Traits\Scalars;
 use NorseBlue\Prim\Exceptions\Scalars\String\StringUnsetOffsetException;
 use OutOfBoundsException;
 
+/**
+ * Implements the ArrayAccess interface for string objects.
+ */
 trait StringArrayAccess
 {
-    // region === ArrayAccess ===
-
     /**
      * Whether a offset exists
      *
@@ -72,7 +73,7 @@ trait StringArrayAccess
      */
     public function offsetSet($offset, $value): void
     {
-        $this->object_value[$offset] = $value;
+        $this->value[$offset] = $value;
     }
 
     /**
@@ -92,6 +93,4 @@ trait StringArrayAccess
     {
         throw new StringUnsetOffsetException('Cannot unset string offsets.');
     }
-
-    // endregion
 }

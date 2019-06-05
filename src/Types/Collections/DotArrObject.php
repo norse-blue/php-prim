@@ -8,7 +8,6 @@ use ArrayAccess;
 use NorseBlue\Prim\Contracts\Jsonable;
 use NorseBlue\Prim\Traits\Collections\ContainsDotItems;
 use NorseBlue\Prim\Traits\Collections\TraversesDotItems;
-use NorseBlue\Prim\Traits\ContainerArrayAccess;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
@@ -20,7 +19,6 @@ class DotArrObject extends ItemContainer implements ArrayAccess, Jsonable
     // region === Traits ===
 
     use ContainsDotItems;
-    use ContainerArrayAccess;
     use TraversesDotItems;
 
     // endregion Traits

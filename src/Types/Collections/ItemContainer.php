@@ -8,6 +8,7 @@ use Countable;
 use NorseBlue\ExtensibleObjects\Contracts\Creatable;
 use NorseBlue\ExtensibleObjects\Contracts\Extensible;
 use NorseBlue\ExtensibleObjects\Traits\HandlesExtensionMethods;
+use NorseBlue\Prim\Traits\ContainerArrayAccess;
 use NorseBlue\Prim\Traits\ContainsItems;
 use NorseBlue\Prim\Traits\HasPropertyAccessors;
 use NorseBlue\Prim\Traits\HasPropertyMutators;
@@ -20,6 +21,7 @@ class ItemContainer implements Countable, Creatable, Extensible
     // region === Traits ===
 
     use ContainsItems;
+    use ContainerArrayAccess;
     use HandlesExtensionMethods;
     use HasPropertyAccessors;
     use HasPropertyMutators;

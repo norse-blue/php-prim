@@ -7,9 +7,7 @@ namespace NorseBlue\Prim\Traits;
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
 
 /**
- * Trait HasPropertyMutators
- *
- * @package NorseBlue\Prim\Traits
+ * Handles property mutators.
  */
 trait HasPropertyMutators
 {
@@ -24,6 +22,7 @@ trait HasPropertyMutators
 
         if ($this->hasMutator($key, $mutator)) {
             $this->$mutator($value);
+
             return;
         }
 

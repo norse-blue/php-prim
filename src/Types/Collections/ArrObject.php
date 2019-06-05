@@ -6,7 +6,6 @@ namespace NorseBlue\Prim\Types\Collections;
 
 use ArrayAccess;
 use NorseBlue\Prim\Contracts\Jsonable;
-use NorseBlue\Prim\Traits\ContainerArrayAccess;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
@@ -25,12 +24,6 @@ use function NorseBlue\Prim\Functions\string;
  */
 class ArrObject extends ItemContainer implements ArrayAccess, Jsonable
 {
-    // region === Traits ===
-
-    use ContainerArrayAccess;
-
-    // endregion Traits
-
     // region === Properties ===
 
     /** @inheritDoc */
