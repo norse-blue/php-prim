@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class BoolEqualsExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Bool
- */
 final class BoolEqualsExtension extends BoolObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class BoolEqualsExtension extends BoolObject implements ExtensionMethod
         return function ($bool): BoolObject {
             $bool = self::unwrap($bool);
 
-            return bool($this->object_value === $bool);
+            return bool($this->value === $bool);
         };
     }
 }

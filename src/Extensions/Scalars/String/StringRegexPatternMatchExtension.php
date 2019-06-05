@@ -10,11 +10,6 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringRegexPatternMatchExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRegexPatternMatchExtension extends StringObject implements ExtensionMethod
 {
     /**

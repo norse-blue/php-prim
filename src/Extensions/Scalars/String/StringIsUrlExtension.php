@@ -10,11 +10,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class StringIsUrlExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringIsUrlExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -37,7 +32,7 @@ final class StringIsUrlExtension extends StringObject implements ExtensionMethod
          */
         return function ($flags = FILTER_FLAG_NONE): BoolObject {
             return bool(
-                filter_var($this->object_value, FILTER_VALIDATE_URL, IntObject::unwrap($flags)) !== false
+                filter_var($this->value, FILTER_VALIDATE_URL, IntObject::unwrap($flags)) !== false
             );
         };
     }

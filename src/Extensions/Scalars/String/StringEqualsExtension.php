@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringEqualsExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringEqualsExtension extends StringObject implements ExtensionMethod
 {
     /**

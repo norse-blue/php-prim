@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringRepeatExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRepeatExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringRepeatExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($times = 2): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $times = self::unwrap($times);
             $repeated = '';
 

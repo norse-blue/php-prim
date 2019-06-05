@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**.
- * Class StringTitleExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringTitleExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -26,7 +21,7 @@ final class StringTitleExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function (): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
 
             return string(mb_convert_case($value, MB_CASE_TITLE, 'UTF-8'));
         };

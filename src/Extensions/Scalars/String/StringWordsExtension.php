@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringWordsExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringWordsExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class StringWordsExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($words = 100, $end = '...'): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $words = IntObject::unwrap($words);
 
             preg_match('/^\s*+(?:\S++\s*+){1,' . $words . '}/u', $value, $matches);

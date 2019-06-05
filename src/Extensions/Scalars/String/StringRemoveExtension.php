@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\ImmutableValueObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringRemoveExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRemoveExtension extends StringObject implements ExtensionMethod
 {
     /**

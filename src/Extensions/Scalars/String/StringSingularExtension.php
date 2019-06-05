@@ -9,11 +9,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSingularExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringSingularExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -27,7 +22,7 @@ final class StringSingularExtension extends StringObject implements ExtensionMet
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function (): StringObject {
-            return string(Inflector::singularize($this->object_value));
+            return string(Inflector::singularize($this->value));
         };
     }
 }

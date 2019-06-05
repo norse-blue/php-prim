@@ -9,11 +9,6 @@ use NorseBlue\Prim\Exceptions\Scalars\String\RegexMatchException;
 use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringMatchesExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRegexMatchesExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -36,7 +31,7 @@ final class StringRegexMatchesExtension extends StringObject implements Extensio
         return function ($pattern, $flags = 0): array {
             $pattern = self::unwrap($pattern);
 
-            if (@preg_match($pattern, $this->object_value, $matches, IntObject::unwrap($flags)) === false) {
+            if (@preg_match($pattern, $this->value, $matches, IntObject::unwrap($flags)) === false) {
                 throw new RegexMatchException(
                     preg_last_error(),
                     'An error occurred while trying to get the string regex matches.'

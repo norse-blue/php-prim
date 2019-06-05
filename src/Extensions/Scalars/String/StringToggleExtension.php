@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringToggleExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringToggleExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -35,16 +30,17 @@ final class StringToggleExtension extends StringObject implements ExtensionMetho
                 $option = self::unwrap($option);
             }
 
-            $index = array_search($this->object_value, $options, true);
+            $index = array_search($this->value, $options, true);
             if ($index === false) {
                 if (BoolObject::unwrap($strict)) {
-                    return string($this->object_value);
+                    return string($this->value);
                 }
 
                 $index = -1;
             }
 
             $index++;
+
             return string($options[$index % count($options)]);
         };
     }

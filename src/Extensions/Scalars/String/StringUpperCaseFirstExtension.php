@@ -7,11 +7,6 @@ namespace NorseBlue\Prim\Extensions\Scalars\String;
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringUpperCaseFirstExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringUpperCaseFirstExtension extends StringObject implements ExtensionMethod
 {
     /**

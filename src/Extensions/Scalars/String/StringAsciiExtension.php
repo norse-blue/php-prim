@@ -9,11 +9,6 @@ use NorseBlue\Prim\Support\Character;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringAsciiExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringAsciiExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringAsciiExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($language = 'en'): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $language = self::unwrap($language);
 
             $languageSpecific = Character::languageSpecificCharsArray($language);

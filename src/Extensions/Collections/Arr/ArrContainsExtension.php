@@ -9,15 +9,10 @@ use NorseBlue\Prim\Types\Collections\ArrObject;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class ArrContainsExtension
- *
- * @package NorseBlue\Prim\Extensions\Collections\Arr
- */
-class ArrContainsExtension extends ArrObject implements ExtensionMethod
+final class ArrContainsExtension extends ArrObject implements ExtensionMethod
 {
     /**
-     * @return callable(mixed $value, bool|BoolObject $strict = false): BoolObject
+     * @return callable(mixed $needle, bool|BoolObject $strict = false): BoolObject
      */
     public function __invoke(): callable
     {

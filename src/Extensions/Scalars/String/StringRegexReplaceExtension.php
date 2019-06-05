@@ -11,11 +11,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringRegexReplaceExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRegexReplaceExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -39,12 +34,14 @@ final class StringRegexReplaceExtension extends StringObject implements Extensio
             $replacement = ImmutableValueObject::unwrap($replacement);
             $limit = IntObject::unwrap($limit);
 
-            $replaced = @preg_replace($pattern, $replacement, $this->object_value, $limit);
+            $replaced = @preg_replace($pattern, $replacement, $this->value, $limit);
             if ($replaced === null) {
+                // @codeCoverageIgnoreStart
                 throw new RegexMatchException(
                     preg_last_error(),
                     'An error occurred while trying to replace the values.'
                 );
+                // @codeCoverageIgnoreEnd
             }
 
             return string($replaced);

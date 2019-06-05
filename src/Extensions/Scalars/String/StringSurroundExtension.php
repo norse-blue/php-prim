@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSurroundExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringSurroundExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringSurroundExtension extends StringObject implements ExtensionMet
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($prefix, $suffix = null): StringObject {
-            $surrounded = $prefix . $this->object_value;
+            $surrounded = $prefix . $this->value;
 
             $surrounded .= $suffix === null ? $prefix : $suffix;
 

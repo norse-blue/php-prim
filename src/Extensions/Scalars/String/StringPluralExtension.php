@@ -9,11 +9,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringPluralExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringPluralExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -27,7 +22,7 @@ final class StringPluralExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function (): StringObject {
-            return string(Inflector::pluralize($this->object_value));
+            return string(Inflector::pluralize($this->value));
         };
     }
 }

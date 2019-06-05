@@ -10,15 +10,10 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\NumericObject;
 use function NorseBlue\Prim\Functions\numeric;
 
-/**
- * Class ArrAverageExtension
- *
- * @package NorseBlue\Prim\Extensions\Collections\Arr
- */
-class ArrAverageExtension extends ArrObject implements ExtensionMethod
+final class ArrAverageExtension extends ArrObject implements ExtensionMethod
 {
     /**
-     * @return callable(int|IntObject $decimals = 0)
+     * @return callable(int|IntObject $decimals = 0): NumericObject
      */
     public function __invoke(): callable
     {

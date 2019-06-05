@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSlugExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringSlugExtension extends StringObject implements ExtensionMethod
 {
     /**

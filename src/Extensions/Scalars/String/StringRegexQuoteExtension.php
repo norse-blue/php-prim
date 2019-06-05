@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringRegexQuoteExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRegexQuoteExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -31,10 +26,10 @@ final class StringRegexQuoteExtension extends StringObject implements ExtensionM
          */
         return function ($delimiter = null): StringObject {
             if ($delimiter !== null) {
-                return string(preg_quote($this->object_value, (string)self::unwrap($delimiter)));
+                return string(preg_quote($this->value, (string)self::unwrap($delimiter)));
             }
 
-            return string(preg_quote($this->object_value));
+            return string(preg_quote($this->value));
         };
     }
 }

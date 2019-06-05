@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\NumericObject;
 use function NorseBlue\Prim\Functions\numeric;
 
-/**
- * Class NumericCompareExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Numeric
- */
 final class NumericCompareExtension extends NumericObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class NumericCompareExtension extends NumericObject implements ExtensionMe
         return function ($number): NumericObject {
             $number = self::unwrap($number);
 
-            return numeric($this->object_value - $number);
+            return numeric($this->value - $number);
         };
     }
 }

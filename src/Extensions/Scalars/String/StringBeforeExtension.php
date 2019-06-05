@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringBeforeExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringBeforeExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -28,7 +23,7 @@ final class StringBeforeExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($search): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $search = self::unwrap($search);
 
             return string($search === '' ? $value : explode($search, $value)[0]);

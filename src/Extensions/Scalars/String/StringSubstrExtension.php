@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSubstrExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringSubstrExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class StringSubstrExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($start, $length = null): StringObject {
-            $string = $this->object_value;
+            $string = $this->value;
             $start = IntObject::unwrap($start);
             $length = IntObject::unwrap($length);
 

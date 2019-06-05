@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class BoolOrExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Bool
- */
 final class BoolOrExtension extends BoolObject implements ExtensionMethod
 {
     /**
@@ -28,7 +23,7 @@ final class BoolOrExtension extends BoolObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\BoolObject
          */
         return function (...$bools): BoolObject {
-            if ($this->object_value === true) {
+            if ($this->value === true) {
                 return bool(true);
             }
 

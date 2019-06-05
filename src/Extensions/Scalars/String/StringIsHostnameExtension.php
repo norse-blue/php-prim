@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringIsHostnameExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringIsHostnameExtension extends StringObject implements ExtensionMethod
 {
     /**

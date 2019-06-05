@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\NumericObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class NumericPadRightExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Numeric
- */
 final class NumericPadRightExtension extends NumericObject implements ExtensionMethod
 {
     /**
