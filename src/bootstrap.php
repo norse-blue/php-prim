@@ -18,12 +18,11 @@ use function NorseBlue\Prim\Functions\path_merge;
  * @codeCoverageIgnore
  */
 (static function (): void {
-    require_once __DIR__ . DIRECTORY_SEPARATOR . 'Functions'
-        . DIRECTORY_SEPARATOR . 'helpers.php';
-    require_once __DIR__ . DIRECTORY_SEPARATOR . 'Functions'
-        . DIRECTORY_SEPARATOR . 'collections.php';
-    require_once __DIR__ . DIRECTORY_SEPARATOR . 'Functions'
-        . DIRECTORY_SEPARATOR . 'scalars.php';
+    $functions_path = __DIR__ . DIRECTORY_SEPARATOR . 'Functions' . DIRECTORY_SEPARATOR;
+
+    require_once $functions_path . 'helpers.php';
+    require_once $functions_path . 'collections.php';
+    require_once $functions_path . 'scalars.php';
 
     $extensible_classes = [
         ArrObject::class,
