@@ -1,15 +1,10 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Collections\Arr;
+namespace NorseBlue\Prim\Tests\Extensions\Collections\Arr;
 
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\Collections\ArrObject;
 
-/**
- * Class ArrEachTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Collections\Arr
- */
 class ArrEachTest extends TestCase
 {
     /** @test */

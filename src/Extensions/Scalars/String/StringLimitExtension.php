@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringLimitExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringLimitExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class StringLimitExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($limit = 100, $end = '...'): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $limit = IntObject::unwrap($limit);
             $end = self::unwrap($end);
 

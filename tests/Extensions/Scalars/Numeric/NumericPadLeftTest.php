@@ -1,15 +1,10 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Numeric;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Numeric;
 
 use NorseBlue\Prim\Facades\Scalars\NumericFacade as Numeric;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class NumericPadLeftTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Numeric
- */
 class NumericPadLeftTest extends TestCase
 {
     /** @test */

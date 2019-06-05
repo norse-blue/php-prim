@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringPadLeftExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringPadLeftExtension extends StringObject implements ExtensionMethod
 {
     /**

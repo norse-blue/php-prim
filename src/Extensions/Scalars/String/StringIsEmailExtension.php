@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class StringIsEmailExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringIsEmailExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -33,7 +28,7 @@ final class StringIsEmailExtension extends StringObject implements ExtensionMeth
         return function ($email_unicode = false): BoolObject {
             return bool(
                 filter_var(
-                    $this->object_value,
+                    $this->value,
                     FILTER_VALIDATE_EMAIL,
                     BoolObject::unwrap($email_unicode) ? FILTER_FLAG_EMAIL_UNICODE : FILTER_FLAG_NONE
                 ) !== false

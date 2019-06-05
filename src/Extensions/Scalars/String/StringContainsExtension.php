@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class StringContainsExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringContainsExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringContainsExtension extends StringObject implements ExtensionMet
          * @return BoolObject
          */
         return function ($needles): BoolObject {
-            $haystack = $this->object_value;
+            $haystack = $this->value;
 
             foreach ((array)$needles as $needle) {
                 $needle = self::unwrap($needle);

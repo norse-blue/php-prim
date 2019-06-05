@@ -1,17 +1,12 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\String;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\String;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\Scalars\String\RegexMatchException;
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class StringIsTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Strings
- */
 class StringRegexMatchesTest extends TestCase
 {
     /** @test */
@@ -27,7 +22,7 @@ class StringRegexMatchesTest extends TestCase
     }
 
     /** @test */
-    public function it_throws_exception_when_there_is_a_preg_error()
+    public function string_matches_throws_exception_when_there_is_a_preg_error()
     {
         try {
             Str::regexMatches('hello', '/.*/hello');

@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringConcatExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringConcatExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -28,7 +23,7 @@ final class StringConcatExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function (...$strings): StringObject {
-            $value = $this->object_value;
+            $value = $this->value;
             foreach ($strings as $string) {
                 $string = self::unwrap($string);
 

@@ -3,32 +3,28 @@
 namespace NorseBlue\Prim\Tests\Types;
 
 use Exception;
-use NorseBlue\Prim\Exceptions\ImmutableValueException;
-use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
+use NorseBlue\Prim\Exceptions\ImmutablePropertyException;
 use NorseBlue\Prim\Tests\Helpers\ImmutableDummy;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\ImmutableValueObject;
 
-/**
- * Class ImmutableValueObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit
- */
 class ImmutableValueObjectTest extends TestCase
 {
     /** @test */
     public function immutable_value_object_throws_exception_when_setting_the_value(): void
     {
-        $obj = new ImmutableValueObject;
+        $obj = new ImmutableValueObject();
 
         try {
             $obj->value = 'new value';
         } catch (Exception $e) {
-            $this->assertInstanceOf(ImmutableValueException::class, $e);
+            $this->assertInstanceOf(ImmutablePropertyException::class, $e);
+            $this->assertEquals('value', $e->getProperty());
+
             return;
         }
 
-        $this->fail(PropertyNotFoundException::class . ' was not thrown.');
+        $this->fail(ImmutablePropertyException::class . ' was not thrown.');
     }
 
     /** @test */

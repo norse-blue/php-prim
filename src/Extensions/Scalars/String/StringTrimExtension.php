@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringTrimExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringTrimExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -30,7 +25,7 @@ final class StringTrimExtension extends StringObject implements ExtensionMethod
          * @see https://www.php.net/manual/en/function.trim.php
          */
         return function ($character_mask = " \t\n\r\0\x0B"): StringObject {
-            return string(trim($this->object_value, self::unwrap($character_mask)));
+            return string(trim($this->value, self::unwrap($character_mask)));
         };
     }
 }

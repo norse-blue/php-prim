@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\NumericObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class NumericLessThanExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Numeric
- */
 final class NumericLessThanExtension extends NumericObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class NumericLessThanExtension extends NumericObject implements ExtensionM
          * @return \NorseBlue\Prim\Types\Scalars\BoolObject
          */
         return function ($number): BoolObject {
-            return bool($this->object_value < self::unwrap($number));
+            return bool($this->value < self::unwrap($number));
         };
     }
 }

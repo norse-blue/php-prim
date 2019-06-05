@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Types\Scalars;
 
 use NorseBlue\Prim\Types\ImmutableValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 
 /**
- * Class BoolObject
- *
- * @package NorseBlue\Prim\Types\Scalars
+ * Primitive type bool as object.
  *
  * @method self and(bool|self|array<bool|self> ...$bools) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolAndExtension
  * @method self equals(bool|self $bool) @see \NorseBlue\Prim\Extensions\Scalars\Bool\BoolEqualsExtension
@@ -19,10 +18,12 @@ use NorseBlue\Prim\Types\ImmutableValueObject;
  */
 class BoolObject extends ImmutableValueObject
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $extensions = [];
 
-    /** @inheritDoc */
+    /** @var array<string> The guarded extension methods. */
     protected static $guarded_extensions = [
         'and',
         'equals',
@@ -31,16 +32,26 @@ class BoolObject extends ImmutableValueObject
         'xor',
     ];
 
+    // endregion Properties
+
     // region === Overrides ===
 
     /**
-     * BoolObject constructor.
-     *
      * @param bool|BoolObject $value
      */
     public function __construct($value = false)
     {
         parent::__construct($value);
+    }
+
+    /**
+     * @param bool|BoolObject $value
+     *
+     * @return self
+     */
+    public static function create($value = false): ValueObject
+    {
+        return new static($value);
     }
 
     /**
@@ -53,12 +64,14 @@ class BoolObject extends ImmutableValueObject
 
     // endregion Overrides
 
+    // region === Methods ===
+
     /**
      * Return true if the object value is false.
      *
      * @return bool
      */
-    public function isFalse(): bool
+    final public function isFalse(): bool
     {
         return $this->equals(false)->value;
     }
@@ -68,8 +81,10 @@ class BoolObject extends ImmutableValueObject
      *
      * @return bool
      */
-    public function isTrue(): bool
+    final public function isTrue(): bool
     {
         return $this->equals(true)->value;
     }
+
+    // endregion Methods
 }

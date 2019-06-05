@@ -5,12 +5,11 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Types\Scalars;
 
 use NorseBlue\Prim\Types\ImmutableValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 use function NorseBlue\Prim\Functions\bool;
 
 /**
- * Class NumericObject
- *
- * @package NorseBlue\Prim\Types\Scalars
+ * Primitive type numeric as object.
  *
  * @method self abs() @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericAbsExtension
  * @method self compare(int|float|NumericObject $number) @see \NorseBlue\Prim\Extensions\Scalars\Numeric\NumericCompareExtension
@@ -25,10 +24,12 @@ use function NorseBlue\Prim\Functions\bool;
  */
 class NumericObject extends ImmutableValueObject
 {
+    // region === Properties ===
+
     /** @inheritDoc */
     protected static $extensions = [];
 
-    /** @inheritDoc */
+    /** @var array<string> The guarded extension methods. */
     protected static $guarded_extensions = [
         'abs',
         'compare',
@@ -42,11 +43,11 @@ class NumericObject extends ImmutableValueObject
         'padRight',
     ];
 
+    // endregion Properties
+
     // region === Overrides ===
 
     /**
-     * NumericObject constructor.
-     *
      * @param int|float|NumericObject $value
      */
     public function __construct($value = 0)
@@ -55,23 +56,35 @@ class NumericObject extends ImmutableValueObject
     }
 
     /**
+     * @param int|float|NumericObject $value
+     *
+     * @return self
+     */
+    public static function create($value = 0): ValueObject
+    {
+        return new static($value);
+    }
+
+    /**
      * @inheritDoc
      */
-    public function valueIsValid($value): bool
+    final public function valueIsValid($value): bool
     {
         return is_int($value) || is_float($value);
     }
 
     // endregion Overrides
 
+    // region === Methods ===
+
     /**
      * Check if the numeric object is a float.
      *
      * @return \NorseBlue\Prim\Types\Scalars\BoolObject
      */
-    public function isFloat(): BoolObject
+    final public function isFloat(): BoolObject
     {
-        return bool(is_float($this->object_value));
+        return bool(is_float($this->value));
     }
 
     /**
@@ -79,8 +92,20 @@ class NumericObject extends ImmutableValueObject
      *
      * @return \NorseBlue\Prim\Types\Scalars\BoolObject
      */
-    public function isInt(): BoolObject
+    final public function isInt(): BoolObject
     {
-        return bool(is_int($this->object_value));
+        return bool(is_int($this->value));
     }
+
+    /**
+     * Check if the numeric value is zero.
+     *
+     * @return \NorseBlue\Prim\Types\Scalars\BoolObject
+     */
+    final public function isZero(): BoolObject
+    {
+        return bool($this->value === 0 || $this->value === 0.0);
+    }
+
+    // endregion
 }

@@ -1,19 +1,14 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Collections\Arr;
+namespace NorseBlue\Prim\Tests\Extensions\Collections\Arr;
 
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\Functions\arr;
 
-/**
- * Class ArrContainsTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Collections\Arr
- */
 class ArrContainsTest extends TestCase
 {
     /** @test */
-    public function arr_object_contains()
+    public function arr_contains()
     {
         $arr = arr([1, 2, 3]);
 

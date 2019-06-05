@@ -7,9 +7,7 @@ namespace NorseBlue\Prim\Traits;
 use NorseBlue\Prim\Exceptions\PropertyNotFoundException;
 
 /**
- * Trait HasPropertyAccessors
- *
- * @package NorseBlue\Prim\Traits
+ * Handles property accessors.
  */
 trait HasPropertyAccessors
 {
@@ -43,6 +41,7 @@ trait HasPropertyAccessors
         }
 
         $value = $this->$accessor();
+
         return isset($value);
     }
 

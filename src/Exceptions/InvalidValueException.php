@@ -7,9 +7,7 @@ namespace NorseBlue\Prim\Exceptions;
 use UnexpectedValueException;
 
 /**
- * Class InvalidValueException
- *
- * @package NorseBlue\Prim\Exceptions
+ * Exception thrown when an invalid value is given.
  */
 final class InvalidValueException extends UnexpectedValueException
 {

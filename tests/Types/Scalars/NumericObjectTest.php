@@ -4,20 +4,15 @@ namespace NorseBlue\Prim\Tests\Types\Scalars;
 
 use Exception;
 use NorseBlue\Prim\Exceptions\InvalidValueException;
-use NorseBlue\Prim\Types\Scalars\NumericObject;
 use NorseBlue\Prim\Tests\TestCase;
+use NorseBlue\Prim\Types\Scalars\NumericObject;
 
-/**
- * Class NumericObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars
- */
 class NumericObjectTest extends TestCase
 {
     /** @test */
     public function it_creates_a_default_numeric_object(): void
     {
-        $numeric = new NumericObject;
+        $numeric = new NumericObject();
         $numeric_wrap = new NumericObject($numeric);
 
         $this->assertEquals(0, $numeric->value);
@@ -64,6 +59,7 @@ class NumericObjectTest extends TestCase
             new NumericObject('value');
         } catch (Exception $e) {
             $this->assertInstanceOf(InvalidValueException::class, $e);
+
             return;
         }
 

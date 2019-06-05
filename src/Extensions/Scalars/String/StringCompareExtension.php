@@ -11,11 +11,6 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 use function NorseBlue\Prim\Functions\int;
 
-/**
- * Class StringCompareExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringCompareExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -32,7 +27,7 @@ final class StringCompareExtension extends StringObject implements ExtensionMeth
          * @return \NorseBlue\Prim\Types\Scalars\IntObject
          */
         return function ($string, $case_insensitive = false): IntObject {
-            $value = $this->object_value;
+            $value = $this->value;
             $string = self::unwrap($string);
             $case_insensitive = bool($case_insensitive);
 

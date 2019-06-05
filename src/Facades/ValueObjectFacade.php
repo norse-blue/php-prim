@@ -8,20 +8,22 @@ use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
 use NorseBlue\Prim\Types\ValueObject;
 
 /**
- * Class ValueObjectFacade
+ * Facade base class for value objects.
  *
- * @package NorseBlue\Prim\Facades
- *
+ * @method static ValueObject create(mixed $value)
  * @method static mixed unwrap(mixed $value)
  */
 abstract class ValueObjectFacade extends Facade
 {
-    /** @var string The class that this facade is for. */
+    // region === Properties ===
+
+    /** @inheritDoc */
     protected static $class = ValueObject::class;
 
-    /**
-     * @inheritDoc
-     */
+    // endregion Properties
+
+    // region === Overrides ===
+
     final protected static function validateFacadeClassType(string $class): void
     {
         if (!is_subclass_of($class, self::$class)) {
@@ -30,4 +32,6 @@ abstract class ValueObjectFacade extends Facade
             );
         }
     }
+
+    // endregion Overrides
 }

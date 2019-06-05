@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\int;
 
-/**
- * Class StringLengthExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringLengthExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringLengthExtension extends StringObject implements ExtensionMetho
          * @return IntObject
          */
         return function ($encoding = null): IntObject {
-            $value = $this->object_value;
+            $value = $this->value;
 
             if ($encoding) {
                 $encoding = self::unwrap($encoding);

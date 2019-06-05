@@ -10,11 +10,6 @@ use NorseBlue\Prim\Tests\TestCase;
 use OutOfBoundsException;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit
- */
 class StringObjectTest extends TestCase
 {
     /** @test */

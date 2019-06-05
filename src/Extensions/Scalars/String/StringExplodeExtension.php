@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringExplodeExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringExplodeExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringExplodeExtension extends StringObject implements ExtensionMeth
          * @return array
          */
         return function ($delimiter, $limit = PHP_INT_MAX): array {
-            return explode($delimiter, $this->object_value, IntObject::unwrap($limit));
+            return explode($delimiter, $this->value, IntObject::unwrap($limit));
         };
     }
 }

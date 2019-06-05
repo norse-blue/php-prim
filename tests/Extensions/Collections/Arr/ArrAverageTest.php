@@ -1,15 +1,10 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Collections\Arr;
+namespace NorseBlue\Prim\Tests\Extensions\Collections\Arr;
 
 use NorseBlue\Prim\Facades\Collections\ArrFacade as Arr;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class ArrAverageTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Collections\Arr
- */
 class ArrAverageTest extends TestCase
 {
     /** @test */

@@ -6,10 +6,6 @@ use NorseBlue\Prim\Facades\ValueObjectFacade;
 use NorseBlue\Prim\Tests\Helpers\DummyNonValueObject;
 
 /**
- * Class DummyNonValueObjectFacade
- *
- * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
- *
  * @method static privateDummy()
  * @method static protectedDummy()
  * @method static publicDummy()

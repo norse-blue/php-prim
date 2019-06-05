@@ -7,14 +7,18 @@ namespace NorseBlue\Prim\Traits;
 use OutOfBoundsException;
 
 /**
- * Trait ContainsItems
- *
- * @package NorseBlue\Prim\Traits
+ * Container methods for item handling.
  */
 trait ContainsItems
 {
+    // region Properties ===
+
     /** @var array<mixed> Items */
     protected $items = [];
+
+    // endregion Properties
+
+    // region === Methods ===
 
     /**
      * Get all items.
@@ -91,7 +95,9 @@ trait ContainsItems
         $this->items = [];
     }
 
-    // region === Countable ===
+    // endregion Methods
+
+    // region === implements Countable ===
 
     /**
      * Get the item count.
@@ -103,5 +109,5 @@ trait ContainsItems
         return count($this->items);
     }
 
-    // endregion
+    // endregion implements Countable
 }

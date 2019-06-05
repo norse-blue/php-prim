@@ -47,35 +47,34 @@ return [
     |
     */
 
-    'add' => [
-        //  ExampleMetric::class => [
-        //      ExampleInsight::class,
-        //  ]
-    ],
+    'add' => [],
 
     'remove' => [
-        DisallowMixedTypeHintSniff::class,
+        // Architecture
         ForbiddenNormalClasses::class,
-        ForbiddenDefineFunctions::class,
         ForbiddenTraits::class,
         FunctionLengthSniff::class,
-        LineLengthSniff::class,
+        SuperfluousExceptionNamingSniff::class,
+
+        // Code
+        DisallowMixedTypeHintSniff::class,
+        ForbiddenDefineFunctions::class,
         NoSetterSniff::class,
         NoSilencedErrorsSniff::class,
-        SpaceAfterNotSniff::class,
-        SpaceAfterCastSniff::class,
-        SuperfluousExceptionNamingSniff::class,
         UnusedFunctionParameterSniff::class,
         UnusedParameterSniff::class,
-        UnusedUsesSniff::class,
         UselessInheritDocCommentSniff::class,
         UselessOverridingMethodSniff::class,
+
+        // Complexity
+
+        // Style
+        LineLengthSniff::class,
+        SpaceAfterNotSniff::class,
+        SpaceAfterCastSniff::class,
+        UnusedUsesSniff::class,
     ],
 
-    'config' => [
-        //  ExampleInsight::class => [
-        //      'key' => 'value',
-        //  ],
-    ],
+    'config' => [],
 
 ];

@@ -12,11 +12,6 @@ use NorseBlue\Prim\Tests\Helpers\Facades\DummyNonValueObjectFacade;
 use NorseBlue\Prim\Tests\TestCase;
 use RuntimeException;
 
-/**
- * Class ValueObjectFacadeTest
- *
- * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
- */
 class ValueObjectFacadeTest extends TestCase
 {
     /** @test */

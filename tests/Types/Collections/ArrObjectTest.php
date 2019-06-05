@@ -3,16 +3,11 @@
 namespace NorseBlue\Prim\Tests\Types\Collections;
 
 use Exception;
-use NorseBlue\Prim\Types\Collections\ArrObject;
 use NorseBlue\Prim\Tests\TestCase;
+use NorseBlue\Prim\Types\Collections\ArrObject;
 use OutOfBoundsException;
 use function NorseBlue\Prim\Functions\arr;
 
-/**
- * Class ArrObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Collections
- */
 class ArrObjectTest extends TestCase
 {
     /** @test */
@@ -183,5 +178,61 @@ class ArrObjectTest extends TestCase
         $this->assertCount(0, $empty_arr);
         $this->assertCount(3, $arr1);
         $this->assertCount(5, $arr2);
+    }
+
+    /** @test */
+    public function array_keys_gets_array_keys()
+    {
+        $arr = arr([
+            'a' => 'value of a',
+            'b' => 'value of b',
+            'c' => 'value of c',
+            'd' => 'value of d',
+            'e' => 'value of e',
+            'f' => 'value of f',
+            'g' => 'value of g',
+            'h' => 'value of h',
+            'i' => 'value of i',
+        ]);
+
+        $this->assertEquals([
+            'a',
+            'b',
+            'c',
+            'd',
+            'e',
+            'f',
+            'g',
+            'h',
+            'i',
+        ], $arr->keys->all());
+    }
+
+    /** @test */
+    public function array_values_gets_array_values()
+    {
+        $arr = arr([
+            'a' => 'value of a',
+            'b' => 'value of b',
+            'c' => 'value of c',
+            'd' => 'value of d',
+            'e' => 'value of e',
+            'f' => 'value of f',
+            'g' => 'value of g',
+            'h' => 'value of h',
+            'i' => 'value of i',
+        ]);
+
+        $this->assertEquals([
+            'value of a',
+            'value of b',
+            'value of c',
+            'value of d',
+            'value of e',
+            'value of f',
+            'value of g',
+            'value of h',
+            'value of i',
+        ], $arr->values->all());
     }
 }

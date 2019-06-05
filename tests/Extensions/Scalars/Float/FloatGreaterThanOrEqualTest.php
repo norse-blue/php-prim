@@ -1,15 +1,10 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Float;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Float;
 
 use NorseBlue\Prim\Facades\Scalars\FloatFacade as Floating;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class FloatGreaterThanOrEqualTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Float
- */
 class FloatGreaterThanOrEqualTest extends TestCase
 {
     /** @test */

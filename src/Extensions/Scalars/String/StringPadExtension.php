@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringPadExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringPadExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -31,12 +26,14 @@ final class StringPadExtension extends StringObject implements ExtensionMethod
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($pad_length, $pad_string = ' ', $pad_side = STR_PAD_BOTH): StringObject {
-            return string(str_pad(
-                $this->object_value,
-                IntObject::unwrap($pad_length),
-                StringObject::unwrap($pad_string),
-                IntObject::unwrap($pad_side)
-            ));
+            return string(
+                str_pad(
+                    $this->value,
+                    IntObject::unwrap($pad_length),
+                    StringObject::unwrap($pad_string),
+                    IntObject::unwrap($pad_side)
+                )
+            );
         };
     }
 }

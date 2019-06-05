@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringReplaceLastExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringReplaceLastExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -29,7 +24,7 @@ final class StringReplaceLastExtension extends StringObject implements Extension
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($search, $replace): StringObject {
-            $subject = $this->object_value;
+            $subject = $this->value;
             $search = self::unwrap($search);
 
             if ($search === '') {

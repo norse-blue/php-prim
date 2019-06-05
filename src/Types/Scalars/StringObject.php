@@ -9,19 +9,17 @@ use Countable;
 use NorseBlue\Prim\Traits\Scalars\StringArrayAccess;
 use NorseBlue\Prim\Traits\Scalars\StringCountable;
 use NorseBlue\Prim\Types\ImmutableValueObject;
+use NorseBlue\Prim\Types\ValueObject;
 use Ramsey\Uuid\Codec\TimestampFirstCombCodec;
 use Ramsey\Uuid\Generator\CombGenerator;
 use Ramsey\Uuid\Uuid;
 use Ramsey\Uuid\UuidFactory;
 use Ramsey\Uuid\UuidInterface;
+use function NorseBlue\Prim\Functions\bool;
 use function NorseBlue\Prim\Functions\string;
 
 /**
- * Class StringObject
- *
- * @package NorseBlue\Prim\Types\Scalars
- *
- * @property string $value
+ * Primitive type string as object.
  *
  * @method self after(string|self $search) @see \NorseBlue\Prim\Extensions\Scalars\String\StringAfterExtension
  * @method self ascii(string|self $language = 'en') @see \NorseBlue\Prim\Extensions\Scalars\String\StringAsciiExtension
@@ -82,13 +80,19 @@ use function NorseBlue\Prim\Functions\string;
  */
 class StringObject extends ImmutableValueObject implements ArrayAccess, Countable
 {
+    // region === Traits ===
+
     use StringArrayAccess;
     use StringCountable;
+
+    // endregion Traits
+
+    // region === Properties ===
 
     /** @inheritDoc */
     protected static $extensions = [];
 
-    /** @inheritDoc */
+    /** @var array<string> The guarded extension methods. */
     protected static $guarded_extensions = [
         'after',
         'ascii',
@@ -148,16 +152,26 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
         'words',
     ];
 
+    // endregion Properties
+
     // region === Overrides ===
 
     /**
-     * StringObject constructor.
-     *
      * @param string|StringObject $value
      */
     public function __construct($value = '')
     {
         parent::__construct($value);
+    }
+
+    /**
+     * @param string|StringObject $value
+     *
+     * @return self
+     */
+    public static function create($value = ''): ValueObject
+    {
+        return new static($value);
     }
 
     /**
@@ -169,6 +183,18 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     }
 
     // endregion Overrides
+
+    // region === Methods ===
+
+    /**
+     * Checks if the string is empty.
+     *
+     * @return \NorseBlue\Prim\Types\Scalars\BoolObject
+     */
+    final public function isEmpty(): BoolObject
+    {
+        return bool($this->value === '');
+    }
 
     /**
      * Create a string from a number.
@@ -210,14 +236,18 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     {
         $factory = new UuidFactory();
 
-        $factory->setRandomGenerator(new CombGenerator(
-            $factory->getRandomGenerator(),
-            $factory->getNumberConverter()
-        ));
+        $factory->setRandomGenerator(
+            new CombGenerator(
+                $factory->getRandomGenerator(),
+                $factory->getNumberConverter()
+            )
+        );
 
-        $factory->setCodec(new TimestampFirstCombCodec(
-            $factory->getUuidBuilder()
-        ));
+        $factory->setCodec(
+            new TimestampFirstCombCodec(
+                $factory->getUuidBuilder()
+            )
+        );
 
         return $factory->uuid4();
     }
@@ -258,4 +288,6 @@ class StringObject extends ImmutableValueObject implements ArrayAccess, Countabl
     {
         return Uuid::uuid4();
     }
+
+    // endregion Methods
 }

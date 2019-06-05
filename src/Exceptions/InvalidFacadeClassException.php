@@ -7,9 +7,7 @@ namespace NorseBlue\Prim\Exceptions;
 use RuntimeException;
 
 /**
- * Class InvalidFacadeClassException
- *
- * @package NorseBlue\Prim\Exceptions
+ * Exception thrown when an invalid Facade class is set.
  */
 final class InvalidFacadeClassException extends RuntimeException
 {

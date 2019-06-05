@@ -10,11 +10,6 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\int;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringRightExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringRightExtension extends StringObject implements ExtensionMethod
 {
     /**

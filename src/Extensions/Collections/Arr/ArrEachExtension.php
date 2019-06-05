@@ -7,22 +7,17 @@ namespace NorseBlue\Prim\Extensions\Collections\Arr;
 use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Collections\ArrObject;
 
-/**
- * Class ArrEachExtension
- *
- * @package NorseBlue\Prim\Extensions\Collections\Arr
- */
-class ArrEachExtension extends ArrObject implements ExtensionMethod
+final class ArrEachExtension extends ArrObject implements ExtensionMethod
 {
     /**
-     * @return callable(callable($item, $key) $callback): Arr
+     * @return callable(callable(mixed $item, mixed $key) $callback): Arr
      */
     public function __invoke(): callable
     {
         /**
          * Execute a callback over each item.
          *
-         * @param callable($item, $key) $callback
+         * @param callable(mixed $item, mixed $key) $callback
          *
          * @return \NorseBlue\Prim\Extensions\Collections\Arr\ArrEachExtension
          */

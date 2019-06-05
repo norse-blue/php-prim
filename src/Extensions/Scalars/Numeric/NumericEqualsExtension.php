@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\NumericObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class NumericEqualsExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\Numeric
- */
 final class NumericEqualsExtension extends NumericObject implements ExtensionMethod
 {
     /**

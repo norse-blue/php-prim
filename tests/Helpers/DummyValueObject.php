@@ -5,10 +5,6 @@ namespace NorseBlue\Prim\Tests\Helpers;
 use NorseBlue\Prim\Types\ValueObject;
 
 /**
- * Class DummyValueObject
- *
- * @package NorseBlue\Prim\Tests\Unit\ValueObjectFacade
- *
  * @property int $privateDummy
  * @property int $protectedDummy
  * @property int $publicDummy

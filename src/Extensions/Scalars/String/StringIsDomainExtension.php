@@ -9,11 +9,6 @@ use NorseBlue\Prim\Types\Scalars\BoolObject;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 
-/**
- * Class StringIsDomainExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringIsDomainExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -33,7 +28,7 @@ final class StringIsDomainExtension extends StringObject implements ExtensionMet
         return function ($is_hostname = false): BoolObject {
             return bool(
                 filter_var(
-                    $this->object_value,
+                    $this->value,
                     FILTER_VALIDATE_DOMAIN,
                     BoolObject::unwrap($is_hostname) ? FILTER_FLAG_HOSTNAME : FILTER_FLAG_NONE
                 ) !== false

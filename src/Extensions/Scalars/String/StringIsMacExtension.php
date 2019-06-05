@@ -11,11 +11,6 @@ use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\bool;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringIsMacExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringIsMacExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -39,7 +34,7 @@ final class StringIsMacExtension extends StringObject implements ExtensionMethod
 
             return bool(
                 filter_var(
-                    $this->object_value,
+                    $this->value,
                     FILTER_VALIDATE_MAC,
                     $separator ? ['options' => ['separator' => self::unwrap($separator)]] : null
                 ) !== false

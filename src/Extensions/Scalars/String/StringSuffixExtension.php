@@ -8,11 +8,6 @@ use NorseBlue\ExtensibleObjects\Contracts\ExtensionMethod;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSuffixExtension
- *
- * @package NorseBlue\Prim\Extensions\Scalars\String
- */
 final class StringSuffixExtension extends StringObject implements ExtensionMethod
 {
     /**
@@ -28,7 +23,7 @@ final class StringSuffixExtension extends StringObject implements ExtensionMetho
          * @return \NorseBlue\Prim\Types\Scalars\StringObject
          */
         return function ($suffix): StringObject {
-            return string($this->object_value . $suffix);
+            return string($this->value . $suffix);
         };
     }
 }
