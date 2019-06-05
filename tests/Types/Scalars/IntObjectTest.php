@@ -8,11 +8,6 @@ use NorseBlue\Prim\Types\Scalars\IntObject;
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\Functions\int;
 
-/**
- * Class IntObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars
- */
 class IntObjectTest extends TestCase
 {
     /** @test */

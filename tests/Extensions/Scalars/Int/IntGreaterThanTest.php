@@ -1,15 +1,10 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Int;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Int;
 
 use NorseBlue\Prim\Facades\Scalars\IntFacade as Integer;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class IntGreaterThanTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Int
- */
 class IntGreaterThanTest extends TestCase
 {
     /** @test */

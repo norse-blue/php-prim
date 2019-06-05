@@ -6,11 +6,6 @@ use NorseBlue\Prim\Types\Collections\DotArrObject;
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\Functions\dotarr;
 
-/**
- * Class DotArrObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Collections
- */
 class DotArrObjectTest extends TestCase
 {
     /** @test */

@@ -1,16 +1,11 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Int;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Int;
 
 use NorseBlue\Prim\Facades\Scalars\FloatFacade as Floating;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\Scalars\FloatObject;
 
-/**
- * Class FloatCompareTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Int
- */
 class FloatCompareTest extends TestCase
 {
     /** @test */

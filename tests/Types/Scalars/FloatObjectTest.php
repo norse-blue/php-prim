@@ -8,11 +8,6 @@ use NorseBlue\Prim\Types\Scalars\FloatObject;
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\Functions\float;
 
-/**
- * Class FloatObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars
- */
 class FloatObjectTest extends TestCase
 {
     /** @test */

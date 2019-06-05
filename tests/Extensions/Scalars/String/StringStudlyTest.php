@@ -1,19 +1,14 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\String;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\String;
 
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
-/**
- * Class StringStudlyTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Strings
- */
 class StringStudlyTest extends TestCase
 {
     /** @test */
-    public function test_string_studly()
+    public function string_studly()
     {
         $this->assertEquals('LaravelPHPFramework', Str::studly('laravel_p_h_p_framework')->value);
         $this->assertEquals('LaravelPhpFramework', Str::studly('laravel_php_framework')->value);

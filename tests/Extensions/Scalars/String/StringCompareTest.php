@@ -1,16 +1,11 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\String;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\String;
 
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\Scalars\StringObject;
 
-/**
- * Class StringCompareTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\String
- */
 class StringCompareTest extends TestCase
 {
     /** @test */

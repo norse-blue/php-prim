@@ -1,19 +1,14 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Bool;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Bool;
 
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\Scalars\BoolObject;
 
-/**
- * Class BoolAndTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Bool
- */
 class BoolAndTest extends TestCase
 {
     /** @test */
-    public function it_applies_the_and_operation_to_bool_object()
+    public function bool_and()
     {
         $false = new BoolObject();
         $true = new BoolObject(true);

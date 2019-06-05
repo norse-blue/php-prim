@@ -5,10 +5,6 @@ namespace NorseBlue\Prim\Tests\Helpers;
 use NorseBlue\Prim\Types\ImmutableValueObject;
 
 /**
- * Class ImmutableDummy
- *
- * @package NorseBlue\Prim\Tests\Unit
- *
  * @property mixed $mutable
  */
 class ImmutableDummy extends ImmutableValueObject

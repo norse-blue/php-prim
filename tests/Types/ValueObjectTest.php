@@ -8,18 +8,13 @@ use NorseBlue\Prim\Tests\Helpers\DummyValueObject;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\ValueObject;
 
-/**
- * Class ValueObjectTest
- *
- * @package NorseBlue\Prim\Tests\Unit
- */
 class ValueObjectTest extends TestCase
 {
     /** @test */
     public function can_create_a_value_object(): void
     {
         $obj = new ValueObject(3);
-        $obj_value = new ValueObject($obj);
+        $obj_value = ValueObject::create($obj);
 
         $this->assertEquals(3, $obj->value);
         $this->assertEquals(3, $obj_value->value);
@@ -57,6 +52,7 @@ class ValueObjectTest extends TestCase
             $obj->protectedDummy;
         } catch (Exception $e) {
             $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            $this->assertEquals('protectedDummy', $e->getProperty());
             return;
         }
 
@@ -72,6 +68,7 @@ class ValueObjectTest extends TestCase
             $isset= isset($obj->protectedDummy);
         } catch (Exception $e) {
             $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            $this->assertEquals('protectedDummy', $e->getProperty());
             return;
         }
 
@@ -87,6 +84,7 @@ class ValueObjectTest extends TestCase
             $nonexistent = $obj->nonexistent;
         } catch (Exception $e) {
             $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            $this->assertEquals('nonexistent', $e->getProperty());
             return;
         }
 
@@ -102,6 +100,7 @@ class ValueObjectTest extends TestCase
             $obj->nonexistent = 3;
         } catch (Exception $e) {
             $this->assertInstanceOf(PropertyNotFoundException::class, $e);
+            $this->assertEquals('nonexistent', $e->getProperty());
             return;
         }
 

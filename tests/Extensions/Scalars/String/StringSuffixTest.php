@@ -1,16 +1,11 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\String;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\String;
 
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 use function NorseBlue\Prim\Functions\string;
 
-/**
- * Class StringSuffixTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Strings
- */
 class StringSuffixTest extends TestCase
 {
     /** @test */

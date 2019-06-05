@@ -1,16 +1,11 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\Int;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\Int;
 
 use NorseBlue\Prim\Facades\Scalars\IntFacade as Integer;
 use NorseBlue\Prim\Tests\TestCase;
 use NorseBlue\Prim\Types\Scalars\IntObject;
 
-/**
- * Class IntCompareTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\Int
- */
 class IntCompareTest extends TestCase
 {
     /** @test */

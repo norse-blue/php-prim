@@ -1,14 +1,11 @@
 <?php
 
-namespace NorseBlue\Prim\Tests\Types\Scalars\String;
+namespace NorseBlue\Prim\Tests\Extensions\Scalars\String;
 
 use NorseBlue\Prim\Facades\Scalars\StringFacade as Str;
 use NorseBlue\Prim\Tests\TestCase;
 
 /**
- * Class StringIsEmailTest
- *
- * @package NorseBlue\Prim\Tests\Unit\Scalars\String
  * @see https://github.com/php/php-src/blob/master/ext/filter/tests/016.phpt
  * @see https://github.com/php/php-src/blob/master/ext/filter/tests/058.phpt
  */

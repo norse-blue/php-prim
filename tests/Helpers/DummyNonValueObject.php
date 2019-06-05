@@ -2,11 +2,6 @@
 
 namespace NorseBlue\Prim\Tests\Helpers;
 
-/**
- * Class DummyNonValueObject
- *
- * @package NorseBlue\Prim\Tests\_Helpers_\Facades
- */
 class DummyNonValueObject
 {
     /** @var int The private dummy value */
