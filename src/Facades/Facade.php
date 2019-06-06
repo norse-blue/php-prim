@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace NorseBlue\Prim\Facades;
 
 use BadMethodCallException;
+use NorseBlue\ExtensibleObjects\Contracts\Extensible;
 use NorseBlue\Prim\Exceptions\InvalidFacadeClassException;
-use NorseBlue\Prim\Types\ValueObject;
 
 /**
  * Facade base class.
@@ -78,7 +78,7 @@ abstract class Facade
      */
     final protected static function validateFacadeMethod(string $class, string $method): void
     {
-        /** @var ValueObject $class */
+        /** @var Extensible $class */
         if (!method_exists($class, $method) && !$class::hasExtensionMethod($method)) {
             throw new BadMethodCallException("The method $method does not exist for class $class.");
         }
