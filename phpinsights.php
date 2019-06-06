@@ -18,6 +18,7 @@ use SlevomatCodingStandard\Sniffs\Commenting\UselessInheritDocCommentSniff;
 use SlevomatCodingStandard\Sniffs\Functions\UnusedParameterSniff;
 use SlevomatCodingStandard\Sniffs\Namespaces\UnusedUsesSniff;
 use SlevomatCodingStandard\Sniffs\TypeHints\DisallowMixedTypeHintSniff;
+use SlevomatCodingStandard\Sniffs\TypeHints\UselessConstantTypeHintSniff;
 
 return [
 
@@ -63,6 +64,7 @@ return [
         NoSilencedErrorsSniff::class,
         UnusedFunctionParameterSniff::class,
         UnusedParameterSniff::class,
+        UselessConstantTypeHintSniff::class,
         UselessInheritDocCommentSniff::class,
         UselessOverridingMethodSniff::class,
 
