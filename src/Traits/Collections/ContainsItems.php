@@ -54,10 +54,29 @@ trait ContainsItems
     public function get(string $key)
     {
         if (!array_key_exists($key, $this->items)) {
-            throw new OutOfBoundsException("The key '$key' does not exist in the collection.");
+            throw new OutOfBoundsException("The key '$key' does not exist in the container.");
         }
 
         return $this->items[$key];
+    }
+
+    /**
+     * Get the key from the given value.
+     *
+     * @param mixed $value
+     *
+     * @return string
+     *
+     * @throws \OutOfBoundsException
+     */
+    public function key($value): string
+    {
+        $key = array_search($value, $this->items, true);
+        if ($key === false) {
+            throw new OutOfBoundsException("The value '$value' does not exist in the container.");
+        }
+
+        return $key;
     }
 
     /**
