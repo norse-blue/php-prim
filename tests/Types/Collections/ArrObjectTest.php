@@ -13,7 +13,15 @@ class ArrObjectTest extends TestCase
     /** @test */
     public function simple_array_can_be_created_empty_by_default()
     {
-        $arr = new ArrObject;
+        $arr = new ArrObject();
+
+        $this->assertEquals([], $arr->all());
+    }
+
+    /** @test */
+    public function simple_array_can_be_created_with_create_method()
+    {
+        $arr = ArrObject::create();
 
         $this->assertEquals([], $arr->all());
     }

@@ -13,7 +13,7 @@ class NumericObjectTest extends TestCase
     public function it_creates_a_default_numeric_object(): void
     {
         $numeric = new NumericObject();
-        $numeric_wrap = new NumericObject($numeric);
+        $numeric_wrap = NumericObject::create($numeric);
 
         $this->assertEquals(0, $numeric->value);
         $this->assertEquals(0, $numeric_wrap->value);

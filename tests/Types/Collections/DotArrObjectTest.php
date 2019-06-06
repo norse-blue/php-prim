@@ -17,6 +17,14 @@ class DotArrObjectTest extends TestCase
     }
 
     /** @test */
+    public function dot_array_can_be_created_with_create_method()
+    {
+        $arr = DotArrObject::create();
+
+        $this->assertEquals([], $arr->all());
+    }
+
+    /** @test */
     public function dot_array_can_be_created_with_function()
     {
         $arr = dotarr();

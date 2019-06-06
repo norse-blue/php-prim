@@ -13,10 +13,11 @@ class FloatObjectTest extends TestCase
     /** @test */
     public function it_creates_a_default_float_object(): void
     {
-        $float = new FloatObject;
-        $float_wrap = float($float);
+        $float = new FloatObject();
+        $float_wrap = FloatObject::create($float);
 
         $this->assertEquals(0.0, $float->value);
+        $this->assertTrue($float->isZero()->value);
         $this->assertEquals(0.0, $float_wrap->value);
         $this->assertNotSame($float, $float_wrap);
         $this->assertNotSame($float, $float_wrap->value);

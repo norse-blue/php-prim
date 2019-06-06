@@ -12,8 +12,8 @@ class BoolObjectTest extends TestCase
     /** @test */
     public function it_creates_a_default_bool_object(): void
     {
-        $bool = new BoolObject;
-        $bool_wrap = new BoolObject($bool);
+        $bool = new BoolObject();
+        $bool_wrap = BoolObject::create($bool);
 
         $this->assertFalse($bool->value);
         $this->assertFalse($bool_wrap->value);

@@ -15,10 +15,11 @@ class StringObjectTest extends TestCase
     /** @test */
     public function it_creates_an_empty_string_object(): void
     {
-        $str = new StringObject;
-        $str_wrap = new StringObject($str);
+        $str = new StringObject();
+        $str_wrap = StringObject::create($str);
 
         $this->assertEquals('', $str->value);
+        $this->assertTrue($str->isEmpty()->value);
         $this->assertEquals('', $str_wrap->value);
         $this->assertNotSame($str, $str_wrap);
         $this->assertNotSame($str, $str_wrap->value);

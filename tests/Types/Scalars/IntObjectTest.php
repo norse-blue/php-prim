@@ -13,10 +13,11 @@ class IntObjectTest extends TestCase
     /** @test */
     public function it_creates_a_default_int_object(): void
     {
-        $int = new IntObject;
-        $int_wrap = int($int);
+        $int = new IntObject();
+        $int_wrap = IntObject::create($int);
 
         $this->assertEquals(0, $int->value);
+        $this->assertTrue($int->isZero()->value);
         $this->assertEquals(0, $int_wrap->value);
         $this->assertNotSame($int, $int_wrap);
         $this->assertNotSame($int, $int_wrap->value);
