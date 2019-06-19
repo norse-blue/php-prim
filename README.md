@@ -12,6 +12,14 @@
 </div>
 <hr>
 
+**DEPRECATED:** This package was growing too big and has now been deprecated in favor of the following smaller, segmented and more contained packages:
+- [norse-blue/collection-objects](https://github.com/norse-blue/php-collection-objects)
+- [norse-blue/enum-objects](https://github.com/norse-blue/php-enum-objects)
+- [norse-blue/extensible-objects](https://github.com/norse-blue/php-extensible-objects)
+- [norse-blue/handy-properties](https://github.com/norse-blue/php-handy-properties)
+- [norse-blue/scalar-objects](https://github.com/norse-blue/php-scalar-objects)
+- [norse-blue/value-objects](https://github.com/norse-blue/php-value-objects)
+
 **PHP Prim** is a PHP library that exposes primitive types as immutable objects with convenience methods to operate on them.
 
 ## Installation
