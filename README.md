@@ -17,6 +17,7 @@
 - [norse-blue/enum-objects](https://github.com/norse-blue/php-enum-objects)
 - [norse-blue/extensible-objects](https://github.com/norse-blue/php-extensible-objects)
 - [norse-blue/handy-properties](https://github.com/norse-blue/php-handy-properties)
+- [norse-blue/optionals](https://github.com/norse-blue/php-optionals)
 - [norse-blue/scalar-objects](https://github.com/norse-blue/php-scalar-objects)
 - [norse-blue/value-objects](https://github.com/norse-blue/php-value-objects)
 
